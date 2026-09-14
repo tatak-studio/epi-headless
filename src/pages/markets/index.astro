@@ -1,18 +1,82 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ContactForm from '../../components/ContactForm.astro';
 import { getMarkets, getPageBySlug } from '../../lib/wordpress';
 import '../../styles/markets.css';
 
 const markets = await getMarkets();
 const pageData = await getPageBySlug('markets');
-const heroHeadline = pageData?.meta_box?.hero_headline || "We specialize in transforming a wide variety of spaces into dynamic, immersive brand experiences.";
-const heroSubhead = pageData?.meta_box?.hero_subhead || "Museums and universities, commercial real estate and corporate environments, retail and construction. Each market has its own rules about access, materials and downtime, and we plan for them before the truck is loaded.";
+const heroHeadline = pageData?.meta_box?.hero_headline || "We specialize in transforming a wide variety of spaces into dynamic, immersive brand experiences that engage and inspire.";
+const heroSubhead = pageData?.meta_box?.hero_subhead || "EPI-Colorspace provides diverse services across industries, creating impactful experiences and helping partners achieve their marketing goals.";
 const heroImage = pageData?.meta_box?.lead_image || '/hall-exhibit-display-mu12il5t-6a71.jpg';
+
+const marketItems = [
+  {
+    num: '01',
+    id: 'museums',
+    slug: 'museums-and-cultural',
+    title: 'Museums & Cultural',
+    desc: 'Museum-grade custom fabrication, interpretive graphics, specialty lighting and interactives, installed by crews who know how to work a gallery that opens to the public in the morning. Our client roster includes the Smithsonian, the Library of Congress and The Kennedy Center.',
+    scope: 'Casework, title walls, label sets, donor recognition and traveling crates.',
+    turnsOn: 'Object safety, conservator-reviewed materials and access windows around programs.',
+    image: '/museum-entrance-banner-mu12w0v6-v6y0.jpg',
+    hasDetail: true,
+  },
+  {
+    num: '02',
+    id: 'universities',
+    slug: 'universities',
+    title: 'Universities',
+    desc: 'Campus wayfinding, donor recognition, athletics graphics and event signage delivered around the academic calendar, which means the work happens between commencement and move-in rather than during finals.',
+    scope: 'Building identification, interior wayfinding, recruitment graphics and event banners.',
+    image: '/building-facade-graphics-mu13937x-72if.jpg',
+    hasDetail: false,
+  },
+  {
+    num: '03',
+    id: 'commercial-real-estate',
+    slug: 'commercial-real-estate',
+    title: 'Commercial Real Estate',
+    desc: 'Leasing graphics, lobby branding, permanent garage signage and construction perimeter branding for occupied, multi-tenant buildings. We phase installs so tenants keep working and the loading dock stays usable.',
+    scope: 'Post and panel, building banners, level identification, tenant directories.',
+    turnsOn: 'Permits in three jurisdictions and building management coordination.',
+    image: '/real-estate-banner-mu12q7mf-0tjm.jpg',
+    hasDetail: true,
+  },
+  {
+    num: '04',
+    id: 'corporate',
+    slug: 'corporate',
+    title: 'Corporate',
+    desc: 'Workplace environmental graphics, murals and custom framing that carry brand standards through a headquarters floor by floor, turning corridors and lobbies into something people photograph.',
+    scope: 'Lobby feature walls, wayfinding, meeting-room identity, framed art programs.',
+    image: '/spiral-lobby-graphics-mu13h9gi-cfz7.jpg',
+    hasDetail: false,
+  },
+  {
+    num: '05',
+    id: 'retail',
+    slug: 'retail',
+    title: 'Retail',
+    desc: 'Window systems, dimensional letters and seasonal graphics rolled out across locations. Work is kitted, labeled and shipped store by store, with install crews scheduled overnight so doors open on time.',
+    scope: 'Storefront windows, interior decor, promotional graphics, multi-site rollouts.',
+    image: '/retail-window-wrap-mu13ikr7-460d.jpg',
+    hasDetail: false,
+  },
+  {
+    num: '06',
+    id: 'construction',
+    slug: 'construction',
+    title: 'Construction',
+    desc: 'Fence wraps, perimeter branding, safety and site signage engineered for wind load, weather and years of sun. Leasing displays go up while the building is still a frame.',
+    scope: 'Mesh and scrim wraps, welded post systems, project signage and safety notices.',
+    image: '/community-event-sign-mu13ngzx-8om1.jpg',
+    hasDetail: false,
+  },
+];
 ---
 
 <BaseLayout seo={pageData?.seo}>
-  <!-- Hero -->
+  <!-- Section 1: Hero -->
   <section class="sig-hero" aria-labelledby="hero-title">
     <div class="sig-hero__media">
       <img src={heroImage} alt="EPI-Colorspace Markets" style="width:100%;height:100%;object-fit:cover;display:block" />
@@ -40,12 +104,12 @@ const heroImage = pageData?.meta_box?.lead_image || '/hall-exhibit-display-mu12i
     <div class="sig-hero__rule" aria-hidden="true"></div>
   </section>
 
-  <!-- Split Intro -->
+  <!-- Section 2: Split Intro -->
   <section class="sig-section" aria-labelledby="intro-title">
     <div class="epi-container sig-split">
       <div class="sig-split__copy">
         <h2 class="epi-h1" id="intro-title">
-          EPI-Colorspace provides diverse services across industries, creating impactful experiences.
+          EPI-Colorspace provides diverse services across industries, creating impactful experiences and helping partners achieve their marketing goals.
         </h2>
         <p>
           The five service lines do not change from market to market. What changes is how the work gets specified and scheduled: a gallery install is conservator-reviewed and happens overnight, a garage sign is permitted and hung from a lift, a retail rollout ships kitted by store. Twenty years of doing all three is what makes the estimate honest.
@@ -74,54 +138,219 @@ const heroImage = pageData?.meta_box?.lead_image || '/hall-exhibit-display-mu12i
     </div>
   </section>
 
-  <!-- Markets Grid Section -->
-  <section class="sig-section sig-section--warm" id="all" aria-labelledby="markets-grid-title">
+  <!-- Section 3: The Environments We Work In Every Week -->
+  <section class="sig-section sig-section--warm" id="all" aria-labelledby="all-title">
     <div class="epi-container">
       <div class="sig-head">
-        <h2 class="epi-h1" id="markets-grid-title">Six industries. One experienced partner.</h2>
-        <p>Select your market sector to see how we adapt materials, access windows, and installation methods.</p>
+        <h2 class="epi-h1" id="all-title">The environments we work in every week.</h2>
+        <p>Six markets, each with the scope we are asked for most and the constraint that shapes the schedule.</p>
       </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 360px), 1fr));gap:var(--space-6);margin-top:clamp(2rem,4vw,3rem)">
-        {markets.map((mkt) => (
-          <article style="background:var(--paper);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column">
-            <figure style="height:220px;margin:0;overflow:hidden">
+      <ul class="mkt-jump">
+        {marketItems.map((item) => (
+          <li>
+            <a href={`#${item.id}`}>
+              <em>{item.num}</em>
+              <span>{item.title}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="mkt-list">
+        {marketItems.map((item) => (
+          <article class="mkt-item" id={item.id} aria-labelledby={`${item.id}-title`}>
+            <p class="mkt-item__num">{item.num}</p>
+            <div class="mkt-item__copy">
+              <h3 class="epi-h2" id={`${item.id}-title`}>{item.title}</h3>
+              <p>{item.desc}</p>
+              <ul class="mkt-item__points">
+                <li><strong>Typical scope:</strong> {item.scope}</li>
+                {item.turnsOn && <li><strong>What it turns on:</strong> {item.turnsOn}</li>}
+              </ul>
+              <div class="mkt-item__actions">
+                {item.hasDetail && (
+                  <a class="epi-btn epi-btn--secondary" href={`/markets/${item.slug}`}>
+                    Read More
+                  </a>
+                )}
+                <a class="epi-btn epi-btn--ghost" href="#contact">
+                  Start Your Project
+                </a>
+              </div>
+            </div>
+            <figure class="mkt-item__media">
               <img
-                src={mkt.meta_box.lead_image || '/hall-exhibit-display-mu12il5t-6a71.jpg'}
-                alt={typeof mkt.title === 'string' ? mkt.title : mkt.title.rendered}
-                style="width:100%;height:100%;object-fit:cover;display:block"
+                src={item.image}
+                alt={item.title}
                 loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)"
               />
             </figure>
-            <div style="padding:var(--space-6);display:flex;flex-direction:column;flex:1">
-              <h3 class="epi-h3">
-                <a href={`/markets/${mkt.slug}`} style="color:inherit;text-decoration:none">
-                  {typeof mkt.title === 'string' ? mkt.title : mkt.title.rendered}
-                </a>
-              </h3>
-              <p style="font-weight:var(--weight-semibold);color:var(--text-accent);font-size:var(--text-body-sm);margin-top:var(--space-2)">
-                {mkt.meta_box.market_kicker}
-              </p>
-              <p style="margin-top:var(--space-3);color:var(--text-secondary);font-size:var(--text-body-sm)">
-                {mkt.meta_box.market_summary}
-              </p>
-              {mkt.meta_box.access_window && (
-                <p style="margin-top:auto;padding-top:var(--space-4);border-top:1px solid var(--border-subtle);font-size:var(--text-caption);color:var(--text-muted)">
-                  <strong>Access Window:</strong> {mkt.meta_box.access_window}
-                </p>
-              )}
-              <p style="margin-top:var(--space-4)">
-                <a class="epi-btn epi-btn--sm epi-btn--secondary" href={`/markets/${mkt.slug}`}>
-                  Learn More &rarr;
-                </a>
-              </p>
-            </div>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <ContactForm />
+  <!-- Section 4: Service Line Matrix Table -->
+  <section class="sig-section" aria-labelledby="matrix-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="matrix-title">Which service lines each market usually needs.</h2>
+        <p>A starting point, not a rule. Most projects pull from two or three lines at once.</p>
+      </div>
+      <div class="mkt-matrix">
+        <table>
+          <caption>Service lines most often requested by market. Marked cells are the lines we quote most in that market.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Market</th>
+              <th scope="col">Tradeshows</th>
+              <th scope="col">Exhibits</th>
+              <th scope="col">Signage</th>
+              <th scope="col">Large format</th>
+              <th scope="col">Branding</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Museums &amp; Cultural</th>
+              <td>Rarely</td>
+              <td data-on>Exhibits</td>
+              <td data-on>Signage</td>
+              <td data-on>Large format</td>
+              <td>Rarely</td>
+            </tr>
+            <tr>
+              <th scope="row">Universities</th>
+              <td data-on>Tradeshows</td>
+              <td data-on>Exhibits</td>
+              <td data-on>Signage</td>
+              <td data-on>Large format</td>
+              <td data-on>Branding</td>
+            </tr>
+            <tr>
+              <th scope="row">Commercial Real Estate</th>
+              <td>Rarely</td>
+              <td>Rarely</td>
+              <td data-on>Signage</td>
+              <td data-on>Large format</td>
+              <td data-on>Branding</td>
+            </tr>
+            <tr>
+              <th scope="row">Corporate</th>
+              <td data-on>Tradeshows</td>
+              <td data-on>Exhibits</td>
+              <td data-on>Signage</td>
+              <td data-on>Large format</td>
+              <td data-on>Branding</td>
+            </tr>
+            <tr>
+              <th scope="row">Retail</th>
+              <td data-on>Tradeshows</td>
+              <td>Rarely</td>
+              <td data-on>Signage</td>
+              <td data-on>Large format</td>
+              <td data-on>Branding</td>
+            </tr>
+            <tr>
+              <th scope="row">Construction</th>
+              <td>Rarely</td>
+              <td>Rarely</td>
+              <td data-on>Signage</td>
+              <td data-on>Large format</td>
+              <td>Rarely</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:var(--space-6)">
+        <a class="epi-btn epi-btn--secondary" href="/services">Our Services</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 5: Over 200 Partners Across These Markets -->
+  <section class="sig-section sig-section--ink" aria-labelledby="partners-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="partners-title" style="color:var(--paper)">Over 200 partners across these markets.</h2>
+        <p style="color:rgba(255,255,255,.8)">Institutions, property owners and brands who keep coming back for the next phase.</p>
+      </div>
+      <ul class="mkt-logos">
+        <li>Smithsonian</li>
+        <li>Library of Congress</li>
+        <li>The Kennedy Center</li>
+        <li>Hirshhorn</li>
+        <li>The Phillips Collection</li>
+        <li>Wolf Trap</li>
+        <li>USDA</li>
+        <li>George Washington University</li>
+        <li>Tishman Speyer</li>
+        <li>Elme Communities</li>
+        <li>Peterson Companies</li>
+        <li>Medispec</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 6: Client Feedback Quote -->
+  <section class="sig-section sig-section--warm" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>
+          I wanted to send my appreciation and bravos to you and your team for such an amazing visual presence at our new space. It provided the wow factor we were looking for.
+        </blockquote>
+        <figcaption>Vice President, Commercial Real Estate Portfolio</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Section 7: CTA Form -->
+  <section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="cta-title">Tell us what kind of building you are working in.</h2>
+        <p>Gallery, garage, storefront, show floor or job site. Send the scope and the date and we will tell you what is possible.</p>
+        <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3)">
+          <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+        </p>
+      </div>
+      <form class="sig-form" id="market-inquiry-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div>
+          <label for="f-market">Market</label>
+          <select id="f-market" name="market">
+            <option>Museums and cultural</option>
+            <option>Universities</option>
+            <option>Commercial real estate</option>
+            <option>Corporate</option>
+            <option>Retail</option>
+            <option>Construction</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-org">Organization</label>
+          <input id="f-org" name="organization" type="text" autocomplete="organization" />
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Scope and target date</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Files too large to email? Mention it and we will send a transfer link.</p>
+        </div>
+      </form>
+    </div>
+  </section>
 </BaseLayout>

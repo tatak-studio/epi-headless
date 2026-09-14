@@ -1,0 +1,127 @@
+---
+interface Props {
+  market?: any;
+}
+const { market } = Astro.props;
+import '../../styles/markets-museums.css';
+
+const title = typeof market?.title === 'string' ? market.title : market?.title?.rendered || 'Market Sector';
+const meta = market?.meta_box || {};
+const leadImg = meta.lead_image || '/hall-exhibit-display-mu12il5t-6a71.jpg';
+---
+
+<!-- Hero -->
+<section class="sig-hero" aria-labelledby="hero-title">
+  <div class="sig-hero__media">
+    <img src={leadImg} alt={title} style="width:100%;height:100%;object-fit:cover;display:block" />
+  </div>
+  <div class="sig-hero__scrim" aria-hidden="true"></div>
+  <div class="epi-container sig-hero__inner">
+    <nav aria-label="Breadcrumb">
+      <ol class="sig-crumbs">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/markets">Markets</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page">{title}</li>
+      </ol>
+    </nav>
+    {meta.market_kicker && <p class="sig-kicker">{meta.market_kicker}</p>}
+    <h1 class="epi-display-2 sig-hero__title" id="hero-title">
+      {title} graphics and fabrication engineered for real-world conditions.
+    </h1>
+    <p class="sig-hero__lede">{meta.market_summary || 'Single-shop partner delivering turnkey graphics, fabrication, logistics, and certified installation across the DMV.'}</p>
+    <div class="sig-hero__actions">
+      <a class="epi-btn epi-btn--lg" href="#contact">Start Your Project</a>
+      <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See Related Work</a>
+    </div>
+  </div>
+  <div class="sig-hero__rule" aria-hidden="true"></div>
+</section>
+
+<!-- Market Overview & Delivery Strategy -->
+<section class="sig-section" aria-labelledby="strategy-title">
+  <div class="epi-container sig-split">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="strategy-title">
+        How we tailor production and install for {title}.
+      </h2>
+      <p>
+        Every market presents unique site challenges, inspection criteria, and operational schedules. We coordinate directly with facilities directors, general contractors, and project managers to ensure seamless installation without operational disruptions.
+      </p>
+      <div style="margin-top:var(--space-4);padding:var(--space-5);background:var(--paper-warm);border-radius:var(--radius-md)">
+        <h3 class="epi-h3" style="color:var(--text-primary)">Market Challenges We Plan Around</h3>
+        <p style="margin-top:var(--space-2);color:var(--text-secondary);font-size:var(--text-body-sm)">
+          {meta.challenges || 'Tight access windows, zero public disruption, historical site clearances, and rapid turnarounds.'}
+        </p>
+
+        <h3 class="epi-h3" style="color:var(--text-primary);margin-top:var(--space-4)">The EPI Solution</h3>
+        <p style="margin-top:var(--space-2);color:var(--text-secondary);font-size:var(--text-body-sm)">
+          {meta.solutions || 'In-house production in Gaithersburg allows same-day color modifications, precision fabrication, and night install teams.'}
+        </p>
+      </div>
+
+      <dl class="sig-facts" style="margin-top:var(--space-5)">
+        <div>
+          <dt>Sector</dt>
+          <dd>{title}</dd>
+        </div>
+        <div>
+          <dt>Access window</dt>
+          <dd>{meta.access_window || 'Flexible / Scheduled'}</dd>
+        </div>
+        <div>
+          <dt>Turnaround</dt>
+          <dd>On-schedule</dd>
+        </div>
+      </dl>
+    </div>
+    <figure class="sig-frame">
+      <img src={leadImg} alt={title} style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+    </figure>
+  </div>
+</section>
+
+<!-- Client feedback quote -->
+<section class="sig-section sig-section--warm" aria-label="Client feedback">
+  <div class="epi-container">
+    <figure class="sig-quote">
+      <div class="sig-quote__mark" aria-hidden="true"></div>
+      <blockquote>
+        The team at EPI-Colorspace delivered our installation on time under strict site constraints. Exceptional attention to detail from the survey to final walk.
+      </blockquote>
+      <figcaption>Facilities &amp; Operations Director</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+  <div class="epi-container sig-cta__inner">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="cta-title">Tell us what needs to be made for {title}.</h2>
+      <p>Send a scope, a floor plan or a photo of the space, and we will tell you what is possible on your schedule.</p>
+      <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3)">
+        <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+      </p>
+    </div>
+    <form class="sig-form" id="market-contact-form" novalidate>
+      <p class="sig-form__status" id="form-status" role="status" hidden></p>
+      <div>
+        <label for="m-name">Name</label>
+        <input id="m-name" name="name" type="text" autocomplete="name" required />
+      </div>
+      <div>
+        <label for="m-email">Work email</label>
+        <input id="m-email" name="email" type="email" autocomplete="email" required />
+      </div>
+      <div class="sig-form__full">
+        <label for="m-scope">Project scope and installation date</label>
+        <textarea id="m-scope" name="scope" required></textarea>
+      </div>
+      <div class="sig-form__full">
+        <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+      </div>
+    </form>
+  </div>
+</section>

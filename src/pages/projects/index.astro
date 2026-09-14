@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import ContactForm from '../../components/ContactForm.astro';
 import { getProjects, getPageBySlug } from '../../lib/wordpress';
 import '../../styles/projects.css';
 
@@ -13,7 +12,7 @@ const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372s
 ---
 
 <BaseLayout seo={pageData?.seo}>
-  <!-- Hero Section -->
+  <!-- Section 1: Hero Section -->
   <section class="sig-hero" aria-labelledby="hero-title">
     <div class="sig-hero__media">
       <img src={heroImage} alt="EPI-Colorspace installed projects" style="width:100%;height:100%;object-fit:cover;display:block" />
@@ -41,7 +40,7 @@ const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372s
     <div class="sig-hero__rule" aria-hidden="true"></div>
   </section>
 
-  <!-- Featured Story Highlight -->
+  <!-- Section 2: Featured Story Highlight -->
   <section class="sig-section sig-section--ink" aria-labelledby="feature-title">
     <div class="epi-container prj-feature">
       <figure class="prj-feature__media">
@@ -73,12 +72,12 @@ const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372s
             <dd>Opened on schedule</dd>
           </div>
         </dl>
-        <p><a class="epi-btn epi-btn--inverse" href="/projects/jbg-smith-crystal-city-garage">Explore Case Study</a></p>
+        <p><a class="epi-btn epi-btn--inverse" href="/projects/rotating-gallery-build-washington-dc">Explore Case Study</a></p>
       </div>
     </div>
   </section>
 
-  <!-- Interactive 2-Axis Portfolio Filter -->
+  <!-- Section 3: Interactive 2-Axis Portfolio Filter -->
   <section class="sig-section" id="all" aria-labelledby="all-title">
     <div class="epi-container">
       <div class="sig-head">
@@ -131,8 +130,96 @@ const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372s
     </div>
   </section>
 
-  <!-- Project Form -->
-  <ContactForm />
+  <!-- Section 4: What a project with us includes -->
+  <section class="sig-section sig-section--warm" aria-labelledby="includes-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="includes-title">What a project with us includes.</h2>
+        <p>The same four things ship with every job, whether it is one banner or an entire gallery.</p>
+      </div>
+      <div class="prj-includes">
+        <article>
+          <em>01</em>
+          <h3>A survey first</h3>
+          <p>Field measurements, substrate and access notes before anyone quotes a material or a crew size.</p>
+        </article>
+        <article>
+          <em>02</em>
+          <h3>Proofs on the real substrate</h3>
+          <p>Color approved on the material it will print on, not on a screen or a house stock.</p>
+        </article>
+        <article>
+          <em>03</em>
+          <h3>Our own install crews</h3>
+          <p>Licensed, insured teams working nights and weekends so occupied buildings keep running.</p>
+        </article>
+        <article>
+          <em>04</em>
+          <h3>Documented handover</h3>
+          <p>Punch list, as-built photos, attic stock and a maintenance plan at closeout.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Client Feedback Quote -->
+  <section class="sig-section" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>Amazing service. They handled our large order flawlessly and delivered everything on time, and the print quality was exceptional.</blockquote>
+        <figcaption>Brand manager, multi-location retail</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Section 6: Project Inquiry CTA -->
+  <section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="cta-title">Seen something close to what you need?</h2>
+        <p>Tell us which project it was and what your version has to do differently. We will price it against a real build rather than a guess.</p>
+        <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3)">
+          <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+        </p>
+      </div>
+      <form class="sig-form" id="project-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div>
+          <label for="f-ref">Project you are referencing</label>
+          <input id="f-ref" name="reference" type="text" placeholder="e.g. JBG SMITH Garage or Rotating gallery" />
+        </div>
+        <div>
+          <label for="f-market">Market</label>
+          <select id="f-market" name="market">
+            <option>Museums and cultural</option>
+            <option>Universities</option>
+            <option>Commercial real estate</option>
+            <option>Corporate</option>
+            <option>Retail</option>
+            <option>Construction</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Scope and target date</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Files too large to email? Mention it and we will send a transfer link.</p>
+        </div>
+      </form>
+    </div>
+  </section>
 
   <!-- 2-Axis Filtering Script -->
   <script is:inline>

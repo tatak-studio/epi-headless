@@ -1,0 +1,480 @@
+---
+interface Props {
+  service?: any;
+}
+const { service } = Astro.props;
+import '../../styles/large-format-printing.css';
+---
+
+<div class="epi-drawer" id="drawer" hidden>
+  <div class="sig-drawer__head">
+    <img class="sig-logo sig-logo--drawer" src="assets/epi-colorspace-logo.png" alt="EPI-Colorspace">
+    <button class="epi-iconbtn" type="button" id="drawer-close" aria-label="Close menu" style="color:#fff">
+      <span class="epi-icon" style="width:20px;height:20px" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.75"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </span>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      <li>
+        <a class="epi-drawer__link" href="/services">Services</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/services/tradeshows">Tradeshows</a></li>
+          <li><a href="/services/exhibits-and-displays">Exhibits &amp; Displays</a></li>
+          <li><a href="/services/signage-solutions">Signage Solutions</a></li>
+          <li><a href="/services/large-format-printing" aria-current="page">Large Format Printing</a></li>
+          <li><a href="/services/corporate-branding">Corporate Branding</a></li>
+          <li><a href="/services/environmental-graphics">Environmental Graphics</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="/projects">Projects</a></li>
+      <li><a class="epi-drawer__link" href="/markets">Markets</a></li>
+      <li><a class="epi-drawer__link" href="https://www.hightail.com/u/epicolorspace" rel="noopener">Send Files</a></li>
+      <li><a class="epi-drawer__link" href="/contact">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="sig-drawer__actions">
+    <a class="epi-btn epi-btn--block" href="/contact">Start Your Project</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src="/building-facade-graphics-mu13937x-72if.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/services">Services</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Large Format Printing</li>
+        </ol>
+      </nav>
+      <p class="sig-kicker">From Concept to Execution we print at the Scale a Space Demands.</p>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">Wall murals, floor graphics, banners and outdoor displays printed at full size and hung by the same shop.</h1>
+      <p class="sig-hero__lede">EPI-Colorspace runs state-of-the-art large format printing in Gaithersburg, with lamination, cutting, sewing, mounting and installation on the same floor. Color is matched to your standards, output is proofed on the real substrate, and the file you send is the file we print.</p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="#start">Start Your Project</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="https://www.hightail.com/u/epicolorspace" rel="noopener">Send Files</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <section class="sig-section" aria-labelledby="intro-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="intro-title">For over 20 years, EPI-Colorspace has been a trusted partner for print that has to be right at ten feet and at ten inches.</h2>
+        <p>We specialize in transforming a wide variety of spaces, from lobbies and corridors to storefronts, stadium concourses and construction perimeters, into high-impact brand environments. Because printing, finishing and installation are all ours, nothing is handed to a vendor who was not in the color conversation.</p>
+        <p>Precision craftsmanship at scale is mostly discipline: profiled printers, proofs pulled on the actual media, and panels seam-mapped to the wall before anyone climbs a ladder.</p>
+        <dl class="sig-facts">
+          <div>
+            <dt>Print width</dt>
+            <dd>Up to 126 in</dd>
+          </div>
+          <div>
+            <dt>Finishing</dt>
+            <dd>Laminate, sew, mount</dd>
+          </div>
+          <div>
+            <dt>Install</dt>
+            <dd>Our own crews</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="sig-frame">
+        <img src="/commanders-building-banner-mu13bbnp-up6d.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" id="products" aria-labelledby="products-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="products-title">Four things we print more than anything else.</h2>
+        <p>Each is quoted with finishing and installation included, so the number you approve is the number you pay.</p>
+      </div>
+      <div class="lfp-products">
+        <article class="lfp-product lfp-product--feature">
+          <figure class="lfp-product__media">
+            <img src="/retail-window-wrap-mu13ikr7-460d.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+          <div class="lfp-product__body">
+            <h3>Wall murals</h3>
+            <p>Full-height photographic and typographic walls printed at final size, seam-mapped around outlets and switches, and installed so the image lines up across panels. Removable films for leased space, permanent laminates for high-traffic corridors.</p>
+            <ul class="lfp-product__meta">
+              <li>Textured wall vinyl</li>
+              <li>Matte laminate</li>
+              <li>Seam mapped</li>
+            </ul>
+          </div>
+        </article>
+        <article class="lfp-product">
+          <figure class="lfp-product__media">
+            <img src="/anacostia-exhibit-wall-mu13p5yi-dm4c.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+          <div class="lfp-product__body">
+            <h3>Floor graphics</h3>
+            <p>Slip-rated floor prints for wayfinding, activations and retail promotions, applied to sealed concrete, tile, carpet and terrazzo with adhesives matched to the surface.</p>
+            <ul class="lfp-product__meta">
+              <li>R10 slip rating</li>
+              <li>Carpet and hard floor</li>
+            </ul>
+          </div>
+        </article>
+        <article class="lfp-product">
+          <figure class="lfp-product__media">
+            <img src="/real-estate-banner-mu12q7mf-0tjm.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+          <div class="lfp-product__body">
+            <h3>Banners</h3>
+            <p>Hemmed and grommeted scrim vinyl, pole pockets, tension fabric and step-and-repeat backdrops, sewn and finished in house for events, campuses and building fronts.</p>
+            <ul class="lfp-product__meta">
+              <li>13 oz scrim</li>
+              <li>Sewn hems</li>
+            </ul>
+          </div>
+        </article>
+        <article class="lfp-product">
+          <figure class="lfp-product__media">
+            <img src="/commanders-building-banner-mu13c8xa-kpu3.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+          <div class="lfp-product__body">
+            <h3>Outdoor displays</h3>
+            <p>Mesh fence wraps, building banners, post-and-panel signs and rigid panel graphics engineered for wind load, UV exposure and years on a site.</p>
+            <ul class="lfp-product__meta">
+              <li>UV-stable inks</li>
+              <li>Wind rated</li>
+            </ul>
+          </div>
+        </article>
+        <article class="lfp-product">
+          <figure class="lfp-product__media">
+            <img src="/community-event-sign-mu13ngzx-8om1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+          <div class="lfp-product__body">
+            <h3>Window and glass graphics</h3>
+            <p>Perforated one-way vision, frosted bands and full-color first-surface prints for storefronts, conference rooms and lobby glass.</p>
+            <ul class="lfp-product__meta">
+              <li>Perf vinyl</li>
+              <li>Etch film</li>
+            </ul>
+          </div>
+        </article>
+        <article class="lfp-product">
+          <figure class="lfp-product__media">
+            <img src="/blue-lobby-displays-mu13q4jd-onxx.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+          <div class="lfp-product__body">
+            <h3>Rigid panel and mounted prints</h3>
+            <p>Direct-to-substrate printing and mounting on aluminum composite, PVC, acrylic and foam board, cut to shape on our flatbed cutter.</p>
+            <ul class="lfp-product__meta">
+              <li>3 mm ACM</li>
+              <li>Contour cut</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="substrates" aria-labelledby="substrates-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="substrates-title">Substrates we specify, and where each one belongs.</h2>
+        <p>We match the media to the surface and the lifespan you need. If a job calls for something not listed here, we will source and test it before quoting.</p>
+      </div>
+      <div class="lfp-tablewrap">
+        <table class="lfp-table">
+          <caption>Common substrates, typical applications and expected service life.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Substrate</th>
+              <th scope="col">Typical use</th>
+              <th scope="col">Finish</th>
+              <th scope="col">Service life</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Textured wall vinyl</th>
+              <td>Interior murals on painted drywall</td>
+              <td>Matte laminate</td>
+              <td class="lfp-table__spec">3 to 5 yrs</td>
+            </tr>
+            <tr>
+              <th scope="row">Cast vinyl</th>
+              <td>Vehicle wraps, curved and riveted surfaces</td>
+              <td>Gloss or matte overlaminate</td>
+              <td class="lfp-table__spec">5 to 7 yrs</td>
+            </tr>
+            <tr>
+              <th scope="row">13 oz scrim vinyl</th>
+              <td>Banners, building fronts, leasing displays</td>
+              <td>Hemmed and grommeted</td>
+              <td class="lfp-table__spec">2 to 3 yrs</td>
+            </tr>
+            <tr>
+              <th scope="row">Printed mesh</th>
+              <td>Fence wraps and wind-exposed spans</td>
+              <td>Reinforced edge</td>
+              <td class="lfp-table__spec">2 yrs</td>
+            </tr>
+            <tr>
+              <th scope="row">Floor film</th>
+              <td>Wayfinding and promotional floor graphics</td>
+              <td>Slip-rated overlaminate</td>
+              <td class="lfp-table__spec">6 to 12 mos</td>
+            </tr>
+            <tr>
+              <th scope="row">Aluminum composite</th>
+              <td>Post-and-panel, corridor and exterior panels</td>
+              <td>Direct print, UV inks</td>
+              <td class="lfp-table__spec">7+ yrs</td>
+            </tr>
+            <tr>
+              <th scope="row">Tension fabric</th>
+              <td>Backlit walls, exhibits, event backdrops</td>
+              <td>Silicone edge, sewn</td>
+              <td class="lfp-table__spec">Reusable</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--ink" id="files" aria-labelledby="files-title">
+    <div class="epi-container lfp-prep">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="files-title">Send files that print right the first time.</h2>
+        <p>Six things that keep a large format job on schedule. If any of them are unclear, send what you have and our prepress team will sort it out with you.</p>
+        <p><a class="epi-btn" href="https://www.hightail.com/u/epicolorspace" rel="noopener">Send Files</a></p>
+      </div>
+      <ol class="lfp-steps">
+        <li>
+          <h3>Build at final size</h3>
+          <p>Full scale where possible, or a clean fraction such as <span class="epi-mono">1:4</span> or <span class="epi-mono">1:10</span> noted in the file name.</p>
+        </li>
+        <li>
+          <h3>Include bleed</h3>
+          <p>Minimum <span class="epi-mono">0.125 in</span> on trimmed pieces, more where a graphic wraps an edge or a frame.</p>
+        </li>
+        <li>
+          <h3>Keep type vector</h3>
+          <p>Outline or embed fonts. Vector type stays sharp at any enlargement; rasterized headlines will not.</p>
+        </li>
+        <li>
+          <h3>Check image resolution</h3>
+          <p><span class="epi-mono">100 to 150 ppi</span> at final size for close viewing, <span class="epi-mono">72 ppi</span> is fine for a banner read from the street.</p>
+        </li>
+        <li>
+          <h3>Name your colors</h3>
+          <p>Send brand values in <span class="epi-mono">CMYK</span> or as spot references so we can match rather than guess.</p>
+        </li>
+        <li>
+          <h3>Tell us the surface</h3>
+          <p>Painted drywall, glass, brick, carpet or concrete changes the media before it changes the art.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sig-section" id="work" aria-labelledby="work-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="work-title">Printed and installed across the DMV.</h2>
+        <p>Filter by product to see the kind of output that fits your project.</p>
+      </div>
+      <div class="sig-filters" role="group" aria-label="Filter projects by product">
+        <button class="sig-filter" type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button class="sig-filter" type="button" data-filter="mural" aria-pressed="false">Murals</button>
+        <button class="sig-filter" type="button" data-filter="floor" aria-pressed="false">Floor</button>
+        <button class="sig-filter" type="button" data-filter="banner" aria-pressed="false">Banners</button>
+        <button class="sig-filter" type="button" data-filter="outdoor" aria-pressed="false">Outdoor</button>
+      </div>
+      <div class="sig-gallery" id="gallery">
+        <article class="sig-shot" data-category="mural">
+          <figure class="sig-shot__frame"><img src="/colonial-one-windows-mu13royg-84om.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Corridor photography mural, Washington DC</h3>
+          <p>7 panels, 41 ft run</p>
+        </article>
+        <article class="sig-shot" data-category="floor">
+          <figure class="sig-shot__frame"><img src="/building-facade-graphics-mu13937x-72if.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Conference wayfinding floor graphics, Baltimore</h3>
+          <p>120 decals, R10 rated</p>
+        </article>
+        <article class="sig-shot" data-category="banner">
+          <figure class="sig-shot__frame"><img src="/commanders-building-banner-mu13c8xa-kpu3.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Campus event banner set, Northern Virginia</h3>
+          <p>38 pole banners, sewn hems</p>
+        </article>
+        <article class="sig-shot" data-category="outdoor">
+          <figure class="sig-shot__frame"><img src="/real-estate-banner-mu12q7mf-0tjm.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Construction perimeter mesh, Bethesda</h3>
+          <p>640 linear ft</p>
+        </article>
+        <article class="sig-shot" data-category="mural">
+          <figure class="sig-shot__frame"><img src="/spiral-lobby-graphics-mu13h9gi-cfz7.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Cafeteria feature wall, Silver Spring</h3>
+          <p>Textured vinyl, 32 ft</p>
+        </article>
+        <article class="sig-shot" data-category="outdoor">
+          <figure class="sig-shot__frame"><img src="/arena-event-facade-mu13hzdz-gl0o.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Retail leasing displays, Rockville</h3>
+          <p>13 oz scrim, 96 &times; 48 in</p>
+        </article>
+      </div>
+      <p class="sig-empty" id="gallery-empty" hidden>No projects for that product yet. Ask us for recent examples.</p>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-label="Print capability at a glance">
+    <div class="epi-container">
+      <div class="sig-stats">
+        <div>
+          <p class="sig-stat__value">126</p>
+          <p class="sig-stat__label">Inches of print width, so most murals run with fewer seams</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">20+</p>
+          <p class="sig-stat__label">Years printing, finishing and installing graphics in the DMV</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">1</p>
+          <p class="sig-stat__label">Building holding print, lamination, cutting, sewing and mounting</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">48</p>
+          <p class="sig-stat__label">Hours for a rush reprint when a date moves and the file is ready</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="faq" aria-labelledby="faq-title">
+    <div class="epi-container sig-spec">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="faq-title">Answers before you send the artwork.</h2>
+        <p>The questions marketing and facilities teams ask us most, answered plainly.</p>
+      </div>
+      <div class="sig-acc" id="accordion">
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="true" aria-controls="acc-1">
+              What resolution does my artwork need to be?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-1">
+            <p>It depends on viewing distance. Interior murals read from a few feet, so we want <span class="epi-mono">100 to 150 ppi</span> at final size. A banner read from across a parking lot is fine at <span class="epi-mono">72 ppi</span>. Send what you have and we will tell you whether it will hold up before we print.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-2">
+              Can you match our brand colors exactly?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-2" hidden>
+            <p>We profile our printers and pull proofs on the actual substrate, because the same file prints differently on scrim, wall vinyl and aluminum. Send your brand values or a printed sample and we will match to it, then keep the profile on file for reprints.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-3">
+              How fast can you turn a job around?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-3" hidden>
+            <p>Banners and simple graphics can print and ship in two to three business days once artwork is approved. Rush work inside 48 hours is often possible because production is ours. Installation is scheduled separately and depends on site access.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-4">
+              Do you install, or is it print only?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-4" hidden>
+            <p>Both. Many clients take print-only for their own crews, and we ship kitted and labeled by location. When we install, the same team that printed the panels hangs them, which is why seams and alignment come out right.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-5">
+              How do we send large files?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-5" hidden>
+            <p>Use our file transfer link rather than email. Vector artwork in <span class="epi-mono">.ai</span>, <span class="epi-mono">.eps</span> or <span class="epi-mono">.pdf</span> is preferred, with fonts outlined and images linked or embedded at final size.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>We sent files on a Thursday and the wall was finished Monday morning, color matched to a printed sample we handed them. The responsiveness is why we stopped shopping the work around.</blockquote>
+        <figcaption>Marketing manager, commercial real estate portfolio, Montgomery County</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-cta" id="start" aria-labelledby="start-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="start-title">Tell us the size, the surface and the date.</h2>
+        <p>Send dimensions and a photo of the wall, floor or facade. We bring visions to life, and we will tell you honestly what your schedule allows.</p>
+        <p><a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:3px">301.990.2666</a></p>
+      </div>
+      <form class="sig-form" id="project-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="f-product">Product</label>
+          <select id="f-product" name="product">
+            <option>Wall murals</option>
+            <option>Floor graphics</option>
+            <option>Banners</option>
+            <option>Outdoor displays</option>
+            <option>Window and glass graphics</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-size">Finished size</label>
+          <input id="f-size" name="size" type="text" inputmode="text">
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Surface, quantity and target date</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Artwork ready? Mention it and we will send a file transfer link.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

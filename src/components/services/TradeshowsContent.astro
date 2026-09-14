@@ -1,0 +1,497 @@
+---
+interface Props {
+  service?: any;
+}
+const { service } = Astro.props;
+import '../../styles/tradeshows.css';
+---
+
+<div class="epi-drawer" id="drawer" hidden>
+  <div class="sig-drawer__head">
+    <img class="sig-logo sig-logo--drawer" src="assets/epi-colorspace-logo.png" alt="EPI-Colorspace">
+    <button class="epi-iconbtn" type="button" id="drawer-close" aria-label="Close menu" style="color:#fff">
+      <span class="epi-icon" style="width:20px;height:20px" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.75"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </span>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      <li>
+        <a class="epi-drawer__link" href="/services">Services</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/services/tradeshows" aria-current="page">Tradeshows</a></li>
+          <li><a href="/services/exhibits-and-displays">Exhibits &amp; Displays</a></li>
+          <li><a href="/services/signage-solutions">Signage Solutions</a></li>
+          <li><a href="/services/large-format-printing">Large Format Printing</a></li>
+          <li><a href="/services/corporate-branding">Corporate Branding</a></li>
+          <li><a href="/services/environmental-graphics">Environmental Graphics</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="/projects">Projects</a></li>
+      <li><a class="epi-drawer__link" href="/markets">Markets</a></li>
+      <li><a class="epi-drawer__link" href="https://www.hightail.com/u/epicolorspace" rel="noopener">Send Files</a></li>
+      <li><a class="epi-drawer__link" href="/contact">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="sig-drawer__actions">
+    <a class="epi-btn epi-btn--block" href="/contact">Start Your Project</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src="/exhibit-booth-display-mu12smxg-u4qk.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/services">Services</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Tradeshows</li>
+        </ol>
+      </nav>
+      <p class="sig-kicker">From Concept to Execution we help our Clients create a Show-Stopping Presence.</p>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">Tradeshow exhibits designed, built, shipped and installed by the same team that stores them until your next show.</h1>
+      <p class="sig-hero__lede">EPI-Colorspace builds booths that captivate on a crowded floor and survive a season of travel. Design, large format print, fabrication, freight, on-site install and post-event storage sit under one roof in Gaithersburg, so one call covers the whole show.</p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="#start">Start Your Project</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See our Projects</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <section class="sig-section" aria-labelledby="intro-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="intro-title">For over 20 years, EPI-Colorspace has been a trusted partner for exhibitors who cannot afford a booth that arrives late.</h2>
+        <p>We specialize in transforming a wide variety of spaces, from a ten-foot inline to a twenty-by-forty island, into immersive brand environments that hold a visitor long enough to start a conversation. Every graphic is printed in our own shop, every crate is packed to a numbered set list, and every install is walked before the doors open.</p>
+        <p>Show services paperwork, drayage windows and union labor rules are part of the job, not a surprise. We read the exhibitor kit, book the deadlines that save you money, and handle the floor so your team can work the booth.</p>
+        <dl class="sig-facts">
+          <div>
+            <dt>Scope</dt>
+            <dd>Design to storage</dd>
+          </div>
+          <div>
+            <dt>Shop</dt>
+            <dd>Gaithersburg, MD</dd>
+          </div>
+          <div>
+            <dt>Travel</dt>
+            <dd>Nationwide shows</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="sig-frame">
+        <img src="/trade-show-printer-mu13gi32-4z7q.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" id="cycle" aria-labelledby="cycle-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="cycle-title">One show, six responsibilities, one point of contact.</h2>
+        <p>This is the full turnkey cycle. You can hand us all of it or pick up the pieces your team already owns.</p>
+      </div>
+      <ol class="trade-cycle">
+        <li>
+          <h3>Concept and design</h3>
+          <p>Space planning against the exhibitor kit, renderings set in your brand standards, and a booth layout built around how visitors actually walk the aisle.</p>
+        </li>
+        <li>
+          <h3>Print and fabrication</h3>
+          <p>Large format graphics, tension fabric, laminate counters, CNC-routed structure and paint, produced and dry-fit on our own floor before anything ships.</p>
+        </li>
+        <li>
+          <h3>Freight and drayage</h3>
+          <p>Crating, bill of lading, advance warehouse deadlines and material handling coordinated so your booth is at the space when the aisle opens.</p>
+        </li>
+        <li>
+          <h3>Installation</h3>
+          <p>Our supervisors run the set with house labor where the venue requires it, and finish with an electrical, lighting and graphics check.</p>
+        </li>
+        <li>
+          <h3>Dismantle</h3>
+          <p>A documented teardown, damage report and repack to the same crate list, filed the moment the floor closes rather than the next morning.</p>
+        </li>
+        <li>
+          <h3>Storage and refresh</h3>
+          <p>Climate-managed storage between shows, inventory photographed and logged, and graphics reprinted when the message changes.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sig-section" id="scales" aria-labelledby="scales-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="scales-title">Built to your footprint, not to a catalog.</h2>
+        <p>Four common scales, each quoted as a single turnkey line item covering build, graphics, freight and labor.</p>
+      </div>
+      <div class="trade-scales">
+        <article class="trade-scale">
+          <p class="trade-scale__size">10 &times; 10 ft</p>
+          <h3>Inline booth</h3>
+          <p>A single-aisle presence that has to work hard. Backwall graphics, a branded counter and lighting that lifts the space out of the row.</p>
+          <dl>
+            <div><dt>Backwall</dt><dd>96 &times; 116 in</dd></div>
+            <div><dt>Crates</dt><dd>1 to 2</dd></div>
+            <div><dt>Set time</dt><dd>3 hrs</dd></div>
+          </dl>
+        </article>
+        <article class="trade-scale">
+          <p class="trade-scale__size">10 &times; 20 ft</p>
+          <h3>Double inline</h3>
+          <p>Room to split demo and conversation. Two graphic zones, a storage closet and a header that reads from down the aisle.</p>
+          <dl>
+            <div><dt>Backwall</dt><dd>240 &times; 116 in</dd></div>
+            <div><dt>Crates</dt><dd>2 to 4</dd></div>
+            <div><dt>Set time</dt><dd>6 hrs</dd></div>
+          </dl>
+        </article>
+        <article class="trade-scale">
+          <p class="trade-scale__size">20 &times; 20 ft</p>
+          <h3>Island exhibit</h3>
+          <p>Open on four sides, so the structure carries the brand from every approach. Hanging sign, tower and integrated product display.</p>
+          <dl>
+            <div><dt>Hanging sign</dt><dd>16 ft dia</dd></div>
+            <div><dt>Crates</dt><dd>5 to 8</dd></div>
+            <div><dt>Set time</dt><dd>2 days</dd></div>
+          </dl>
+        </article>
+        <article class="trade-scale">
+          <p class="trade-scale__size">Custom</p>
+          <h3>Double-deck and beyond</h3>
+          <p>Engineered structure, meeting rooms and interactives for a headline presence. Stamped drawings and venue approvals included.</p>
+          <dl>
+            <div><dt>Engineering</dt><dd>Stamped</dd></div>
+            <div><dt>Crates</dt><dd>Quoted</dd></div>
+            <div><dt>Set time</dt><dd>3+ days</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--ink" id="show-days" aria-labelledby="show-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="show-title">What we are doing while you are selling.</h2>
+        <p>Select a stage of the show to see what we hand over and what we need from you.</p>
+      </div>
+      <div class="sig-process">
+        <div class="sig-tabs" role="tablist" aria-label="Show stages">
+          <button class="sig-tab" type="button" role="tab" id="tab-before" aria-controls="panel-before" aria-selected="true"><span>01</span>Before</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-setup" aria-controls="panel-setup" aria-selected="false" tabindex="-1"><span>02</span>Set-up</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-open" aria-controls="panel-open" aria-selected="false" tabindex="-1"><span>03</span>Show days</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-after" aria-controls="panel-after" aria-selected="false" tabindex="-1"><span>04</span>After</button>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-before" aria-labelledby="tab-before" tabindex="0">
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">The exhibitor kit gets read the week you book the space.</h3>
+            <p>Deadlines for advance warehouse, rigging, electrical and labor are the difference between a clean set and a surcharge. We build the calendar backwards from move-in day.</p>
+            <ul class="sig-panel__list">
+              <li>Booth layout checked against height, hanging sign and line-of-sight rules</li>
+              <li>Print-ready graphics proofed on the actual substrate before production</li>
+              <li>Show services ordered ahead of discount deadlines, with copies to your team</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-setup" aria-labelledby="tab-setup" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Our supervisor is on the floor before the crates are.</h3>
+            <p>Freight arrival, material handling and labor calls are managed on site. The booth was dry-fit in our shop, so the set is assembly rather than problem solving.</p>
+            <ul class="sig-panel__list">
+              <li>Crate-by-crate check-in against the numbered set list</li>
+              <li>Structure, electrical, lighting and graphics installed and tested</li>
+              <li>Booth handed over clean, stocked and photographed before doors open</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-open" aria-labelledby="tab-open" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Someone answers the phone while the floor is live.</h3>
+            <p>Responsiveness is the part clients tell other exhibitors about. A blown lamp, a scuffed panel or a last-minute graphic change is handled during the show, not after it.</p>
+            <ul class="sig-panel__list">
+              <li>On-call support for the duration of the show</li>
+              <li>Replacement graphics printed and shipped overnight when needed</li>
+              <li>Daily touch-up so the booth looks the same on the last day as the first</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-after" aria-labelledby="tab-after" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Teardown, damage report and a crate you can trust next time.</h3>
+            <p>Dismantle starts the minute the floor closes. Everything is repacked to the same set list, and what needs repair is flagged in writing before it reaches storage.</p>
+            <ul class="sig-panel__list">
+              <li>Outbound bill of lading filed and freight tracked back to the shop</li>
+              <li>Condition report with photos of every component</li>
+              <li>Repairs and reprints scheduled against your next show date</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="included" aria-labelledby="included-title">
+    <div class="epi-container trade-included">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="included-title">What a turnkey booth includes.</h2>
+        <p>Priced as one scope so there is no gap between the shop, the freight company and the floor.</p>
+        <p><a class="epi-btn" href="#start">Start Your Project</a></p>
+      </div>
+      <ul class="trade-checks">
+        <li>
+          <span class="trade-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+          <span><strong>Design and renderings</strong>Space planning, in-context views and revisions until it is approved.</span>
+        </li>
+        <li>
+          <span class="trade-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+          <span><strong>Graphics production</strong>Large format print, tension fabric and direct-print panels made in house.</span>
+        </li>
+        <li>
+          <span class="trade-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+          <span><strong>Structure and casework</strong>CNC routing, welding, laminate counters, shelving and lockable storage.</span>
+        </li>
+        <li>
+          <span class="trade-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+          <span><strong>Specialty lighting</strong>Backlit walls, wash lighting and product spots specified to the venue.</span>
+        </li>
+        <li>
+          <span class="trade-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+          <span><strong>Freight and show services</strong>Crating, shipping, drayage and the exhibitor kit paperwork.</span>
+        </li>
+        <li>
+          <span class="trade-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+          <span><strong>Install and dismantle</strong>Supervised set and teardown with a documented condition report.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--ink" id="storage" aria-labelledby="storage-title">
+    <div class="epi-container trade-logistics">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="storage-title">Between shows, your booth lives with us.</h2>
+        <p>Most exhibitors lose more money to storage and repair than to fabrication. We treat the off-season as part of the program.</p>
+      </div>
+      <ul class="trade-logistics__list">
+        <li>
+          <h3>Inventoried storage</h3>
+          <p>Every crate photographed, tagged and logged, so you know what you own before you plan the next floor plan.</p>
+        </li>
+        <li>
+          <h3>Refresh, not rebuild</h3>
+          <p>New messaging usually means new graphics on the same structure. We reprint panels and keep the capital investment working.</p>
+        </li>
+        <li>
+          <h3>Repair before the deadline</h3>
+          <p>Damage found at dismantle is fixed on our schedule rather than discovered the week before your next show.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" id="work" aria-labelledby="work-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="work-title">Exhibits we have built and set.</h2>
+        <p>Filter by booth type to see the kind of build that fits your space.</p>
+      </div>
+      <div class="sig-filters" role="group" aria-label="Filter exhibits by booth type">
+        <button class="sig-filter" type="button" data-filter="all" aria-pressed="true">All exhibits</button>
+        <button class="sig-filter" type="button" data-filter="inline" aria-pressed="false">Inline</button>
+        <button class="sig-filter" type="button" data-filter="island" aria-pressed="false">Island</button>
+        <button class="sig-filter" type="button" data-filter="portable" aria-pressed="false">Portable</button>
+        <button class="sig-filter" type="button" data-filter="graphics" aria-pressed="false">Graphics only</button>
+      </div>
+      <div class="sig-gallery" id="gallery">
+        <article class="sig-shot" data-category="island">
+          <figure class="sig-shot__frame"><img src="/exhibit-booth-display-mu13gv5v-afm0.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Association conference island, Washington DC</h3>
+          <p>20 &times; 20 ft, hanging sign</p>
+        </article>
+        <article class="sig-shot" data-category="inline">
+          <figure class="sig-shot__frame"><img src="/modular-booth-rendering-mu13df64-u8nu.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Technology double inline, Baltimore</h3>
+          <p>10 &times; 20 ft, backlit fabric</p>
+        </article>
+        <article class="sig-shot" data-category="portable">
+          <figure class="sig-shot__frame"><img src="/exhibit-booth-display-mu13k6af-c3hn.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Regional roadshow kit, six cities</h3>
+          <p>2 crates, 45 min set</p>
+        </article>
+        <article class="sig-shot" data-category="graphics">
+          <figure class="sig-shot__frame"><img src="/arena-event-facade-mu13hzdz-gl0o.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Sponsor graphics package, convention center</h3>
+          <p>Banners, meter boards, floor decals</p>
+        </article>
+        <article class="sig-shot" data-category="island">
+          <figure class="sig-shot__frame"><img src="/blue-lobby-displays-mu13q4jd-onxx.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Government contractor exhibit, Northern Virginia</h3>
+          <p>20 &times; 40 ft, meeting room</p>
+        </article>
+        <article class="sig-shot" data-category="inline">
+          <figure class="sig-shot__frame"><img src="/usms-exhibit-display-mu13mugs-hrl8.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Healthcare inline refresh, Philadelphia</h3>
+          <p>Reprint on existing structure</p>
+        </article>
+      </div>
+      <p class="sig-empty" id="gallery-empty" hidden>No exhibits in that type yet. Ask us for recent examples.</p>
+    </div>
+  </section>
+
+  <section class="sig-section" aria-label="Tradeshow program at a glance">
+    <div class="epi-container">
+      <div class="sig-stats">
+        <div>
+          <p class="sig-stat__value">20+</p>
+          <p class="sig-stat__label">Years designing, building and setting exhibits for DMV clients</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">400+</p>
+          <p class="sig-stat__label">Years of combined expertise across our design and fabrication team</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">1</p>
+          <p class="sig-stat__label">Shop handling print, fabrication, freight, install and storage</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">0</p>
+          <p class="sig-stat__label">Subcontracted vendors between your artwork and the show floor</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" id="faq" aria-labelledby="faq-title">
+    <div class="epi-container sig-spec">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="faq-title">Answers before you commit to the space.</h2>
+        <p>The questions exhibit and marketing managers ask us most, answered plainly.</p>
+      </div>
+      <div class="sig-acc" id="accordion">
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="true" aria-controls="acc-1">
+              How far ahead should we start?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-1">
+            <p>Ten to twelve weeks for a new custom build, which covers design approval, fabrication and the advance warehouse deadline. A graphics refresh on an existing structure can be turned in two to three weeks. If your date is tighter than that, call us and we will tell you honestly what is possible.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-2">
+              Do you handle freight and drayage?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-2" hidden>
+            <p>Yes. We crate, ship, file the bill of lading and order material handling through the general contractor. Booking to the advance warehouse rather than direct-to-show usually costs less and removes the risk of a missed unload window.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-3">
+              Can you work with the booth we already own?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-3" hidden>
+            <p>Often, yes. Send photos and the set instructions and we will assess the structure, reprint the graphics and add what the new layout needs. Reusing a sound frame is usually the better spend.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-4">
+              What files do you need for graphics?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-4" hidden>
+            <p>Vector artwork in <span class="epi-mono">.ai</span>, <span class="epi-mono">.eps</span> or <span class="epi-mono">.pdf</span>, plus your brand standards. Raster art should be supplied at final size with <span class="epi-mono">0.125 in</span> bleed. Large sets can be dropped through our file transfer link rather than email.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-5">
+              Do you travel outside the DMV?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-5" hidden>
+            <p>We build in Gaithersburg and set booths at shows nationwide. Where a venue requires house labor, our supervisor runs the crew so the set still follows our drawings and our set list.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>The booth landed on time, went up without a single call to us, and looked better than the rendering. Having one team own the graphics, the freight and the floor took an entire job off my desk.</blockquote>
+        <figcaption>Marketing director, national association exhibitor</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-cta" id="start" aria-labelledby="start-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="start-title">Tell us the show, the space and the date.</h2>
+        <p>Send the exhibitor kit or just the booth number. We bring visions to life, and we will tell you what your calendar and budget actually allow.</p>
+        <p><a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:3px">301.990.2666</a></p>
+      </div>
+      <form class="sig-form" id="project-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="f-size">Booth size</label>
+          <select id="f-size" name="size">
+            <option>10 by 10 inline</option>
+            <option>10 by 20 double inline</option>
+            <option>20 by 20 island</option>
+            <option>Larger or custom</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-show">Show and city</label>
+          <input id="f-show" name="show" type="text" autocomplete="organization">
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Scope and show dates</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Have artwork already? Mention it and we will send a file transfer link.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

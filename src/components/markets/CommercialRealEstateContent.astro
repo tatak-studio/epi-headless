@@ -1,0 +1,416 @@
+---
+interface Props {
+  market?: any;
+}
+const { market } = Astro.props;
+import '../../styles/markets-cre.css';
+---
+
+<div class="epi-drawer" id="drawer" hidden>
+  <div class="sig-drawer__head">
+    <img class="sig-logo sig-logo--drawer" src="assets/epi-colorspace-logo.png" alt="EPI-Colorspace">
+    <button class="epi-iconbtn" type="button" id="drawer-close" aria-label="Close menu" style="color:#fff">
+      <span class="epi-icon" style="width:20px;height:20px" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.75"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </span>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      <li>
+        <a class="epi-drawer__link" href="/services">Services</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/services/tradeshows">Tradeshows</a></li>
+          <li><a href="/services/exhibits-and-displays">Exhibits &amp; Displays</a></li>
+          <li><a href="/services/signage-solutions">Signage Solutions</a></li>
+          <li><a href="/services/large-format-printing">Large Format Printing</a></li>
+          <li><a href="/services/corporate-branding">Corporate Branding</a></li>
+          <li><a href="/services/environmental-graphics">Environmental Graphics</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="/projects">Projects</a></li>
+      <li>
+        <a class="epi-drawer__link" href="/markets">Markets</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/markets/museums-and-cultural">Museums &amp; Cultural</a></li>
+          <li><a href="/markets/commercial-real-estate" aria-current="page">Commercial Real Estate</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="https://www.hightail.com/u/epicolorspace" rel="noopener">Send Files</a></li>
+      <li><a class="epi-drawer__link" href="/contact">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="sig-drawer__actions">
+    <a class="epi-btn epi-btn--block" href="/contact">Start Your Project</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src="/real-estate-banner-mu12q7mf-0tjm.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/markets">Markets</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Commercial Real Estate</li>
+        </ol>
+      </nav>
+      <p class="sig-kicker">From Concept to Execution we help Owners lease Space faster.</p>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">Graphics that carry a building from construction fence to signed lease to occupied lobby.</h1>
+      <p class="sig-hero__lede">EPI-Colorspace works with owners, developers and property managers across DC, Maryland and Virginia on leasing displays, lobby branding, garage signage, tenant wayfinding and repositioning programs. One shop surveys, prints, fabricates and installs, so a vacancy does not wait on three vendors.</p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="#start">Start Your Project</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See our Projects</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <section class="sig-section" aria-labelledby="intro-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="intro-title">For over 20 years, EPI-Colorspace has been a trusted partner for portfolios where every empty floor has a carrying cost.</h2>
+        <p>We specialize in transforming a wide variety of spaces, from Class A lobbies and spec suites to parking structures and construction perimeters, into environments that lease. Design, large format print, fabrication and installation sit under one roof in Gaithersburg, which is why a tenant change on Thursday can be installed Monday.</p>
+        <p>Property teams care about three things: schedule, building rules and not being called twice about the same sign. We survey before we quote, coordinate with building management ourselves, and keep your artwork and sign schedule on file for the next turn.</p>
+        <dl class="sig-facts">
+          <div>
+            <dt>Coverage</dt>
+            <dd>DC, Maryland, Virginia</dd>
+          </div>
+          <div>
+            <dt>Work</dt>
+            <dd>Occupied buildings</dd>
+          </div>
+          <div>
+            <dt>Records</dt>
+            <dd>Artwork kept on file</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="sig-frame">
+        <img src="/parking-notice-sign-mu13jclv-qgtf.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" id="lifecycle" aria-labelledby="lifecycle-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="lifecycle-title">Five moments in an asset's life where graphics do the work.</h2>
+        <p>Most owners hire us at one stage and keep us for the rest, because the artwork and specs are already ours to reuse.</p>
+      </div>
+      <ol class="cre-life">
+        <li>
+          <h3>Construction</h3>
+          <p>Perimeter fence wraps, site identification and safety signage engineered for wind load and months of weather.</p>
+        </li>
+        <li>
+          <h3>Lease-up</h3>
+          <p>Building banners, post-and-panel displays, spec suite graphics and window vinyl that make availability visible from the road.</p>
+        </li>
+        <li>
+          <h3>Delivery</h3>
+          <p>Lobby identity, tenant directories, level identification and code signage installed before certificate of occupancy.</p>
+        </li>
+        <li>
+          <h3>Occupancy</h3>
+          <p>Tenant changes, suite numbering, garage refresh and amenity graphics handled as service calls rather than projects.</p>
+        </li>
+        <li>
+          <h3>Repositioning</h3>
+          <p>New identity across lobby, garage and exterior, phased so the building keeps operating through the change.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sig-section" id="types" aria-labelledby="types-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="types-title">Asset types we work in every week.</h2>
+        <p>The scope changes with the building. What does not change is one crew, one schedule and one point of contact.</p>
+      </div>
+      <div class="cre-types">
+        <article class="cre-type">
+          <figure class="cre-type__media"><img src="/building-facade-graphics-mu13937x-72if.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <div class="cre-type__body">
+            <h3>Office towers</h3>
+            <p>Lobby identity, tenant directories, elevator lobby graphics and floor numbering, installed off hours around a working building.</p>
+            <ul>
+              <li>Dimensional letters</li>
+              <li>Directory systems</li>
+              <li>Level ID</li>
+            </ul>
+          </div>
+        </article>
+        <article class="cre-type">
+          <figure class="cre-type__media"><img src="/spiral-lobby-graphics-mu13h9gi-cfz7.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <div class="cre-type__body">
+            <h3>Mixed-use and multifamily</h3>
+            <p>Leasing center graphics, amenity space branding, package and bike room signage, and resident wayfinding that survives daily use.</p>
+            <ul>
+              <li>Leasing displays</li>
+              <li>Amenity graphics</li>
+              <li>Room ID</li>
+            </ul>
+          </div>
+        </article>
+        <article class="cre-type">
+          <figure class="cre-type__media"><img src="/retail-window-wrap-mu13ikr7-460d.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <div class="cre-type__body">
+            <h3>Retail centers</h3>
+            <p>Pylon and tenant panel updates, window systems, vacancy wraps and seasonal campaigns rolled out across a whole center at once.</p>
+            <ul>
+              <li>Tenant panels</li>
+              <li>Vacancy wraps</li>
+              <li>Window vinyl</li>
+            </ul>
+          </div>
+        </article>
+        <article class="cre-type">
+          <figure class="cre-type__media"><img src="/parking-notice-sign-mu13jclv-qgtf.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <div class="cre-type__body">
+            <h3>Parking structures</h3>
+            <p>Level identification, clearance bars, striping graphics and code signage built for abrasion, exhaust and constant traffic.</p>
+            <ul>
+              <li>Reflective panels</li>
+              <li>Clearance bars</li>
+              <li>Refresh program</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--ink" id="program" aria-labelledby="program-title">
+    <div class="epi-container cre-program">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="program-title">A portfolio program instead of a purchase order every time.</h2>
+        <p>For owners and managers running multiple assets, we hold the specs, the artwork and the hardware list so routine work moves at service-call speed.</p>
+        <p><a class="epi-btn" href="#start">Start Your Project</a></p>
+      </div>
+      <dl class="cre-sla">
+        <div>
+          <dt>Tenant change</dt>
+          <dd class="cre-sla__time">3 to 5 days</dd>
+          <dd>Directory strips, suite numbers and lobby panels reprinted from files we already hold and swapped on your schedule.</dd>
+        </div>
+        <div>
+          <dt>Damage replacement</dt>
+          <dd class="cre-sla__time">5 to 10 days</dd>
+          <dd>A struck clearance bar or a scratched panel is remade to the original spec rather than approximated by a local shop.</dd>
+        </div>
+        <div>
+          <dt>Vacancy package</dt>
+          <dd class="cre-sla__time">2 weeks</dd>
+          <dd>Window vinyl, spec suite graphics and building banners produced as a kit when a floor comes back to market.</dd>
+        </div>
+        <div>
+          <dt>Portfolio survey</dt>
+          <dd class="cre-sla__time">Scheduled</dd>
+          <dd>A documented walk of every asset with a photographed sign inventory, so budgets are built from what is actually installed.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sig-section" id="work" aria-labelledby="work-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="work-title">Property work across the DMV.</h2>
+        <p>Filter by scope to see the kind of program that fits your asset.</p>
+      </div>
+      <div class="sig-filters" role="group" aria-label="Filter projects by scope">
+        <button class="sig-filter" type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button class="sig-filter" type="button" data-filter="leasing" aria-pressed="false">Leasing</button>
+        <button class="sig-filter" type="button" data-filter="lobby" aria-pressed="false">Lobby</button>
+        <button class="sig-filter" type="button" data-filter="garage" aria-pressed="false">Garage</button>
+        <button class="sig-filter" type="button" data-filter="construction" aria-pressed="false">Construction</button>
+      </div>
+      <div class="sig-gallery" id="gallery">
+        <article class="sig-shot" data-category="leasing">
+          <figure class="sig-shot__frame"><img src="/retail-window-wrap-mu13ikr7-460d.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Retail leasing banners, Rockville</h3>
+          <p>13 oz scrim vinyl, 96 &times; 48 in</p>
+        </article>
+        <article class="sig-shot" data-category="lobby">
+          <figure class="sig-shot__frame"><img src="/spiral-lobby-graphics-mu13h9gi-cfz7.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Repositioned lobby identity, Tysons</h3>
+          <p>Dimensional letters, directory</p>
+        </article>
+        <article class="sig-shot" data-category="garage">
+          <figure class="sig-shot__frame"><img src="/parking-notice-sign-mu13jclv-qgtf.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Parking structure level identification, DC</h3>
+          <p>7 levels, reflective panels</p>
+        </article>
+        <article class="sig-shot" data-category="construction">
+          <figure class="sig-shot__frame"><img src="/real-estate-banner-mu12q7mf-0tjm.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Construction perimeter branding, Bethesda</h3>
+          <p>Mesh fence wrap, 640 linear ft</p>
+        </article>
+        <article class="sig-shot" data-category="leasing">
+          <figure class="sig-shot__frame"><img src="/colonial-one-windows-mu13royg-84om.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Spec suite window program, Silver Spring</h3>
+          <p>4 floors, frosted and printed</p>
+        </article>
+        <article class="sig-shot" data-category="lobby">
+          <figure class="sig-shot__frame"><img src="/community-event-sign-mu13ngzx-8om1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Tenant directory refresh, Arlington</h3>
+          <p>Modular holders, same-day swap</p>
+        </article>
+      </div>
+      <p class="sig-empty" id="gallery-empty" hidden>No projects in that scope yet. Ask us for recent examples.</p>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-label="Portfolio work at a glance">
+    <div class="epi-container">
+      <div class="sig-stats">
+        <div>
+          <p class="sig-stat__value">20+</p>
+          <p class="sig-stat__label">Years serving owners, developers and property managers in the DMV</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">3</p>
+          <p class="sig-stat__label">Jurisdictions permitted daily: DC, Maryland and Virginia</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">1</p>
+          <p class="sig-stat__label">Shop handling survey, print, fabrication, permits and installation</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">5</p>
+          <p class="sig-stat__label">Business days for most tenant changes once artwork is approved</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="faq" aria-labelledby="faq-title">
+    <div class="epi-container sig-spec">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="faq-title">Answers before the next capital request.</h2>
+        <p>The questions asset managers, leasing teams and building engineers ask us most, answered plainly.</p>
+      </div>
+      <div class="sig-acc" id="accordion">
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="true" aria-controls="acc-1">
+              Do you handle permits and landlord approvals?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-1">
+            <p>Yes. We identify the permit path during survey, produce stamped drawings where the jurisdiction requires them, and carry the submission through review. Where a building has its own signage criteria, we submit to that standard as well.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-2">
+              Can you work in an occupied, operating building?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-2" hidden>
+            <p>That is most of this work. Crews are licensed, insured and badged, coordinate with building management on loading dock and elevator windows, and install evenings or weekends when the lobby needs to stay open.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-3">
+              How fast can a leasing package go up?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-3" hidden>
+            <p>Banner and window packages are often surveyed, printed and installed inside two weeks. Fabricated exterior and monument work runs four to eight weeks depending on permits and finishes. If a tour is booked, tell us the date and we will work to it.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-4">
+              Will you maintain signage after installation?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-4" hidden>
+            <p>We keep your artwork, sign schedule and hardware specs on file, so a tenant change or a damaged panel is a reprint and a service call. Scheduled refresh programs are available for garages and high-abrasion retail environments.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-5">
+              Can you cover a whole portfolio, not one building?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-5" hidden>
+            <p>Yes, and it is usually cheaper. We survey each asset, document what is installed, and standardize the specification so replacements and rollouts do not get re-engineered every time a property changes managers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>EPI-Colorspace handled the survey, the permits and the install without us chasing anyone. The responsiveness is the part I tell other property managers about.</blockquote>
+        <figcaption>Property management team, commercial real estate portfolio, Montgomery County</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-cta" id="start" aria-labelledby="start-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="start-title">Tell us the asset and the date it has to be ready.</h2>
+        <p>Send an address, a scope or a photo of what is there now. We bring visions to life, and we will tell you honestly what permits and building rules allow.</p>
+        <p><a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:3px">301.990.2666</a></p>
+      </div>
+      <form class="sig-form" id="project-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="f-asset">Asset type</label>
+          <select id="f-asset" name="asset">
+            <option>Office tower</option>
+            <option>Mixed-use or multifamily</option>
+            <option>Retail center</option>
+            <option>Parking structure</option>
+            <option>Portfolio program</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-site">Property city</label>
+          <input id="f-site" name="site" type="text" autocomplete="address-level2">
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Scope and target date</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Managing several assets? Mention it and we will scope a portfolio survey.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

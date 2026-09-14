@@ -1,0 +1,464 @@
+---
+interface Props {
+  service?: any;
+}
+const { service } = Astro.props;
+import '../../styles/corporate-branding.css';
+---
+
+<div class="epi-drawer" id="drawer" hidden>
+  <div class="sig-drawer__head">
+    <img class="sig-logo sig-logo--drawer" src="assets/epi-colorspace-logo.png" alt="EPI-Colorspace">
+    <button class="epi-iconbtn" type="button" id="drawer-close" aria-label="Close menu" style="color:#fff">
+      <span class="epi-icon" style="width:20px;height:20px" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.75"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </span>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      <li>
+        <a class="epi-drawer__link" href="/services">Services</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/services/tradeshows">Tradeshows</a></li>
+          <li><a href="/services/exhibits-and-displays">Exhibits &amp; Displays</a></li>
+          <li><a href="/services/signage-solutions">Signage Solutions</a></li>
+          <li><a href="/services/large-format-printing">Large Format Printing</a></li>
+          <li><a href="/services/corporate-branding" aria-current="page">Corporate Branding</a></li>
+          <li><a href="/services/environmental-graphics">Environmental Graphics</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="/projects">Projects</a></li>
+      <li><a class="epi-drawer__link" href="/markets">Markets</a></li>
+      <li><a class="epi-drawer__link" href="https://www.hightail.com/u/epicolorspace" rel="noopener">Send Files</a></li>
+      <li><a class="epi-drawer__link" href="/contact">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="sig-drawer__actions">
+    <a class="epi-btn epi-btn--block" href="/contact">Start Your Project</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src="/gw-reception-area-mu12cgn5-nh72.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/services">Services</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Corporate Branding</li>
+        </ol>
+      </nav>
+      <p class="sig-kicker">From Concept to Execution we build the Brand into the Building.</p>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">Corporate branding that makes a workplace look like the company inside it.</h1>
+      <p class="sig-hero__lede">EPI-Colorspace designs, fabricates and installs lobby identity, dimensional letters, recognition walls and custom framing across the DMV, then rolls the same standards out floor by floor and site by site. Your team keeps working while the space changes around them.</p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="#start">Start Your Project</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See our Projects</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <section class="sig-section" aria-labelledby="intro-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="intro-title">For over 20 years, EPI-Colorspace has been a trusted partner for companies who want the office to say something before anyone does.</h2>
+        <p>We specialize in transforming a wide variety of spaces, from lobbies and elevator banks to executive floors and regional offices, into places that carry the brand consistently. Design, fabrication and installation all sit under one roof in Gaithersburg, which is why a wall approved on Wednesday can be finished before Monday standup.</p>
+        <p>Brand identity in a building only works when it is built well. We survey the walls, engineer the mounting, and install with precision craftsmanship so letters stay level and finishes still look right years later. For murals, glass film and floor graphics, see <a href="/services/environmental-graphics">Environmental Graphics</a>.</p>
+        <dl class="sig-facts">
+          <div>
+            <dt>Coverage</dt>
+            <dd>DC, Maryland, Virginia</dd>
+          </div>
+          <div>
+            <dt>Install</dt>
+            <dd>Occupied floors</dd>
+          </div>
+          <div>
+            <dt>Scope</dt>
+            <dd>Survey to punch walk</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="sig-frame">
+        <img src="/spiral-lobby-graphics-mu13h9gi-cfz7.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" id="surfaces" aria-labelledby="surfaces-title">
+    <div class="epi-container corp-surfaces">
+      <div class="sig-head corp-surfaces__head">
+        <h2 class="epi-h1" id="surfaces-title">Five places the brand earns its keep inside a building.</h2>
+        <p>We scope a branding program space by space, so the budget goes where employees, candidates and clients actually stand.</p>
+        <p><a class="epi-btn" href="#start">Start Your Project</a></p>
+      </div>
+      <ol class="corp-rows">
+        <li class="corp-row">
+          <span class="corp-row__num">01</span>
+          <h3>Lobby and reception</h3>
+          <p>Dimensional logos, backlit letters and feature walls that set the tone in the first ten seconds. Mounted to pattern so the reveal lines stay true.</p>
+          <ul class="corp-row__meta">
+            <li>Brushed aluminum</li>
+            <li>Acrylic faces</li>
+            <li>Halo lighting</li>
+          </ul>
+        </li>
+        <li class="corp-row">
+          <span class="corp-row__num">02</span>
+          <h3>Recognition and donor walls</h3>
+          <p>Award, patent and donor displays built to grow. Modular plates and rails mean next year's names are an add, not a rebuild.</p>
+          <ul class="corp-row__meta">
+            <li>Etched metal</li>
+            <li>Modular rails</li>
+            <li>Add-on ready</li>
+          </ul>
+        </li>
+        <li class="corp-row">
+          <span class="corp-row__num">03</span>
+          <h3>Multi-site brand rollouts</h3>
+          <p>One standard applied across floors, buildings and regional offices, kitted and scheduled by location so every site opens looking the same.</p>
+          <ul class="corp-row__meta">
+            <li>Kitted by site</li>
+            <li>Documented specs</li>
+            <li>Phased schedule</li>
+          </ul>
+        </li>
+        <li class="corp-row">
+          <span class="corp-row__num">04</span>
+          <h3>Meeting and executive spaces</h3>
+          <p>Branded room identity, boardroom logo walls and presentation backdrops finished to the tolerance an executive floor gets judged on.</p>
+          <ul class="corp-row__meta">
+            <li>Brushed metal</li>
+            <li>Acrylic standoffs</li>
+            <li>Flush mount</li>
+          </ul>
+        </li>
+        <li class="corp-row">
+          <span class="corp-row__num">05</span>
+          <h3>Custom framing and art programs</h3>
+          <p>Gallery-quality framing, mounting and hanging for photography, awards and donor pieces, delivered ready to hang with a documented layout.</p>
+          <ul class="corp-row__meta">
+            <li>Conservation glazing</li>
+            <li>Museum mounts</li>
+            <li>Cleat hung</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--ink" id="process" aria-labelledby="process-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="process-title">How a workplace program runs without shutting the floor down.</h2>
+        <p>Four phases, one point of contact. Select a phase to see what we hand over and what we need from you.</p>
+      </div>
+      <div class="sig-process">
+        <div class="sig-tabs" role="tablist" aria-label="Program phases">
+          <button class="sig-tab" type="button" role="tab" id="tab-survey" aria-controls="panel-survey" aria-selected="true"><span>01</span>Survey</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-design" aria-controls="panel-design" aria-selected="false" tabindex="-1"><span>02</span>Design</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-produce" aria-controls="panel-produce" aria-selected="false" tabindex="-1"><span>03</span>Production</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-install" aria-controls="panel-install" aria-selected="false" tabindex="-1"><span>04</span>Installation</button>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-survey" aria-labelledby="tab-survey" tabindex="0">
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">We measure the walls before we design for them.</h3>
+            <p>Outlets, thermostats, fire strobes and door swings decide what a mural can be. A field survey catches all of it while the idea is still cheap to change.</p>
+            <ul class="sig-panel__list">
+              <li>Dimensioned notes and photos of every surface in scope</li>
+              <li>Substrate and texture assessment, including paint condition</li>
+              <li>Building rules confirmed with property management up front</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-design" aria-labelledby="tab-design" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Renderings set in your actual space, not on a swatch.</h3>
+            <p>Our designers work inside your brand standards and return the graphic composited onto the real wall, so leadership approves what will exist.</p>
+            <ul class="sig-panel__list">
+              <li>Scaled elevations with mounting heights called out</li>
+              <li>In-context renderings for stakeholder sign-off</li>
+              <li>Color and finish proofs pulled on the specified substrate</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-produce" aria-labelledby="tab-produce" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Printed, laminated, routed and framed in our own shop.</h3>
+            <p>State-of-the-art large format printing sits next to the fabrication floor, so color matching, finishing and quality control happen in the same building.</p>
+            <ul class="sig-panel__list">
+              <li>Panels seam-mapped and labeled to their wall and sequence</li>
+              <li>Dimensional letters routed, painted and pattern-drilled</li>
+              <li>Framed pieces glazed, backed and wired ready to hang</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-install" aria-labelledby="tab-install" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Evenings, weekends and floor-by-floor phasing.</h3>
+            <p>Installation in a working office is a scheduling problem as much as a craft problem. We protect finishes, clean as we go and leave the space usable the next morning.</p>
+            <ul class="sig-panel__list">
+              <li>Licensed, insured, badged crews cleared with building management</li>
+              <li>Off-hours and phased installs for occupied floors</li>
+              <li>Punch list, as-built photos and care notes at handover</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="materials" aria-labelledby="materials-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="materials-title">Materials specified to the wall and the tolerance.</h2>
+        <p>Reception walls and executive floors are judged up close. These are the specs we reach for most, and why.</p>
+      </div>
+      <div class="corp-materials">
+        <article class="corp-material">
+          <h3>Brushed and painted metal</h3>
+          <p>Fabricated aluminum and stainless plates for reception marks, recognition rails and executive floor identity.</p>
+          <p class="corp-material__spec">Etched or direct print</p>
+        </article>
+        <article class="corp-material">
+          <h3>Acrylic plaques</h3>
+          <p>Standoff-mounted acrylic for award walls, room identity and mission statements, edge polished and second-surface printed.</p>
+          <p class="corp-material__spec">0.25 to 0.5 in</p>
+        </article>
+        <article class="corp-material">
+          <h3>Dimensional letters</h3>
+          <p>Routed acrylic and fabricated aluminum with flush, standoff or halo-lit mounting for lobbies and feature walls.</p>
+          <p class="corp-material__spec">0.5 to 2 in depth</p>
+        </article>
+        <article class="corp-material">
+          <h3>Rigid panel graphics</h3>
+          <p>Direct-printed aluminum composite and acrylic for high-traffic corridors, elevator lobbies and cafeterias.</p>
+          <p class="corp-material__spec">3 mm ACM, cleat mounted</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" id="framing" aria-labelledby="framing-title">
+    <div class="epi-container corp-framing">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="framing-title">Custom framing, mounting and hanging for the art the office already owns.</h2>
+        <p>Photography, awards, patents and donor recognition deserve the same care as the murals. We frame in house and hang to a documented layout, so a wall of forty pieces lands level the first time.</p>
+        <ul class="corp-framing__list">
+          <li><span><strong>Conservation glazing:</strong> UV-filtering acrylic and glass for work that should not fade under office lighting.</span></li>
+          <li><span><strong>Consistent program:</strong> One frame profile and mat spec applied across floors, so the collection reads as a set.</span></li>
+          <li><span><strong>Documented hang:</strong> Elevation drawings, center lines and a labeled crate list for install day.</span></li>
+          <li><span><strong>Reconfiguration:</strong> Layouts we can re-hang when the team moves or the floor plan changes.</span></li>
+        </ul>
+      </div>
+      <figure class="sig-frame sig-frame--wide">
+        <img src="/fbi-wanted-display-mu1372so-z1pt.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section" id="work" aria-labelledby="work-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="work-title">Workplaces we have branded.</h2>
+        <p>Filter by scope to see the kind of program that fits your floor.</p>
+      </div>
+      <div class="sig-filters" role="group" aria-label="Filter projects by scope">
+        <button class="sig-filter" type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button class="sig-filter" type="button" data-filter="lobby" aria-pressed="false">Lobby</button>
+        <button class="sig-filter" type="button" data-filter="recognition" aria-pressed="false">Recognition</button>
+        <button class="sig-filter" type="button" data-filter="rollout" aria-pressed="false">Rollouts</button>
+        <button class="sig-filter" type="button" data-filter="framing" aria-pressed="false">Framing</button>
+      </div>
+      <div class="sig-gallery" id="gallery">
+        <article class="sig-shot" data-category="lobby">
+          <figure class="sig-shot__frame"><img src="/gw-reception-area-mu12cgn5-nh72.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Headquarters lobby identity, Bethesda</h3>
+          <p>Halo-lit aluminum, 18 ft wall</p>
+        </article>
+        <article class="sig-shot" data-category="recognition">
+          <figure class="sig-shot__frame"><img src="/blue-lobby-displays-mu13q4jd-onxx.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Patent and award wall, Washington DC</h3>
+          <p>Etched plates, modular rail</p>
+        </article>
+        <article class="sig-shot" data-category="rollout">
+          <figure class="sig-shot__frame"><img src="/spiral-lobby-graphics-mu13h9gi-cfz7.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Regional office rollout, Arlington</h3>
+          <p>6 sites, one standard</p>
+        </article>
+        <article class="sig-shot" data-category="framing">
+          <figure class="sig-shot__frame"><img src="/colonial-one-windows-mu13royg-84om.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Photography collection framing, Rockville</h3>
+          <p>38 pieces, conservation glazing</p>
+        </article>
+        <article class="sig-shot" data-category="recognition">
+          <figure class="sig-shot__frame"><img src="/fbi-wanted-display-mu1372so-z1pt.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Donor recognition rail, Silver Spring</h3>
+          <p>Brushed aluminum, add-on plates</p>
+        </article>
+        <article class="sig-shot" data-category="lobby">
+          <figure class="sig-shot__frame"><img src="/building-facade-graphics-mu13937x-72if.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Elevator lobby system, Tysons</h3>
+          <p>9 floors, rigid panel graphics</p>
+        </article>
+      </div>
+      <p class="sig-empty" id="gallery-empty" hidden>No projects in that scope yet. Ask us for recent examples.</p>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-label="Company at a glance">
+    <div class="epi-container">
+      <div class="sig-stats">
+        <div>
+          <p class="sig-stat__value">20+</p>
+          <p class="sig-stat__label">Years designing, printing and installing workplace graphics in the DMV</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">400+</p>
+          <p class="sig-stat__label">Years of combined expertise across our design and fabrication team</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">1</p>
+          <p class="sig-stat__label">Shop handling design, print, fabrication, framing and installation</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">0</p>
+          <p class="sig-stat__label">Business days of downtime for an office when we phase the install</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="faq" aria-labelledby="faq-title">
+    <div class="epi-container sig-spec">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="faq-title">Answers before you bring it to facilities.</h2>
+        <p>The questions workplace and marketing teams ask us most, answered plainly.</p>
+      </div>
+      <div class="sig-acc" id="accordion">
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="true" aria-controls="acc-1">
+              Can you hold one standard across several offices?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-1">
+            <p>Yes. We document the specification once, keep the artwork and hardware on file, and kit each site to the same drawings. A new office or a replacement panel three years later matches what is already installed rather than approximating it.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-2">
+              Can you install while the office is occupied?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-2" hidden>
+            <p>Yes, and most of our workplace programs are installed that way. Crews work evenings, weekends or one floor at a time, badged and cleared with building management, with floor protection down and the area cleaned before the space reopens.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-3">
+              How long does a floor take?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-3" hidden>
+            <p>A single reception mark or recognition wall is usually surveyed, fabricated and installed inside three to four weeks. A multi-floor or multi-site program runs five to eight weeks, mostly driven by approvals and lead times on lit and metal elements.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-4">
+              We have brand standards but no artwork for the walls. Can you design it?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-4" hidden>
+            <p>That is most of what we do. Send your standards, any photography you own and a floor plan, and our designers develop the applied identity inside your existing brand rather than around it.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-5">
+              What files do you need to start?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-5" hidden>
+            <p>Vector artwork in <span class="epi-mono">.ai</span>, <span class="epi-mono">.eps</span> or <span class="epi-mono">.pdf</span>, plus your brand standards and a floor plan if you have one. Raster art should be supplied at final size with <span class="epi-mono">0.125 in</span> bleed. Large sets can be dropped through our file transfer link rather than email.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>They surveyed on a Tuesday, hung four floors over two weekends, and nobody on staff lost a working hour. The space finally looks like the company we tell candidates we are.</blockquote>
+        <figcaption>Workplace experience lead, professional services firm, Washington DC</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-cta" id="start" aria-labelledby="start-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="start-title">Tell us which spaces you are branding.</h2>
+        <p>Send a floor plan, a scope or just a photo of the lobby. We bring visions to life, and we will tell you honestly what your schedule and building rules allow.</p>
+        <p><a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:3px">301.990.2666</a></p>
+      </div>
+      <form class="sig-form" id="project-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="f-scope-type">Scope</label>
+          <select id="f-scope-type" name="scopeType">
+            <option>Lobby and reception identity</option>
+            <option>Recognition and donor walls</option>
+            <option>Multi-site brand rollout</option>
+            <option>Meeting and executive spaces</option>
+            <option>Custom framing</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-site">Building city</label>
+          <input id="f-site" name="site" type="text" autocomplete="address-level2">
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Scope and target date</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Have artwork already? Mention it and we will send a file transfer link.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

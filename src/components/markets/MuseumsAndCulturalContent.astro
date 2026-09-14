@@ -1,0 +1,457 @@
+---
+interface Props {
+  market?: any;
+}
+const { market } = Astro.props;
+import '../../styles/markets-museums.css';
+---
+
+<div class="epi-drawer" id="drawer" hidden>
+  <div class="sig-drawer__head">
+    <img class="sig-logo sig-logo--drawer" src="assets/epi-colorspace-logo.png" alt="EPI-Colorspace">
+    <button class="epi-iconbtn" type="button" id="drawer-close" aria-label="Close menu" style="color:#fff">
+      <span class="epi-icon" style="width:20px;height:20px" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.75"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </span>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      <li>
+        <a class="epi-drawer__link" href="/services">Services</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/services/tradeshows">Tradeshows</a></li>
+          <li><a href="/services/exhibits-and-displays">Exhibits &amp; Displays</a></li>
+          <li><a href="/services/signage-solutions">Signage Solutions</a></li>
+          <li><a href="/services/large-format-printing">Large Format Printing</a></li>
+          <li><a href="/services/corporate-branding">Corporate Branding</a></li>
+          <li><a href="/services/environmental-graphics">Environmental Graphics</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="/projects">Projects</a></li>
+      <li>
+        <a class="epi-drawer__link" href="/markets">Markets</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/markets/museums-and-cultural" aria-current="page">Museums &amp; Cultural</a></li>
+          <li><a href="/markets/commercial-real-estate">Commercial Real Estate</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="https://www.hightail.com/u/epicolorspace" rel="noopener">Send Files</a></li>
+      <li><a class="epi-drawer__link" href="/contact">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="sig-drawer__actions">
+    <a class="epi-btn epi-btn--block" href="/contact">Start Your Project</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src="/museum-entrance-banner-mu12w0v6-v6y0.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner mus-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="Home.html#markets">Markets</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Museums &amp; Cultural</li>
+        </ol>
+      </nav>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">We bring curators' visions to life, from the mockup on the bench to the night the gallery opens.</h1>
+      <p class="sig-hero__lede">EPI-Colorspace fabricates, prints and installs exhibits for museums, galleries, performing arts centers and cultural institutions across the DMV. Our dedication to excellence has made us a trusted partner for renowned institutions, and our crews know how to work a building that opens to the public in the morning.</p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="#contact">Start Your Project</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See our Projects</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <section class="sig-section" aria-labelledby="intro-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="intro-title">For over 20 years, EPI-Colorspace has been a trusted partner to institutions that cannot move an opening date.</h2>
+        <p>Exhibition work has a different tolerance than commercial graphics. Text panels get read from 18 inches away, mounts have to hold without touching the object, and the install window is whatever the building can give you between programs. We plan to those constraints instead of discovering them on site.</p>
+        <p>Design, large format print, fabrication, crating and installation all happen in our Gaithersburg shop, so a label revision from a curator on Tuesday is on the wall for the Thursday walkthrough. Precision craftsmanship is the point, and the responsiveness is why institutions call us back for the next show.</p>
+        <dl class="sig-facts">
+          <div>
+            <dt>Typical scope</dt>
+            <dd>Exhibit build and install</dd>
+          </div>
+          <div>
+            <dt>Access</dt>
+            <dd>Off-hours and phased</dd>
+          </div>
+          <div>
+            <dt>Handover</dt>
+            <dd>Punch list and as-builts</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="sig-frame">
+        <img src="/hall-exhibit-display-mu12il5t-6a71.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" id="capabilities" aria-labelledby="cap-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="cap-title">What we build for galleries and cultural spaces.</h2>
+        <p>Museum-grade custom fabrication, professional install, specialty lighting and interactives, quoted as one turnkey scope.</p>
+      </div>
+      <div class="mus-rows">
+        <article class="mus-row">
+          <div class="mus-row__copy">
+            <p class="mus-row__num">01</p>
+            <h3 class="epi-h2">Custom casework and mounts</h3>
+            <p>Vitrines, plinths, deck mounts and wall cleats built to the object rather than to a catalog. Fabrication happens beside the print floor, so graphics and casework are fitted together before anything ships.</p>
+            <ul class="mus-row__list">
+              <li><strong>Materials:</strong> Powder-coated steel, painted MDF, acrylic and museum-board substrates.</li>
+              <li><strong>Tolerances:</strong> Bench-fitted dry runs so gallery time is assembly, not adjustment.</li>
+            </ul>
+          </div>
+          <figure class="mus-row__media">
+            <img src="/anacostia-exhibit-wall-mu13p5yi-dm4c.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+        </article>
+        <article class="mus-row">
+          <div class="mus-row__copy">
+            <p class="mus-row__num">02</p>
+            <h3 class="epi-h2">Interpretive graphics and labels</h3>
+            <p>Title walls, text panels, didactics and label sets printed with state-of-the-art technology for superior clarity, color-managed and proofed on the actual substrate before the run.</p>
+            <ul class="mus-row__list">
+              <li><strong>Legibility:</strong> Type sized to viewing distance, with matte finishes that hold up under gallery lighting.</li>
+              <li><strong>Revisions:</strong> Late label changes reprinted in house, often same day.</li>
+            </ul>
+          </div>
+          <figure class="mus-row__media">
+            <img src="/fbi-wanted-display-mu1372so-z1pt.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+        </article>
+        <article class="mus-row">
+          <div class="mus-row__copy">
+            <p class="mus-row__num">03</p>
+            <h3 class="epi-h2">Specialty lighting and interactives</h3>
+            <p>Integrated lighting, monitor housings, touch stations and media niches wired and tested in the shop, then dropped into the gallery as finished assemblies.</p>
+            <ul class="mus-row__list">
+              <li><strong>Coordination:</strong> We work with your AV and electrical trades before fabrication, not after.</li>
+              <li><strong>Serviceability:</strong> Access panels and spare parts documented at handover.</li>
+            </ul>
+          </div>
+          <figure class="mus-row__media">
+            <img src="/usms-exhibit-display-mu13mugs-hrl8.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+        </article>
+        <article class="mus-row">
+          <div class="mus-row__copy">
+            <p class="mus-row__num">04</p>
+            <h3 class="epi-h2">Donor recognition and custom framing</h3>
+            <p>Dimensional donor walls, updatable name plates and archival framing for works on paper, photography and textiles, finished to the standard the rest of the building is held to.</p>
+            <ul class="mus-row__list">
+              <li><strong>Updatable systems:</strong> Modular plates so a new gift is a plate, not a new wall.</li>
+              <li><strong>Framing:</strong> UV glazing and acid-free mounting for long-term display.</li>
+            </ul>
+          </div>
+          <figure class="mus-row__media">
+            <img src="/exhibit-booth-display-mu13k6af-c3hn.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--ink" id="process" aria-labelledby="process-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="process-title">Choose the kind of show you are planning.</h2>
+        <p>Permanent, traveling and event installations each get a different plan. Select one to see how we scope it.</p>
+      </div>
+      <div class="sig-process">
+        <div class="sig-tabs" role="tablist" aria-label="Types of exhibition work">
+          <button class="sig-tab" type="button" role="tab" id="tab-perm" aria-controls="panel-perm" aria-selected="true"><span>01</span>Permanent</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-travel" aria-controls="panel-travel" aria-selected="false" tabindex="-1"><span>02</span>Traveling</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-event" aria-controls="panel-event" aria-selected="false" tabindex="-1"><span>03</span>Events &amp; galas</button>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-perm" aria-labelledby="tab-perm" tabindex="0">
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Built to stay open for years, not weeks.</h3>
+            <p>Permanent galleries are specified for wear: hardened finishes, replaceable graphic faces and hardware that a facilities team can service without calling us first.</p>
+            <ul class="sig-panel__list">
+              <li>Shop drawings, finish samples and a mock-up reviewed before production</li>
+              <li>Replaceable graphic panels sized to standard stock to keep reprints cheap</li>
+              <li>Maintenance plan, attic stock and as-built documentation at handover</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-travel" aria-labelledby="tab-travel" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Designed to be packed, shipped and rebuilt by someone else.</h3>
+            <p>Traveling exhibitions live or die on the crate. We build for repeated handling and write instructions a host venue can actually follow.</p>
+            <ul class="sig-panel__list">
+              <li>Modular components sized to standard freight and gallery doorways</li>
+              <li>Custom crates, foam packing and numbered install kits</li>
+              <li>Assembly manual, packing photos and condition-report templates</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-event" aria-labelledby="tab-event" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Show-stopping presence for one night, struck by morning.</h3>
+            <p>Galas, openings and member events need scenic graphics, step and repeats and signage that arrive early, look gorgeous and leave no marks behind.</p>
+            <ul class="sig-panel__list">
+              <li>Step and repeats, scenic panels, entry portals and directional signage</li>
+              <li>Delivery ahead of schedule with on-site labor for set and strike</li>
+              <li>Reusable hardware stored between events so the next one costs less</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="work" aria-labelledby="work-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="work-title">Recent cultural installations.</h2>
+        <p>Galleries, performing arts spaces and visitor centers across DC, Maryland and Virginia.</p>
+      </div>
+      <div class="mus-band">
+        <figure><img src="/anacostia-exhibit-wall-mu13p5yi-dm4c.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+        <figure><img src="/hall-exhibit-display-mu12il5t-6a71.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+        <figure><img src="/museum-entrance-banner-mu12w0v6-v6y0.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+      </div>
+      <div class="sig-gallery">
+        <article class="sig-shot">
+          <figure class="sig-shot__frame"><img src="/community-event-sign-mu13ngzx-8om1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Rotating gallery build, Washington DC</h3>
+          <p>Casework, title wall, label set</p>
+        </article>
+        <article class="sig-shot">
+          <figure class="sig-shot__frame"><img src="/fbi-wanted-display-mu1372so-z1pt.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Visitor center interpretive graphics, Maryland</h3>
+          <p>Wall murals, dimensional letters</p>
+        </article>
+        <article class="sig-shot">
+          <figure class="sig-shot__frame"><img src="/usms-exhibit-display-mu13mugs-hrl8.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Performing arts donor wall, Northern Virginia</h3>
+          <p>Updatable plates, halo lighting</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--ink" id="institutions" aria-labelledby="inst-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="inst-title">Institutions we have built for.</h2>
+        <p>Part of a roster of over 200 partners, including the Smithsonian, the Library of Congress and The Kennedy Center.</p>
+      </div>
+      <ul class="mus-institutions">
+        <li>Smithsonian</li>
+        <li>Library of Congress</li>
+        <li>The Kennedy Center</li>
+        <li>Hirshhorn</li>
+        <li>The Phillips Collection</li>
+        <li>Wolf Trap</li>
+        <li>USDA</li>
+        <li>George Washington University</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sig-section" aria-labelledby="timeline-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="timeline-title">How an exhibition schedule actually runs.</h2>
+        <p>A typical rotating gallery, counted backward from the opening.</p>
+      </div>
+      <ol class="mus-timeline">
+        <li>
+          <p class="mus-timeline__when">Week 10</p>
+          <div class="mus-timeline__body">
+            <h3>Walk the gallery</h3>
+            <p>Field survey with the curator and preparator: wall conditions, lighting positions, door and elevator clearances, and the hours the space is available.</p>
+          </div>
+        </li>
+        <li>
+          <p class="mus-timeline__when">Week 8</p>
+          <div class="mus-timeline__body">
+            <h3>Drawings, samples and a mock-up</h3>
+            <p>Shop drawings and finish samples for approval, plus a printed label mock-up read at distance. Nothing goes into production before that sign-off.</p>
+          </div>
+        </li>
+        <li>
+          <p class="mus-timeline__when">Weeks 6 to 3</p>
+          <div class="mus-timeline__body">
+            <h3>Fabrication and print</h3>
+            <p>Casework built, painted and dry-fitted; graphics printed, laminated and trimmed with <span class="epi-mono">0.125 in</span> bleed and mounted to substrate.</p>
+          </div>
+        </li>
+        <li>
+          <p class="mus-timeline__when">Week 2</p>
+          <div class="mus-timeline__body">
+            <h3>Crate, kit and stage</h3>
+            <p>Everything labeled to its location, packed in the install sequence and held in our facility until the gallery is ready to receive it.</p>
+          </div>
+        </li>
+        <li>
+          <p class="mus-timeline__when">Week 1</p>
+          <div class="mus-timeline__body">
+            <h3>Install, light and punch</h3>
+            <p>Off-hours installation, graphics hung to layout, lighting aimed with your team, then a documented punch walk and touch-up before the opening.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-labelledby="care-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="care-title">The details institutions ask about first.</h2>
+      </div>
+      <div class="mus-notes">
+        <article class="mus-note">
+          <div class="mus-note__rule" aria-hidden="true"></div>
+          <h3>Object safety</h3>
+          <p>Mounts are designed with your preparators. Nothing adhesive touches an object, and materials are selected to avoid off-gassing inside a case.</p>
+        </article>
+        <article class="mus-note">
+          <div class="mus-note__rule" aria-hidden="true"></div>
+          <h3>Access and hours</h3>
+          <p>Installs are phased around public hours, programs and rentals. Nights and weekends are normal for us, not a surcharge conversation on day one.</p>
+        </article>
+        <article class="mus-note">
+          <div class="mus-note__rule" aria-hidden="true"></div>
+          <h3>Accessibility</h3>
+          <p>Label heights, contrast and type sizes follow accessible exhibition guidance, with tactile and braille signage produced in house.</p>
+        </article>
+        <article class="mus-note">
+          <div class="mus-note__rule" aria-hidden="true"></div>
+          <h3>Documentation</h3>
+          <p>You receive as-built drawings, material specs, attic stock and packing photos, so the next team can reinstall without reverse engineering the show.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="specs" aria-labelledby="specs-title">
+    <div class="epi-container sig-spec">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="specs-title">Answers before you write the scope.</h2>
+        <p>What we need, what we hand over and how the schedule usually works.</p>
+      </div>
+      <div class="sig-acc">
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="true" aria-controls="acc-1">
+              What do you need from our team to quote?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-1">
+            <p>A gallery plan, an object or graphic list and your opening date are enough for a first number. Artwork in <span class="epi-mono">.ai</span>, <span class="epi-mono">.eps</span> or <span class="epi-mono">.pdf</span> and a label schedule in a spreadsheet let us quote to the piece rather than to an allowance.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-2">
+              Can you work inside our loan and conservation requirements?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-2" hidden>
+            <p>Yes. We submit material specifications for conservator review, keep object handling with your staff, and schedule so that case work is complete and cured before anything is installed.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-3">
+              How late can labels change?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-3" hidden>
+            <p>Later than most vendors allow. Because printing and mounting are ours, a corrected label set can be reprinted and swapped during install week without moving the opening.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-4">
+              Do you store exhibit components between showings?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-4" hidden>
+            <p>We do. Crated components, event scenic and step and repeats stay in our facility, inventoried, and come back out refreshed for the next run rather than being rebuilt from scratch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>As always, the exhibit was fabulous. It arrived in plenty of time and looked gorgeous, and my board chair and other members commented on how awesome it looked.</blockquote>
+        <figcaption>Events director, cultural institution</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="cta-title">Tell us what opens, and when.</h2>
+        <p>Send the gallery plan, the object list or just the opening date. We will tell you honestly what is possible in the window you have.</p>
+        <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3)">
+          <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+        </p>
+      </div>
+      <form class="sig-form" id="project-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="f-inst">Institution</label>
+          <input id="f-inst" name="institution" type="text" autocomplete="organization">
+        </div>
+        <div>
+          <label for="f-type">Type of show</label>
+          <select id="f-type" name="type">
+            <option>Permanent gallery</option>
+            <option>Rotating exhibition</option>
+            <option>Traveling exhibition</option>
+            <option>Event or gala</option>
+            <option>Donor recognition</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Scope and opening date</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Working with a designer already? Send their drawing set and we will price to it.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

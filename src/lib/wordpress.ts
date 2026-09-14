@@ -1,8 +1,30 @@
 import type { Project, Service, Market, Testimonial, WPPage, SEOMetadata } from '../types/wordpress';
 import { mockProjects, mockServices, mockMarkets, mockTestimonials } from '../data/mock-data';
 
-const WORDPRESS_URL = import.meta.env.WORDPRESS_URL || process.env.WORDPRESS_URL || '';
+const RAW_WP_URL = import.meta.env.WORDPRESS_URL || process.env.WORDPRESS_URL || '';
+const WORDPRESS_AUTH = import.meta.env.WORDPRESS_AUTH || process.env.WORDPRESS_AUTH || '';
 const SITE_URL = (import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321').replace(/\/$/, '');
+
+// Parse any embedded credentials from WORDPRESS_URL if present
+let parsedWpUrl = RAW_WP_URL;
+let wpAuthHeader = WORDPRESS_AUTH;
+
+if (RAW_WP_URL) {
+  try {
+    const u = new URL(RAW_WP_URL);
+    if (u.username || u.password) {
+      const creds = `${decodeURIComponent(u.username)}:${decodeURIComponent(u.password)}`;
+      wpAuthHeader = wpAuthHeader || `Basic ${typeof btoa !== 'undefined' ? btoa(creds) : Buffer.from(creds).toString('base64')}`;
+      u.username = '';
+      u.password = '';
+      parsedWpUrl = u.toString().replace(/\/$/, '');
+    }
+  } catch {
+    // Keep as is
+  }
+}
+
+const WORDPRESS_URL = parsedWpUrl.replace(/\/$/, '');
 
 export function resolveImageUrl(img: any, fallback = ''): string {
   if (!img) return fallback;
@@ -61,9 +83,17 @@ async function fetchFromWP<T>(endpoint: string): Promise<T | null> {
   if (!WORDPRESS_URL) return null;
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 4000);
-    const url = `${WORDPRESS_URL.replace(/\/$/, '')}/wp-json/wp/v2/${endpoint}`;
-    const res = await fetch(url, { signal: controller.signal });
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+    const url = `${WORDPRESS_URL}/wp-json/wp/v2/${endpoint}`;
+    const headers: Record<string, string> = {
+      'Accept': 'application/json',
+    };
+    if (wpAuthHeader) {
+      headers['Authorization'] = wpAuthHeader.startsWith('Basic ')
+        ? wpAuthHeader
+        : `Basic ${typeof btoa !== 'undefined' ? btoa(wpAuthHeader) : Buffer.from(wpAuthHeader).toString('base64')}`;
+    }
+    const res = await fetch(url, { headers, signal: controller.signal });
     clearTimeout(timeoutId);
     if (!res.ok) return null;
     return (await res.json()) as T;

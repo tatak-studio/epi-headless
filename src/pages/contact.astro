@@ -1,94 +1,214 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ContactForm from '../components/ContactForm.astro';
 import { getPageBySlug } from '../lib/wordpress';
 import '../styles/contact.css';
 
 const contactPage = await getPageBySlug('contact');
-const heroHeadline = contactPage?.meta_box?.hero_headline || "Tell us the building, the scope, and the date.";
-const heroSubhead = contactPage?.meta_box?.hero_subhead || "Our production shop and showroom are located in Gaithersburg, Maryland. We service projects across Washington DC, Maryland, and Virginia daily.";
+const heroHeadline = contactPage?.meta_box?.hero_headline || "We cannot wait to work with you.";
+const heroSubhead = contactPage?.meta_box?.hero_subhead || "Whether you are shaping immersive environments, enhancing functionality or telling your brand story, EPI-Colorspace is here to make it unforgettable. Send a scope, a floor plan, a show schedule or a photo of the wall.";
 const phone = contactPage?.meta_box?.phone || "301.990.2666";
-const address = contactPage?.meta_box?.address || "8435 Helgerman Ct\nGaithersburg, MD 20877";
+const address = contactPage?.meta_box?.address || "8435 Helgerman Ct, Gaithersburg, MD 20877";
 const hightailUrl = contactPage?.meta_box?.hightail_url || "https://www.hightail.com/u/epicolorspace";
-const heroImage = contactPage?.meta_box?.lead_image || '/gw-reception-area-mu12cgn5-nh72.jpg';
 ---
 
 <BaseLayout seo={contactPage?.seo}>
-  <section class="sig-hero" aria-labelledby="hero-title">
-    <div class="sig-hero__media">
-      <img src={heroImage} alt="EPI-Colorspace Reception" style="width:100%;height:100%;object-fit:cover;display:block" />
-    </div>
-    <div class="sig-hero__scrim" aria-hidden="true"></div>
-    <div class="epi-container sig-hero__inner">
-      <nav aria-label="Breadcrumb">
-        <ol class="sig-crumbs">
-          <li><a href="/">Home</a></li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page">Contact Us</li>
-        </ol>
-      </nav>
-      <h1 class="epi-display-2 sig-hero__title" id="hero-title">
-        {heroHeadline}
-      </h1>
-      <p class="sig-hero__lede">
-        {heroSubhead}
-      </p>
-    </div>
-    <div class="sig-hero__rule" aria-hidden="true"></div>
-  </section>
-
-  <!-- Location and Contacts Split -->
-  <section class="sig-section" aria-labelledby="info-title">
-    <div class="epi-container sig-split">
-      <div class="sig-split__copy">
-        <h2 class="epi-h1" id="info-title">Direct lines to the people who build it.</h2>
+  <!-- Section 1: Hero Split with Direct Info & Form -->
+  <section class="sig-section sig-section--ink" aria-labelledby="ct-title">
+    <div class="epi-container ct-top">
+      <div class="ct-intro">
+        <nav aria-label="Breadcrumb">
+          <ol class="sig-crumbs">
+            <li><a href="/">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Contact Us</li>
+          </ol>
+        </nav>
+        <h1 id="ct-title">{heroHeadline}</h1>
+        <p>{heroSubhead}</p>
         <p>
-          You speak with experienced project managers and estimators who understand substrate durability, union regulations, and strict opening night deadlines.
+          One call reaches the people who design, print, build and hang the work. No account layer, no handoff to a subcontractor in the middle of your schedule.
         </p>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:var(--space-6);margin-top:var(--space-6)">
-          <div style="padding:var(--space-5);background:var(--paper-warm);border-left:3px solid var(--surface-brand)">
-            <h3 class="epi-h3">Call Us</h3>
-            <p style="margin-top:var(--space-2);font-size:var(--text-h4);font-weight:var(--weight-bold);font-family:var(--font-display)">
-              <a href={`tel:${phone.replace(/[^0-9]/g, '')}`} style="color:var(--text-primary)">{phone}</a>
-            </p>
-            <p style="margin-top:var(--space-2);font-size:var(--text-caption);color:var(--text-secondary)">
-              Monday–Friday: 8:00 AM – 5:00 PM EST
-            </p>
+        <dl class="ct-direct">
+          <div>
+            <dt>Call</dt>
+            <dd><a href={`tel:${phone.replace(/[^0-9]/g, '')}`}>{phone}</a></dd>
+            <small>Monday to Friday, 8:30am to 5:00pm Eastern</small>
           </div>
-
-          <div style="padding:var(--space-5);background:var(--paper-warm);border-left:3px solid var(--ink-950)">
-            <h3 class="epi-h3">Large File Transfer</h3>
-            <p style="margin-top:var(--space-2);font-size:var(--text-body-sm);color:var(--text-secondary)">
-              Send press-ready artwork, high-res PDFs and CAD floor plans up to 100 GB.
-            </p>
-            <p style="margin-top:var(--space-3)">
-              <a class="epi-btn epi-btn--sm" href={hightailUrl} target="_blank" rel="noopener noreferrer">
-                Open Hightail Drop &rarr;
-              </a>
-            </p>
+          <div>
+            <dt>Visit the shop</dt>
+            <dd>8435 Helgerman Ct</dd>
+            <small>Gaithersburg, MD 20877. Serving DC, Maryland and Virginia.</small>
           </div>
-        </div>
-
-        <div style="margin-top:var(--space-6)">
-          <h3 class="epi-h3">Production Facility &amp; Showroom</h3>
-          <address style="font-style:normal;margin-top:var(--space-2);color:var(--text-secondary);line-height:var(--leading-body)">
-            EPI-Colorspace<br />
-            8435 Helgerman Ct<br />
-            Gaithersburg, MD 20877
-          </address>
-        </div>
+          <div>
+            <dt>Send large files</dt>
+            <dd><a href={hightailUrl} target="_blank" rel="noopener noreferrer">Send Files &rarr;</a></dd>
+            <small>Artwork too large to email goes through our transfer link (up to 100 GB).</small>
+          </div>
+        </dl>
       </div>
 
-      <figure class="sig-frame">
-        <img src="/building-facade-graphics-mu13937x-72if.jpg" alt="EPI-Colorspace headquarters" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+      <!-- Form Card -->
+      <div class="ct-card" id="contact-form">
+        <div class="ct-card__rule" aria-hidden="true"></div>
+        <div class="ct-card__inner">
+          <h2>Start Your Project</h2>
+          <p>Tell us what needs to be made and when it has to be on the wall.</p>
+          <form class="ct-form" id="main-contact-form" novalidate>
+            <p class="ct-status" id="ct-form-status" role="status" hidden></p>
+            <div>
+              <label for="c-name">Name</label>
+              <input id="c-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="c-email">Work email</label>
+              <input id="c-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="c-phone">Phone number</label>
+              <input id="c-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <div>
+              <label for="c-market">Market / Sector</label>
+              <select id="c-market" name="market">
+                <option>Museums &amp; Cultural</option>
+                <option>Universities</option>
+                <option>Commercial Real Estate</option>
+                <option>Corporate</option>
+                <option>Retail</option>
+                <option>Construction</option>
+                <option>Other / Not sure</option>
+              </select>
+            </div>
+            <div class="ct-form__full">
+              <label for="c-scope">Scope and target installation date</label>
+              <textarea id="c-scope" name="scope" required placeholder="Describe the project, dimensions, locations, materials and desired completion date..."></textarea>
+            </div>
+            <div class="ct-form__full">
+              <button class="epi-btn epi-btn--block" type="submit">Submit Project Inquiry</button>
+              <p class="ct-form__note" style="margin-top:var(--space-3)">
+                Files too large to email? Use our <a href={hightailUrl} target="_blank" rel="noopener noreferrer" style="text-decoration:underline">Hightail transfer drop</a>.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Location and Directions -->
+  <section class="sig-section" aria-labelledby="place-title">
+    <div class="epi-container ct-place">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="place-title">One shop in Gaithersburg, work across the DMV.</h2>
+        <p>
+          Design, large format print, fabrication, crating and installation all happen in the same building. You are welcome to come see a proof on the substrate before it goes into production.
+        </p>
+        <dl class="ct-hours">
+          <div>
+            <dt>Monday to Friday</dt>
+            <dd>8:30am to 5:00pm</dd>
+          </div>
+          <div>
+            <dt>Saturday and Sunday</dt>
+            <dd>Install crews by schedule</dd>
+          </div>
+          <div>
+            <dt>Shop visits</dt>
+            <dd>By appointment</dd>
+          </div>
+          <div>
+            <dt>Deliveries</dt>
+            <dd>Rear dock, weekdays</dd>
+          </div>
+        </dl>
+        <p style="margin-top:var(--space-5)">
+          <a class="epi-btn epi-btn--secondary" href="https://maps.google.com/?q=8435+Helgerman+Ct+Gaithersburg+MD+20877" target="_blank" rel="noopener noreferrer">
+            Get directions &rarr;
+          </a>
+        </p>
+      </div>
+      <figure class="ct-place__media" style="min-height:420px">
+        <iframe
+          title="Map of EPI-Colorspace, 8435 Helgerman Ct, Gaithersburg, MD 20877"
+          src="https://www.google.com/maps?q=8435+Helgerman+Ct,+Gaithersburg,+MD+20877&output=embed"
+          style="width:100%;height:100%;min-height:420px;border:0;display:block;border-radius:8px"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
       </figure>
     </div>
   </section>
 
-  <!-- Form Component -->
-  <ContactForm
-    heading="Send us your project scope"
-    subheading="Fill out the details below and an experienced project manager will follow up within one business day."
-  />
+  <!-- Section 3: Not sure who you need? -->
+  <section class="sig-section sig-section--warm" aria-labelledby="routes-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="routes-title">Not sure who you need?</h2>
+        <p>Start here and we will put the right person on it.</p>
+      </div>
+      <div class="ct-routes">
+        <article class="ct-route">
+          <h3>New project or estimate</h3>
+          <p>Send a scope and a date. If you have drawings or a sign schedule, price comes back to the piece rather than to an allowance.</p>
+          <a href="#contact-form">Use the form &rarr;</a>
+        </article>
+        <article class="ct-route">
+          <h3>Reprint or repair</h3>
+          <p>We keep your artwork, sign schedule and hardware specs on file, so a damaged panel is usually a reprint and a service call.</p>
+          <a href={`tel:${phone.replace(/[^0-9]/g, '')}`}>Call {phone} &rarr;</a>
+        </article>
+        <article class="ct-route">
+          <h3>Tradeshow logistics</h3>
+          <p>Show dates, drayage deadlines and stored properties. Booth programs live with our tradeshow team year round.</p>
+          <a href="/services/tradeshows">Tradeshow services &rarr;</a>
+        </article>
+        <article class="ct-route">
+          <h3>Sending artwork</h3>
+          <p>Vector files in <span class="epi-mono">.ai</span>, <span class="epi-mono">.eps</span> or <span class="epi-mono">.pdf</span>, raster art at final size with <span class="epi-mono">0.125 in</span> bleed.</p>
+          <a href={hightailUrl} target="_blank" rel="noopener noreferrer">Send Files &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Client Feedback Quote -->
+  <section class="sig-section" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>
+          So much is thrown at me during final preparations that major balls start dropping. I am glad I can count on you and your team.
+        </blockquote>
+        <figcaption>Tradeshow manager, medical technology company</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Form submit handler -->
+  <script is:inline>
+    (function () {
+      var form = document.getElementById('main-contact-form');
+      var status = document.getElementById('ct-form-status');
+      if (form && status) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            status.hidden = false;
+            status.textContent = 'Please fill out all required fields with a valid email address.';
+            status.style.backgroundColor = '#ffe4e6';
+            status.style.color = '#e11d48';
+            return;
+          }
+          var btn = form.querySelector('button[type="submit"]');
+          if (btn) btn.disabled = true;
+          status.hidden = false;
+          status.textContent = 'Thank you! Your project inquiry has been received. Our team will contact you within one business day.';
+          status.style.backgroundColor = '#dcfce7';
+          status.style.color = '#15803d';
+          form.reset();
+        });
+      }
+    })();
+  </script>
 </BaseLayout>

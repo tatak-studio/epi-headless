@@ -1,18 +1,110 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ContactForm from '../../components/ContactForm.astro';
 import { getServices, getPageBySlug } from '../../lib/wordpress';
 import '../../styles/services.css';
 
 const services = await getServices();
 const pageData = await getPageBySlug('services');
-const heroHeadline = pageData?.meta_box?.hero_headline || "Single-shop partner for high-impact environmental graphics.";
-const heroSubhead = pageData?.meta_box?.hero_subhead || "Design, large format print, fabrication, logistics and on-site installation across DC, Maryland and Virginia. Everything produced in Gaithersburg, Maryland.";
+const heroHeadline = pageData?.meta_box?.hero_headline || "For over 20 years, EPI-Colorspace has been a trusted partner in delivering high-impact graphics, expert printing, fabrication and installation services to create immersive brand experiences.";
+const heroSubhead = pageData?.meta_box?.hero_subhead || "From initial concept development through fabrication and final installation, we are your single-shop partner for tradeshows, exhibits, signage, large format print, corporate branding and environmental graphics.";
 const heroImage = pageData?.meta_box?.lead_image || '/exhibit-booth-display-mu12smxg-u4qk.jpg';
+
+const serviceDataList = [
+  {
+    num: '01',
+    id: 'tradeshows',
+    slug: 'tradeshows',
+    title: 'Tradeshows',
+    kicker: 'From Concept to Execution we help our Clients create a Show-Stopping Presence.',
+    lede: 'Our comprehensive trade show services allow for impactful solutions that will captivate audiences. From initial concept development through to on-site installation, dismantle and year-round storage, our team handles every aspect of your booth footprint.',
+    scope: 'Inline booths, double inlines, 20x20 islands, multi-city roadshow kits, crating, freight, drayage coordination, installation and post-show storage.',
+    points: [
+      { title: 'Turnkey footprint', desc: 'Structure, tension fabric, hard panels, lighting and literature displays built to your exact space.' },
+      { title: 'Drayage & logistics', desc: 'Crated, shipped, tracked and spotted on the exhibit hall floor before your booth staff arrives.' },
+      { title: 'Storage & refresh', desc: 'Inventoried in our Gaithersburg warehouse between shows, repaired and prepped for the next city.' },
+    ],
+    image: '/trade-show-printer-mu13gi32-4z7q.jpg',
+  },
+  {
+    num: '02',
+    id: 'exhibits-and-displays',
+    slug: 'exhibits-and-displays',
+    title: 'Exhibits & Displays',
+    kicker: 'Museum-grade vitrines, casework, interpretive graphics and interactive stations.',
+    lede: 'Custom exhibition fabrication for galleries, visitor centers, pop-up activations and cultural institutions. Built twice: dry-fit and photographed on our Gaithersburg floor, then installed around public hours.',
+    scope: 'Conservation vitrines, interpretive rails, artifact mounts, title walls, directional signage and interactive touch kiosks.',
+    points: [
+      { title: 'Conservation standards', desc: 'Museum-safe adhesives, archival paints, non-offgassing substrates and secure locking hardware.' },
+      { title: 'Shop pre-build', desc: 'Every case and wall is fully dry-fit in our facility to verify sightlines and tolerances before crating.' },
+      { title: 'Off-hours installation', desc: 'Crews work overnight and on dark days so public gallery hours remain completely uninterrupted.' },
+    ],
+    image: '/anacostia-exhibit-wall-mu13p5yi-dm4c.jpg',
+  },
+  {
+    num: '03',
+    id: 'signage-solutions',
+    slug: 'signage-solutions',
+    title: 'Signage Solutions',
+    kicker: 'From Concept to Execution we help our Clients own every Sightline.',
+    lede: 'Wayfinding, architectural letters, parking structure graphics and construction perimeter branding engineered to survive weather, heavy foot traffic and rigorous code inspection across the DMV.',
+    scope: 'Dimensional logos, illuminated letters, exterior monument signs, ADA room identifiers, garage column wraps and wind-rated mesh fencing.',
+    points: [
+      { title: 'Site survey first', desc: 'Laser measurements, wall condition reviews and substrate testing conducted before artwork is finalized.' },
+      { title: 'Code & permits', desc: 'Engineering drawings, wind-load calculations and permit-ready sign packages for local jurisdictions.' },
+      { title: 'Licensed rigging', desc: 'Certified lift operators and riggers equipped to install on concrete, masonry, glass and structural steel.' },
+    ],
+    image: '/parking-notice-sign-mu13jclv-qgtf.jpg',
+  },
+  {
+    num: '04',
+    id: 'large-format-printing',
+    slug: 'large-format-printing',
+    title: 'Large Format Printing',
+    kicker: 'G7-calibrated color fidelity across rigid boards, roll films, textiles and mesh.',
+    lede: 'Direct-to-substrate UV flatbed printing, latex roll output and dye-sublimation tension fabric printing up to 126 inches wide. Color corrections on Tuesday still ship on Thursday from our single Gaithersburg floor.',
+    scope: 'Oversized building banners, retail window vinyl, barricade murals, floor graphics, backlit lightbox films and photographic wallcoverings.',
+    points: [
+      { title: 'Cross-media matching', desc: 'One brand color held tight whether printed on acrylic, aluminum composite, banner vinyl or tension fabric.' },
+      { title: 'Physical proofing', desc: 'Color swatches printed directly on the specified production substrate, not simulated on a monitor.' },
+      { title: 'Digital finishing', desc: 'CNC knife and router cutting, welded hems, heavy-duty brass grommets and silicone edge beading (SEG).' },
+    ],
+    image: '/retail-window-wrap-mu13ikr7-460d.jpg',
+  },
+  {
+    num: '05',
+    id: 'corporate-branding',
+    slug: 'corporate-branding',
+    title: 'Corporate Branding',
+    kicker: 'Transforming workplaces into immersive expressions of company culture and identity.',
+    lede: 'Lobby feature walls, executive suite branding, dimensional logo plaques, timeline displays and custom art framing installed floor by floor without disrupting daily business operations.',
+    scope: 'Reception branding, acoustic felt murals, frosted glass privacy films, donor recognition rails and architectural signage rollouts.',
+    points: [
+      { title: 'Occupied space install', desc: 'Quiet, clean installation during evenings and weekends with zero dust or hazardous fumes.' },
+      { title: 'Architectural materials', desc: 'Brushed aluminum, blackened steel, polished acrylic, natural woods and custom color-matched laminates.' },
+      { title: 'Corporate rollouts', desc: 'Consistent brand standards delivered across multiple regional offices throughout DC, Maryland and Virginia.' },
+    ],
+    image: '/spiral-lobby-graphics-mu13h9gi-cfz7.jpg',
+  },
+  {
+    num: '06',
+    id: 'environmental-graphics',
+    slug: 'environmental-graphics',
+    title: 'Environmental Graphics',
+    kicker: 'Seamless murals, architectural films and spatial graphics that redefine interiors.',
+    lede: 'From floor-to-ceiling atrium supergraphics and elevator lobby wraps to ADA-compliant wayfinding systems, we bring architectural spaces to life with materials engineered for longevity and scrub resistance.',
+    scope: 'Custom printed wallcoverings, cast vinyl wraps, optical clear window films, textured floor graphics and illuminated architectural features.',
+    points: [
+      { title: 'Substrate testing', desc: 'Adhesion testing on drywall textures, low-VOC paints, glass and sealed concrete to ensure permanent hold.' },
+      { title: 'Seam mapping', desc: 'Careful tile planning around doors, HVAC vents, sprinkler heads and architectural reveals.' },
+      { title: 'Durability ratings', desc: 'Class A fire-rated media and protective matte laminates that resist scuffs, fading and harsh cleaning agents.' },
+    ],
+    image: '/building-facade-graphics-mu13937x-72if.jpg',
+  },
+];
 ---
 
 <BaseLayout seo={pageData?.seo}>
-  <!-- Hero -->
+  <!-- Section 1: Hero -->
   <section class="sig-hero" aria-labelledby="hero-title">
     <div class="sig-hero__media">
       <img src={heroImage} alt="EPI-Colorspace Services" style="width:100%;height:100%;object-fit:cover;display:block" />
@@ -33,97 +125,261 @@ const heroImage = pageData?.meta_box?.lead_image || '/exhibit-booth-display-mu12
         {heroSubhead}
       </p>
       <div class="sig-hero__actions">
-        <a class="epi-btn epi-btn--lg" href="#all">Our 5 Service Lines</a>
+        <a class="epi-btn epi-btn--lg" href="#all-title">Explore Services</a>
         <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/contact">Start Your Project</a>
       </div>
     </div>
     <div class="sig-hero__rule" aria-hidden="true"></div>
   </section>
 
-  <!-- Detailed Service Rows -->
-  <section class="sig-section" id="all" aria-labelledby="all-title">
-    <div class="epi-container">
-      <div class="sig-head">
-        <h2 class="epi-h1" id="all-title">Five service lines, one production floor.</h2>
-        <p>Because nothing leaves our Gaithersburg building for a third-party subcontractor, we control quality, timelines, and installation precision.</p>
+  <!-- Section 2: Promise Split Section -->
+  <section class="sig-section" aria-labelledby="promise-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="promise-title">
+          EPI-Colorspace provides diverse services across industries, creating impactful experiences and helping partners achieve their marketing goals.
+        </h2>
+        <p>
+          We pride ourselves on delivering unmatched levels of responsiveness, unwavering commitment and extensive industry knowledge. Whether you are shaping immersive environments, enhancing functionality or telling your brand's story, EPI-Colorspace is here to make it unforgettable.
+        </p>
+        <p>
+          Every graphic is printed in our own shop in Gaithersburg, every piece is inspected before shipping, and our own team is on site to install it.
+        </p>
+        <dl class="sig-facts">
+          <div>
+            <dt>Production</dt>
+            <dd>100% in-house</dd>
+          </div>
+          <div>
+            <dt>Coverage</dt>
+            <dd>DC, MD, VA</dd>
+          </div>
+          <div>
+            <dt>Install team</dt>
+            <dd>Certified crew</dd>
+          </div>
+        </dl>
       </div>
+      <figure class="sig-frame">
+        <img src="/gw-reception-area-mu12cgn5-nh72.jpg" alt="EPI-Colorspace craftsmanship and production" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+      </figure>
+    </div>
+  </section>
 
-      <div style="display:flex;flex-direction:column;gap:clamp(3rem,6vw,5rem);margin-top:clamp(2rem,4vw,3.5rem)">
-        {services.map((svc, index) => (
-          <article class="sig-split" style={`padding-bottom:clamp(2rem,4vw,3.5rem);${index < services.length - 1 ? 'border-bottom:1px solid var(--border-subtle)' : ''}`}>
-            <div class="sig-split__copy">
-              <p class="sig-kicker">Service {svc.meta_box.service_number || `0${index + 1}`}</p>
-              <h2 class="epi-h1">
-                <a href={`/services/${svc.slug}`} style="color:inherit;text-decoration:none">
-                  {typeof svc.title === 'string' ? svc.title : svc.title.rendered}
-                </a>
-              </h2>
-              {svc.meta_box.kicker && <p style="font-weight:var(--weight-semibold);color:var(--text-accent);margin-top:var(--space-2)">{svc.meta_box.kicker}</p>}
-              <p style="margin-top:var(--space-3)">{svc.meta_box.summary}</p>
-              {svc.meta_box.turnkey_scope && (
-                <p style="font-size:var(--text-body-sm);color:var(--text-secondary);margin-top:var(--space-3);padding:var(--space-3);background:var(--paper-warm);border-left:3px solid var(--surface-brand)">
-                  <strong>Turnkey scope:</strong> {svc.meta_box.turnkey_scope}
-                </p>
-              )}
-              {svc.meta_box.capabilities && svc.meta_box.capabilities.length > 0 && (
-                <ul class="cs-highlights" style="margin-top:var(--space-4)">
-                  {svc.meta_box.capabilities.slice(0, 4).map((c) => (
-                    <li>{c}</li>
-                  ))}
-                </ul>
-              )}
-              <p style="margin-top:var(--space-5)">
-                <a class="epi-btn epi-btn--secondary" href={`/services/${svc.slug}`}>
-                  Deep Dive: {typeof svc.title === 'string' ? svc.title : svc.title.rendered} &rarr;
-                </a>
+  <!-- Section 3: Sticky Index + 6 Deep-Dive Service Blocks -->
+  <section class="sig-section sig-section--warm" aria-labelledby="all-title">
+    <div class="epi-container svc-layout">
+      <!-- Sticky Sidebar Navigation -->
+      <nav class="svc-index" aria-labelledby="index-title">
+        <h2 id="index-title">Our Services</h2>
+        <div class="svc-index__rule" aria-hidden="true"></div>
+        <ol>
+          {serviceDataList.map((svc) => (
+            <li>
+              <a href={`#${svc.id}`}>
+                <em>{svc.num}</em>
+                <span>{svc.title}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <!-- Services Content Column -->
+      <div>
+        <h2 class="epi-h1" id="all-title" style="max-width:var(--measure-wide)">
+          Creative solutions for projects of any size.
+        </h2>
+
+        {serviceDataList.map((svc) => (
+          <article class="svc-block" id={svc.id} aria-labelledby={`${svc.id}-title`}>
+            <div class="svc-block__head">
+              <p class="svc-block__num">{svc.num}</p>
+              <h2 class="epi-h1" id={`${svc.id}-title`}>{svc.title}</h2>
+              <p class="svc-block__kicker">{svc.kicker}</p>
+              <p class="svc-block__lede">{svc.lede}</p>
+              <p style="font-size:var(--text-body-sm);color:var(--text-secondary);padding:var(--space-3) var(--space-4);background:var(--paper);border-left:3px solid var(--surface-brand);margin-top:var(--space-2)">
+                <strong>Turnkey scope:</strong> {svc.scope}
               </p>
             </div>
-            <figure class="sig-frame">
-              <img
-                src={svc.meta_box.lead_image || '/trade-show-printer-mu13gi32-4z7q.jpg'}
-                alt={typeof svc.title === 'string' ? svc.title : svc.title.rendered}
-                style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)"
-                loading="lazy"
-              />
-            </figure>
+
+            <div class="svc-block__grid">
+              <ul class="svc-points">
+                {svc.points.map((pt) => (
+                  <li>
+                    <strong>{pt.title}</strong>
+                    <span>{pt.desc}</span>
+                  </li>
+                ))}
+              </ul>
+              <figure class="svc-block__media">
+                <img
+                  src={svc.image}
+                  alt={svc.title}
+                  loading="lazy"
+                  style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)"
+                />
+              </figure>
+            </div>
+
+            <div class="svc-block__actions">
+              <a class="epi-btn epi-btn--secondary" href={`/services/${svc.slug}`}>
+                Deep dive: {svc.title} &rarr;
+              </a>
+              <a class="epi-btn epi-btn--outline" href="#contact">
+                Get an Estimate
+              </a>
+            </div>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Process Section -->
-  <section class="sig-section sig-section--warm" aria-labelledby="process-title">
+  <!-- Section 4: How Every Service Line Runs -->
+  <section class="sig-section sig-section--ink" aria-labelledby="flow-title">
     <div class="epi-container">
       <div class="sig-head">
-        <h2 class="epi-h1" id="process-title">How we work: from concept to execution.</h2>
-        <p>A proven four-stage methodology tested over two decades across the DMV.</p>
+        <h2 class="epi-h1" id="flow-title" style="color:var(--paper)">Every service line runs the same way.</h2>
+        <p style="color:rgba(255,255,255,.8)">One point of contact, four phases and no handoff to a subcontractor in the middle.</p>
       </div>
-      <div class="home-caps" style="margin-top:clamp(1.5rem,3vw,2.5rem)">
-        <article style="background:var(--paper);padding:var(--space-6);border:1px solid var(--border-subtle);border-radius:var(--radius-md)">
-          <p style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--text-accent)">PHASE 01</p>
-          <h3 style="margin-top:var(--space-2)">Concept &amp; Scope</h3>
-          <p>We review blueprints, site photography, substrates, and access windows to build an accurate, realistic estimate.</p>
+      <div class="svc-flow">
+        <article>
+          <em>01</em>
+          <h3>Concept</h3>
+          <p>Survey, brand review and concept development, priced against the date you have to hit.</p>
         </article>
-        <article style="background:var(--paper);padding:var(--space-6);border:1px solid var(--border-subtle);border-radius:var(--radius-md)">
-          <p style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--text-accent)">PHASE 02</p>
-          <h3 style="margin-top:var(--space-2)">Pre-Flight &amp; Proofing</h3>
-          <p>Color proofing against physical Pantone standards and physical material mockups to verify opacity and alignment.</p>
+        <article>
+          <em>02</em>
+          <h3>Design</h3>
+          <p>Drawings, in-context renderings and substrate proofs approved before anything is produced.</p>
         </article>
-        <article style="background:var(--paper);padding:var(--space-6);border:1px solid var(--border-subtle);border-radius:var(--radius-md)">
-          <p style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--text-accent)">PHASE 03</p>
-          <h3 style="margin-top:var(--space-2)">In-House Fabrication</h3>
-          <p>Flatbed direct print, CNC routing, custom framing and crate packing carried out in our Gaithersburg shop.</p>
+        <article>
+          <em>03</em>
+          <h3>Production</h3>
+          <p>Large format print, CNC routing, welding, paint and finishing on our own floor.</p>
         </article>
-        <article style="background:var(--paper);padding:var(--space-6);border:1px solid var(--border-subtle);border-radius:var(--radius-md)">
-          <p style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--text-accent)">PHASE 04</p>
-          <h3 style="margin-top:var(--space-2)">Installation &amp; Punch</h3>
-          <p>Our own installers arrive with lift equipment and rigging gear, executing the install and closing the punch list.</p>
+        <article>
+          <em>04</em>
+          <h3>Delivery &amp; Install</h3>
+          <p>Crating, freight, licensed install crews, punch walk and storage until the next run.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <ContactForm />
+  <!-- Section 5: Where These Services Get Used -->
+  <section class="sig-section" aria-labelledby="markets-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="markets-title">Where these services get used.</h2>
+        <p>The same five lines serve very different buildings. Start with the market closest to yours.</p>
+      </div>
+      <div class="sig-cards">
+        <article class="sig-card">
+          <h3 class="epi-h3">Museums &amp; Cultural</h3>
+          <p>Gallery-grade fabrication, interpretive graphics and installs scheduled around public hours.</p>
+          <p style="margin-top:auto;padding-top:var(--space-4)">
+            <a class="epi-btn epi-btn--sm epi-btn--secondary" href="/markets/museums-and-cultural">Learn More &rarr;</a>
+          </p>
+        </article>
+        <article class="sig-card">
+          <h3 class="epi-h3">Commercial Real Estate</h3>
+          <p>Leasing graphics, lobby branding and permanent garage signage for occupied, multi-tenant buildings.</p>
+          <p style="margin-top:auto;padding-top:var(--space-4)">
+            <a class="epi-btn epi-btn--sm epi-btn--secondary" href="/markets/commercial-real-estate">Learn More &rarr;</a>
+          </p>
+        </article>
+        <article class="sig-card">
+          <h3 class="epi-h3">Corporate &amp; Retail</h3>
+          <p>Workplace environmental graphics, murals and storefront programs rolled out location by location.</p>
+          <p style="margin-top:auto;padding-top:var(--space-4)">
+            <a class="epi-btn epi-btn--sm epi-btn--secondary" href="/markets">See our Markets &rarr;</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Client Feedback Quote -->
+  <section class="sig-section sig-section--warm" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>It is always a joy to work with vendors that are more like partners and extensions of our team than just service providers.</blockquote>
+        <figcaption>Communications lead, national nonprofit</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Section 7: CTA Form -->
+  <section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="cta-title">Tell us which service you need, or describe the problem and we will pick.</h2>
+        <p>Send a scope, a floor plan, a show schedule or a photo of the wall. We cannot wait to work with you.</p>
+        <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3)">
+          <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+        </p>
+      </div>
+      <form class="sig-form" id="service-inquiry-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div>
+          <label for="f-service">Service needed</label>
+          <select id="f-service" name="service">
+            <option>Tradeshows</option>
+            <option>Exhibits &amp; Displays</option>
+            <option>Signage Solutions</option>
+            <option>Large Format Printing</option>
+            <option>Corporate Branding</option>
+            <option>Environmental Graphics</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-org">Organization</label>
+          <input id="f-org" name="organization" type="text" autocomplete="organization" />
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Scope and target date</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Send Service Request</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Files too large to email? Mention it and we will send a transfer link.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Interactive ScrollSpy for Sticky Navigation -->
+  <script is:inline>
+    (function () {
+      var navLinks = document.querySelectorAll('.svc-index a');
+      if (!navLinks.length) return;
+
+      var blocks = document.querySelectorAll('.svc-block');
+      window.addEventListener('scroll', function () {
+        var fromTop = window.scrollY + 160;
+        blocks.forEach(function (block) {
+          if (block.offsetTop <= fromTop && block.offsetTop + block.offsetHeight > fromTop) {
+            navLinks.forEach(function (link) {
+              link.removeAttribute('aria-current');
+              if (link.getAttribute('href') === '#' + block.id) {
+                link.setAttribute('aria-current', 'true');
+              }
+            });
+          }
+        });
+      }, { passive: true });
+    })();
+  </script>
 </BaseLayout>

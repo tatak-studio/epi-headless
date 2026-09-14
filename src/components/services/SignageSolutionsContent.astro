@@ -1,0 +1,403 @@
+---
+interface Props {
+  service?: any;
+}
+const { service } = Astro.props;
+import '../../styles/signage-solutions.css';
+---
+
+<div class="epi-drawer" id="drawer" hidden>
+  <div class="sig-drawer__head">
+    <img class="sig-logo sig-logo--drawer" src="assets/epi-colorspace-logo.png" alt="EPI-Colorspace">
+    <button class="epi-iconbtn" type="button" id="drawer-close" aria-label="Close menu" style="color:#fff">
+      <span class="epi-icon" style="width:20px;height:20px" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.75"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </span>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      <li>
+        <a class="epi-drawer__link" href="/services">Services</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/services/tradeshows">Tradeshows</a></li>
+          <li><a href="/services/exhibits-and-displays">Exhibits &amp; Displays</a></li>
+          <li><a href="/services/signage-solutions">Signage Solutions</a></li>
+          <li><a href="/services/large-format-printing">Large Format Printing</a></li>
+          <li><a href="/services/corporate-branding">Corporate Branding</a></li>
+          <li><a href="/services/environmental-graphics">Environmental Graphics</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="/projects">Projects</a></li>
+      <li><a class="epi-drawer__link" href="/markets">Markets</a></li>
+      <li><a class="epi-drawer__link" href="https://www.hightail.com/u/epicolorspace" rel="noopener">Send Files</a></li>
+      <li><a class="epi-drawer__link" href="/contact">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="sig-drawer__actions">
+    <a class="epi-btn epi-btn--block" href="/contact">Start Your Project</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src="/commanders-building-banner-mu13bbnp-up6d.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="#main">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="#capabilities">Services</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Signage Solutions</li>
+        </ol>
+      </nav>
+      <p class="sig-kicker">From Concept to Execution we help our Clients own every Sightline.</p>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">Signage that directs, brands and holds up, from the sidewalk to the top deck of the garage.</h1>
+      <p class="sig-hero__lede">EPI-Colorspace designs, fabricates and installs exterior signage, retail graphics, permanent garage signage and wayfinding across the DMV. One shop carries the work from survey through the final punch walk, so the schedule stays yours.</p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="#start">Start Your Project</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See our Projects</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <section class="sig-section" aria-labelledby="intro-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="intro-title">For over 20 years, EPI-Colorspace has been a trusted partner for signage that has to survive weather, traffic and inspection.</h2>
+        <p>We specialize in transforming a wide variety of spaces, from construction sites and retail centers to parking structures and campus wayfinding networks, into clear, high-impact brand environments. Print, fabrication, logistics and installation all sit under one roof in Gaithersburg, which is why a change on Thursday can still hang on Monday.</p>
+        <p>Every program starts with a site survey and ends with a walk-through. In between you get precision craftsmanship, permit-ready drawings and a crew that knows how to work a live building without shutting it down.</p>
+        <dl class="sig-facts">
+          <div>
+            <dt>Coverage</dt>
+            <dd>DC, Maryland, Virginia</dd>
+          </div>
+          <div>
+            <dt>Shop</dt>
+            <dd>Gaithersburg, MD</dd>
+          </div>
+          <div>
+            <dt>Scope</dt>
+            <dd>Survey to install</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="sig-frame">
+        <img src="/parking-notice-sign-mu13jclv-qgtf.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" id="capabilities" aria-labelledby="cap-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="cap-title">Four signage programs, built to the same standard.</h2>
+        <p>Each one is a turnkey scope: design, engineering, print, fabrication, delivery and installation, quoted as a single line item.</p>
+      </div>
+      <div class="sig-cards">
+        <article class="sig-card">
+          <p class="sig-card__num">01</p>
+          <h3 class="epi-h3">Exterior &amp; Construction Signage</h3>
+          <p>Durable, weather-resistant banners and wraps for construction branding and retail leasing, engineered for wind load and years of sun.</p>
+          <ul>
+            <li><strong>Site fence wraps:</strong> Mesh and scrim vinyl printed for full-perimeter coverage.</li>
+            <li><strong>Leasing displays:</strong> Post-and-panel and building banners that read from the road.</li>
+            <li><strong>Hardware:</strong> Aluminum frames, welded posts and tension systems we install ourselves.</li>
+          </ul>
+        </article>
+        <article class="sig-card">
+          <p class="sig-card__num">02</p>
+          <h3 class="epi-h3">Retail Graphics</h3>
+          <p>Window, wall and interior graphics that move a storefront from generic to unmistakable, rolled out consistently across locations.</p>
+          <ul>
+            <li><strong>Window systems:</strong> Perforated, frosted and full-color first-surface prints.</li>
+            <li><strong>Dimensional letters:</strong> Acrylic, aluminum and halo-lit sets with pattern install.</li>
+            <li><strong>Rollouts:</strong> Kitted, labeled and shipped by store, with install crews scheduled overnight.</li>
+          </ul>
+        </article>
+        <article class="sig-card">
+          <p class="sig-card__num">03</p>
+          <h3 class="epi-h3">Permanent Garage Signage</h3>
+          <p>Level identification, clearance bars, striping graphics and code signage for parking structures that see traffic every hour of the day.</p>
+          <ul>
+            <li><strong>Level ID:</strong> Painted and panel systems sized for driver sightlines.</li>
+            <li><strong>Clearance &amp; safety:</strong> Reflective, regulation-compliant bars and posted notices.</li>
+            <li><strong>Maintenance:</strong> Scheduled refresh and replacement for high-abrasion surfaces.</li>
+          </ul>
+        </article>
+        <article class="sig-card">
+          <p class="sig-card__num">04</p>
+          <h3 class="epi-h3">Wayfinding</h3>
+          <p>Immersive, legible wayfinding for museums, universities and commercial real estate, from the curb to the last room number.</p>
+          <ul>
+            <li><strong>Nomenclature:</strong> Naming, numbering and message schedules documented before fabrication.</li>
+            <li><strong>ADA compliance:</strong> Tactile and Grade 2 braille signage produced in house.</li>
+            <li><strong>Systems:</strong> Modular holders that let a tenant change without a new sign.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--ink" id="process" aria-labelledby="process-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="process-title">How a signage program actually gets built.</h2>
+        <p>Four phases, one point of contact. Select a phase to see what we hand over and what we need from you.</p>
+      </div>
+      <div class="sig-process">
+        <div class="sig-tabs" role="tablist" aria-label="Signage program phases">
+          <button class="sig-tab" type="button" role="tab" id="tab-survey" aria-controls="panel-survey" aria-selected="true"><span>01</span>Survey</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-design" aria-controls="panel-design" aria-selected="false" tabindex="-1"><span>02</span>Design</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-fab" aria-controls="panel-fab" aria-selected="false" tabindex="-1"><span>03</span>Fabrication</button>
+          <button class="sig-tab" type="button" role="tab" id="tab-install" aria-controls="panel-install" aria-selected="false" tabindex="-1"><span>04</span>Installation</button>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-survey" aria-labelledby="tab-survey" tabindex="0">
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">We measure the building before we draw anything.</h3>
+            <p>A field survey confirms substrates, mounting conditions, sightlines and the code requirements that apply to your jurisdiction. It is the cheapest hour in the whole project.</p>
+            <ul class="sig-panel__list">
+              <li>Dimensioned field notes and photo documentation of every sign location</li>
+              <li>Substrate and anchor assessment, including clearances and power</li>
+              <li>Permit path identified for DC, Maryland or Virginia review</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-design" aria-labelledby="tab-design" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Drawings you can approve and a permit office can read.</h3>
+            <p>Our designers work inside your brand standards and return renderings set in place, so stakeholders approve the real thing rather than a swatch on a screen.</p>
+            <ul class="sig-panel__list">
+              <li>Scaled elevations, sign-type schedule and message list</li>
+              <li>In-context renderings for stakeholder sign-off</li>
+              <li>Material, finish and color proofs pulled on the actual substrate</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-fab" aria-labelledby="tab-fab" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Printed, cut, welded and finished in our own shop.</h3>
+            <p>State-of-the-art large format printing sits next to the fabrication floor. Nothing waits on a vendor, and quality control happens where the work is made.</p>
+            <ul class="sig-panel__list">
+              <li>Large format print, CNC routing, welding and paint under one roof</li>
+              <li>Every piece labeled to its sign-type number and location</li>
+              <li>Crated, kitted and staged for the install sequence</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-panel" role="tabpanel" id="panel-install" aria-labelledby="tab-install" tabindex="0" hidden>
+          <div class="sig-panel__copy">
+            <h3 class="epi-h2">Our crews, your schedule, including nights and weekends.</h3>
+            <p>Installation is where a signage program is won or lost. We hang what we built, coordinate with building management, and close out with a documented walk-through.</p>
+            <ul class="sig-panel__list">
+              <li>Licensed, insured crews with lift and high-access experience</li>
+              <li>Off-hours and phased installs for occupied buildings</li>
+              <li>Punch list, as-built photos and a maintenance plan at handover</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="work" aria-labelledby="work-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="work-title">Installed work across the DMV.</h2>
+        <p>Filter by program to see the kind of signage that fits your site.</p>
+      </div>
+      <div class="sig-filters" role="group" aria-label="Filter projects by program">
+        <button class="sig-filter" type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button class="sig-filter" type="button" data-filter="exterior" aria-pressed="false">Exterior</button>
+        <button class="sig-filter" type="button" data-filter="retail" aria-pressed="false">Retail</button>
+        <button class="sig-filter" type="button" data-filter="garage" aria-pressed="false">Garage</button>
+        <button class="sig-filter" type="button" data-filter="wayfinding" aria-pressed="false">Wayfinding</button>
+      </div>
+      <div class="sig-gallery" id="gallery">
+        <article class="sig-shot" data-category="exterior">
+          <figure class="sig-shot__frame"><img src="/real-estate-banner-mu12q7mf-0tjm.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Construction perimeter branding, Bethesda</h3>
+          <p>Mesh fence wrap, 640 linear ft</p>
+        </article>
+        <article class="sig-shot" data-category="wayfinding">
+          <figure class="sig-shot__frame"><img src="/building-facade-graphics-mu13937x-72if.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Campus wayfinding system, Northern Virginia</h3>
+          <p>84 sign types, ADA compliant</p>
+        </article>
+        <article class="sig-shot" data-category="garage">
+          <figure class="sig-shot__frame"><img src="/parking-notice-sign-mu13jclv-qgtf.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Parking structure level identification, DC</h3>
+          <p>7 levels, reflective panel system</p>
+        </article>
+        <article class="sig-shot" data-category="retail">
+          <figure class="sig-shot__frame"><img src="/retail-window-wrap-mu13ikr7-460d.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Storefront window program, Silver Spring</h3>
+          <p>Frosted and first-surface vinyl</p>
+        </article>
+        <article class="sig-shot" data-category="exterior">
+          <figure class="sig-shot__frame"><img src="/community-event-sign-mu13ngzx-8om1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Retail leasing banners, Rockville</h3>
+          <p>13 oz scrim vinyl, 96 &times; 48 in</p>
+        </article>
+        <article class="sig-shot" data-category="retail">
+          <figure class="sig-shot__frame"><img src="/colonial-one-windows-mu13royg-84om.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></figure>
+          <h3>Dimensional letter set, Gaithersburg</h3>
+          <p>Halo-lit aluminum, pattern install</p>
+        </article>
+      </div>
+      <p class="sig-empty" id="gallery-empty" hidden>No projects in that program yet. Ask us for recent examples.</p>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-label="Company at a glance">
+    <div class="epi-container">
+      <div class="sig-stats">
+        <div>
+          <p class="sig-stat__value">20+</p>
+          <p class="sig-stat__label">Years designing, printing and installing signage in the DMV</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">400+</p>
+          <p class="sig-stat__label">Years of combined expertise across our design and fabrication team</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">1</p>
+          <p class="sig-stat__label">Shop handling print, fabrication, logistics and installation</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">3</p>
+          <p class="sig-stat__label">Jurisdictions permitted daily: DC, Maryland and Virginia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section" id="specs" aria-labelledby="specs-title">
+    <div class="epi-container sig-spec">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="specs-title">Specifications and answers before you send a bid set.</h2>
+        <p>The questions facilities and marketing teams ask us most, answered plainly.</p>
+      </div>
+      <div class="sig-acc" id="accordion">
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="true" aria-controls="acc-1">
+              What files do you need to start?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-1">
+            <p>Vector artwork in <span class="epi-mono">.ai</span>, <span class="epi-mono">.eps</span> or <span class="epi-mono">.pdf</span>, plus your brand standards and any architectural plans you have. Raster art should be supplied at final size with <span class="epi-mono">0.125 in</span> bleed. Large sets can be dropped through our file transfer link rather than email.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-2">
+              How long does a typical program take?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-2" hidden>
+            <p>Banner and window work is often surveyed, printed and installed inside two weeks. Fabricated exterior and garage signage runs four to eight weeks depending on permits and finishes. Wayfinding systems are scoped by sign count, and we phase installation so occupied floors keep working.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-3">
+              Do you handle permits and code review?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-3" hidden>
+            <p>Yes. We identify the permit path during survey, produce stamped drawings where a jurisdiction requires them, and carry the submission through review. ADA and life-safety signage is produced to the applicable standard rather than approximated.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-4">
+              What materials do you recommend outdoors?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-4" hidden>
+            <p>For temporary construction and leasing graphics, <span class="epi-mono">13 oz</span> scrim vinyl or printed mesh on a tensioned frame. For permanent identification, painted aluminum, acrylic faces and UV-stable laminates. We specify to the exposure of the site, not to a catalog default.</p>
+          </div>
+        </div>
+        <div class="sig-acc__item">
+          <h3>
+            <button class="sig-acc__trigger" type="button" aria-expanded="false" aria-controls="acc-5">
+              Can you maintain signage after installation?
+              <span class="sig-acc__mark" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="sig-acc__panel" id="acc-5" hidden>
+            <p>We keep your artwork, sign schedule and hardware specs on file, so a tenant change or a damaged panel is a reprint and a service call rather than a new project. Scheduled refresh programs are available for garages and high-abrasion retail environments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sig-section sig-section--warm" aria-label="Client feedback">
+    <div class="epi-container">
+      <figure class="sig-quote">
+        <div class="sig-quote__mark" aria-hidden="true"></div>
+        <blockquote>EPI-Colorspace handled the survey, the permits and the install without us chasing anyone. The responsiveness is the part I tell other property managers about.</blockquote>
+        <figcaption>Property management team, commercial real estate portfolio, Montgomery County</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sig-section sig-cta" id="start" aria-labelledby="start-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="start-title">Tell us what needs to go up, and where.</h2>
+        <p>Send the site address and a scope, or just a photo of the wall. We bring visions to life, and we will tell you honestly what your schedule allows.</p>
+        <p><a href="tel:+13015550100" style="color:#fff;text-decoration:underline;text-underline-offset:3px">301.555.0100</a></p>
+      </div>
+      <form class="sig-form" id="project-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="f-program">Program</label>
+          <select id="f-program" name="program">
+            <option>Exterior and construction signage</option>
+            <option>Retail graphics</option>
+            <option>Permanent garage signage</option>
+            <option>Wayfinding</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-site">Site city</label>
+          <input id="f-site" name="site" type="text" autocomplete="address-level2">
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Scope and target date</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Have artwork already? Mention it and we will send a file transfer link.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

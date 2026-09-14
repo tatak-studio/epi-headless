@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import TestimonialSlider from '../components/TestimonialSlider.astro';
-import ContactForm from '../components/ContactForm.astro';
 import { getServices, getTestimonials, getPageBySlug } from '../lib/wordpress';
 import '../styles/home.css';
 
@@ -15,10 +14,49 @@ const heroSubhead = homePage?.meta_box?.hero_subhead || "Impactful brand experie
 const trustKicker = homePage?.meta_box?.trust_kicker || "A Trusted Partner for Over 20 Years.";
 const trustHeading = homePage?.meta_box?.trust_heading || "See how our in-house team delivers on time and on budget.";
 const heroImage = homePage?.meta_box?.lead_image || '/commanders-building-banner-mu13c8xa-kpu3.jpg';
+
+const recentWork = [
+  {
+    title: 'Gallery exhibit build and install, Washington DC',
+    desc: 'Custom casework, specialty lighting',
+    image: '/anacostia-exhibit-wall-mu13p5yi-dm4c.jpg',
+    link: '/projects/rotating-gallery-build-washington-dc',
+  },
+  {
+    title: 'Tradeshow booth program, national circuit',
+    desc: 'Design, freight, install, storage',
+    image: '/modular-booth-rendering-mu13df64-u8nu.jpg',
+    link: '/projects',
+  },
+  {
+    title: 'Lobby environmental graphics, Tysons',
+    desc: 'Wall mural, dimensional letters',
+    image: '/spiral-lobby-graphics-mu13h9gi-cfz7.jpg',
+    link: '/projects',
+  },
+  {
+    title: 'Campus wayfinding system, Northern Virginia',
+    desc: '84 sign types, ADA compliant',
+    image: '/building-facade-graphics-mu13937x-72if.jpg',
+    link: '/projects/campus-wayfinding-system-northern-virginia',
+  },
+  {
+    title: 'Retail window rollout, Silver Spring',
+    desc: 'Frosted and first-surface vinyl',
+    image: '/retail-window-wrap-mu13ikr7-460d.jpg',
+    link: '/projects/retail-leasing-graphics-rollout-rockville-md',
+  },
+  {
+    title: 'Construction perimeter branding, Bethesda',
+    desc: 'Mesh fence wrap, 640 linear ft',
+    image: '/real-estate-banner-mu12q7mf-0tjm.jpg',
+    link: '/projects',
+  },
+];
 ---
 
 <BaseLayout seo={homePage?.seo}>
-  <!-- Hero Section -->
+  <!-- Section 1: Hero Section -->
   <section class="sig-hero home-hero" aria-labelledby="hero-title">
     <div class="sig-hero__media">
       <img src={heroImage} alt="EPI-Colorspace large format building wrap" style="width:100%;height:100%;object-fit:cover;display:block" />
@@ -37,7 +75,7 @@ const heroImage = homePage?.meta_box?.lead_image || '/commanders-building-banner
     <div class="sig-hero__rule" aria-hidden="true"></div>
   </section>
 
-  <!-- Trust Split Section -->
+  <!-- Section 2: Trust Split Section -->
   <section class="sig-section" aria-labelledby="trust-title">
     <div class="epi-container sig-split">
       <div class="sig-split__copy">
@@ -73,7 +111,7 @@ const heroImage = homePage?.meta_box?.lead_image || '/commanders-building-banner
     </div>
   </section>
 
-  <!-- Stats Band -->
+  <!-- Section 3: Stats Band -->
   <section class="sig-section sig-section--warm" aria-label="EPI-Colorspace at a glance">
     <div class="epi-container">
       <div class="sig-stats">
@@ -97,7 +135,7 @@ const heroImage = homePage?.meta_box?.lead_image || '/commanders-building-banner
     </div>
   </section>
 
-  <!-- Services Grid -->
+  <!-- Section 4: Services Grid -->
   <section class="sig-section" id="services" aria-labelledby="services-title">
     <div class="epi-container">
       <div class="sig-head">
@@ -112,145 +150,243 @@ const heroImage = homePage?.meta_box?.lead_image || '/commanders-building-banner
     </div>
   </section>
 
-  <!-- Markets Section -->
+  <!-- Section 5: From concept to execution, under one roof -->
+  <section class="sig-section sig-section--warm" aria-labelledby="how-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="how-title">From concept to execution, under one roof.</h2>
+        <p>The reason our schedules hold is that no phase waits on an outside vendor.</p>
+      </div>
+      <div class="home-caps">
+        <article>
+          <div class="home-caps__rule" aria-hidden="true"></div>
+          <h3>Design</h3>
+          <p>Concept development, brand-standard drawings and in-context renderings you can approve.</p>
+        </article>
+        <article>
+          <div class="home-caps__rule" aria-hidden="true"></div>
+          <h3>Print</h3>
+          <p>State-of-the-art large format output, color-managed and proofed on the final substrate.</p>
+        </article>
+        <article>
+          <div class="home-caps__rule" aria-hidden="true"></div>
+          <h3>Fabrication</h3>
+          <p>CNC routing, welding, paint and finishing performed beside the print floor.</p>
+        </article>
+        <article>
+          <div class="home-caps__rule" aria-hidden="true"></div>
+          <h3>Logistics &amp; Install</h3>
+          <p>Crating, freight, licensed install crews, off-hours scheduling and post-event storage.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Markets Section -->
   <section class="sig-section sig-section--ink" id="markets" aria-labelledby="markets-title">
     <div class="epi-container home-markets">
-      <div>
-        <h2 class="epi-h1" id="markets-title" style="color:var(--paper)">Specialists in spaces that require special planning.</h2>
-        <p style="color:rgba(255,255,255,.8);margin-top:var(--space-3)">
-          From gallery conservation specs and historical clearances to high-speed retail turnovers and overnight parking deck installations, we have worked in most buildings across DC, Maryland, and Virginia.
-        </p>
+      <div class="sig-head">
+        <h2 class="epi-h1" id="markets-title">The environments we work in every week.</h2>
+        <p>Each market has its own rules about access, materials and downtime. We plan for them before the truck is loaded.</p>
         <p style="margin-top:var(--space-6)">
-          <a class="epi-btn epi-btn--inverse" href="/markets">See our Markets</a>
+          <a class="epi-btn epi-btn--outline-inverse" href="/markets">See our Markets</a>
         </p>
       </div>
       <ul class="home-markets__list">
         <li>
-          <h3><a href="/markets/museums-and-cultural" style="color:inherit">Museums &amp; Cultural</a></h3>
-          <p>Gallery-grade fabrication and installs scheduled around public hours.</p>
+          <h3><a href="/markets/museums-and-cultural" style="color:inherit;text-decoration:none">Museums &amp; Cultural</a></h3>
+          <p>Gallery-grade fabrication and installs that respect collections, conservators and public hours.</p>
         </li>
         <li>
-          <h3><a href="/markets/universities" style="color:inherit">Universities</a></h3>
-          <p>Campus wayfinding, donor recognition and event graphics.</p>
+          <h3><a href="/markets/universities" style="color:inherit;text-decoration:none">Universities</a></h3>
+          <p>Campus wayfinding, donor recognition and event graphics delivered around the academic calendar.</p>
         </li>
         <li>
-          <h3><a href="/markets/commercial-real-estate" style="color:inherit">Commercial Real Estate</a></h3>
-          <p>Leasing graphics, lobby branding and garage signage.</p>
+          <h3><a href="/markets/commercial-real-estate" style="color:inherit;text-decoration:none">Commercial Real Estate</a></h3>
+          <p>Leasing graphics, lobby branding and garage signage for occupied, multi-tenant buildings.</p>
         </li>
         <li>
-          <h3><a href="/markets/corporate" style="color:inherit">Corporate Environments</a></h3>
-          <p>Workplace graphics and murals carried floor by floor.</p>
+          <h3><a href="/markets/corporate" style="color:inherit;text-decoration:none">Corporate</a></h3>
+          <p>Workplace graphics and murals that carry brand standards through every floor of a headquarters.</p>
         </li>
         <li>
-          <h3><a href="/markets/retail" style="color:inherit">Retail</a></h3>
-          <p>Window systems, dimensional letters and multi-site rollouts.</p>
+          <h3><a href="/markets/retail" style="color:inherit;text-decoration:none">Retail</a></h3>
+          <p>Window systems, dimensional letters and multi-location rollouts kitted store by store.</p>
         </li>
         <li>
-          <h3><a href="/markets/construction" style="color:inherit">Construction</a></h3>
-          <p>Fence wraps and site signage engineered for wind and weather.</p>
+          <h3><a href="/markets/construction" style="color:inherit;text-decoration:none">Construction</a></h3>
+          <p>Fence wraps, perimeter branding and site signage engineered for weather and wind load.</p>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- Testimonials Carousel -->
+  <!-- Section 7: Recent work across the DMV -->
+  <section class="sig-section" id="work" aria-labelledby="work-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="work-title">Recent work across the DMV.</h2>
+        <p>A cross-section of what leaves our floor: galleries, show floors, storefronts and structures.</p>
+      </div>
+      <div class="sig-gallery">
+        {recentWork.map((item) => (
+          <article class="sig-shot">
+            <figure class="sig-shot__frame">
+              <a href={item.link}>
+                <img src={item.image} alt={item.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:8px" />
+              </a>
+            </figure>
+            <h3><a href={item.link} style="color:inherit;text-decoration:none">{item.title}</a></h3>
+            <p>{item.desc}</p>
+          </article>
+        ))}
+      </div>
+      <p style="margin-top:var(--space-6)">
+        <a class="epi-btn epi-btn--secondary" href="/projects">See our Projects</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 8: Testimonials Section -->
   <TestimonialSlider testimonials={testimonials} />
 
-  <!-- Partner Logos Wall -->
+  <!-- Section 9: Over 200 partners -->
   <section class="sig-section" id="partners" aria-labelledby="partners-title">
     <div class="epi-container">
       <div class="sig-head">
-        <h2 class="epi-h1" id="partners-title">Trusted across the DMV.</h2>
-        <p>A few of the institutions, universities, and commercial developers we partner with year after year.</p>
+        <h2 class="epi-h1" id="partners-title">Over 200 partners.</h2>
+        <p>Institutions, property owners and brands who keep coming back, including the Smithsonian, the Library of Congress and The Kennedy Center.</p>
       </div>
       <ul class="home-logos">
-        <li>Smithsonian Institution</li>
-        <li>Library of Congress</li>
-        <li>The Kennedy Center</li>
-        <li>JBG SMITH</li>
-        <li>Federal Realty</li>
-        <li>Clark Construction</li>
+        <li>Hirshhorn</li>
+        <li>The Phillips Collection</li>
+        <li>Wolf Trap</li>
+        <li>USDA</li>
         <li>George Washington University</li>
-        <li>Montgomery County</li>
+        <li>Tishman Speyer</li>
+        <li>Elme Communities</li>
+        <li>Peterson Companies</li>
+        <li>Medispec</li>
+        <li>Tatte</li>
       </ul>
     </div>
   </section>
 
-  <!-- Capabilities Strip -->
-  <section class="sig-section sig-section--warm" aria-labelledby="caps-title">
-    <div class="epi-container">
-      <div class="sig-head">
-        <h2 class="epi-h1" id="caps-title">Single-shop capability from start to finish.</h2>
-        <p>Every step of the workflow lives in Gaithersburg, Maryland.</p>
+  <!-- Section 10: Project Inquiry Form & CTA -->
+  <section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+    <div class="epi-container sig-cta__inner">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="cta-title">Whether you are shaping immersive environments, enhancing functionality or telling your brand's story, EPI-Colorspace is here to make it unforgettable.</h2>
+        <p>We cannot wait to work with you. Send a scope, a floor plan or a photo of the wall, and we will tell you what is possible on your date.</p>
+        <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3)">
+          <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+        </p>
       </div>
-      <div class="home-caps">
-        <article>
-          <h3>Design &amp; Pre-Press</h3>
-          <p>File pre-flighting, color-gamut proofing, structural modeling, and engineering reviews before production begins.</p>
-        </article>
-        <article>
-          <h3>Flatbed &amp; Roll Print</h3>
-          <p>Direct-to-substrate UV curing, dye-sublimation textiles, and high-definition wide-format graphics up to 126 inches wide.</p>
-        </article>
-        <article>
-          <h3>Fabrication</h3>
-          <p>CNC digital cutting, acrylic routing, custom welded frames, and architectural casework crafted in-house.</p>
-        </article>
-        <article>
-          <h3>Installation</h3>
-          <p>Certified union and open-shop installers equipped with bucket lifts, rigging gear, and field-adaptation tools.</p>
-        </article>
-      </div>
+      <form class="sig-form" id="project-form" novalidate>
+        <p class="sig-form__status" id="form-status" role="status" hidden></p>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div>
+          <label for="f-service">Service</label>
+          <select id="f-service" name="service">
+            <option>Tradeshows</option>
+            <option>Exhibits and displays</option>
+            <option>Signage solutions</option>
+            <option>Large format printing</option>
+            <option>Corporate branding</option>
+            <option>Environmental graphics</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-org">Organization</label>
+          <input id="f-org" name="organization" type="text" autocomplete="organization" />
+        </div>
+        <div class="sig-form__full">
+          <label for="f-scope">Scope and target date</label>
+          <textarea id="f-scope" name="scope" required></textarea>
+        </div>
+        <div class="sig-form__full">
+          <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Files too large to email? Mention it and we will send a transfer link.</p>
+        </div>
+      </form>
     </div>
   </section>
 
-  <!-- Project Inquiry Form -->
-  <ContactForm />
-
-  <!-- Testimonial Slider Client Script -->
+  <!-- Client-side Interactive Scripts -->
   <script is:inline>
     (function () {
+      // Testimonial slider
       var viewport = document.getElementById('tst-viewport');
-      if (!viewport) return;
-      var slides = Array.prototype.slice.call(viewport.querySelectorAll('.home-tst__slide'));
-      var dots = document.getElementById('tst-dots');
-      var count = document.getElementById('tst-count');
-      var prev = document.getElementById('tst-prev');
-      var next = document.getElementById('tst-next');
-      var index = 0;
+      if (viewport) {
+        var slides = Array.prototype.slice.call(viewport.querySelectorAll('.home-tst__slide'));
+        var dots = document.getElementById('tst-dots');
+        var count = document.getElementById('tst-count');
+        var prev = document.getElementById('tst-prev');
+        var next = document.getElementById('tst-next');
+        var index = 0;
 
-      function pad(n) { return (n < 10 ? '0' : '') + n; }
+        function pad(n) { return (n < 10 ? '0' : '') + n; }
 
-      if (dots && dots.children.length === 0) {
-        slides.forEach(function (slide, i) {
-          var dot = document.createElement('button');
-          dot.type = 'button';
-          dot.className = 'home-tst__dot';
-          dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
-          dot.setAttribute('aria-current', String(i === 0));
-          dot.addEventListener('click', function () { show(i); });
-          dots.appendChild(dot);
-        });
-      }
-
-      function show(i) {
-        index = (i + slides.length) % slides.length;
-        slides.forEach(function (s, n) { s.hidden = n !== index; });
-        if (dots) {
-          Array.prototype.forEach.call(dots.children, function (d, n) {
-            d.setAttribute('aria-current', String(n === index));
+        if (dots && dots.children.length === 0) {
+          slides.forEach(function (slide, i) {
+            var dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'home-tst__dot';
+            dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+            dot.setAttribute('aria-current', String(i === 0));
+            dot.addEventListener('click', function () { show(i); });
+            dots.appendChild(dot);
           });
         }
-        if (count) count.textContent = pad(index + 1) + ' / ' + pad(slides.length);
+
+        function show(i) {
+          index = (i + slides.length) % slides.length;
+          slides.forEach(function (s, n) { s.hidden = n !== index; });
+          if (dots) {
+            Array.prototype.forEach.call(dots.children, function (d, n) {
+              d.setAttribute('aria-current', String(n === index));
+            });
+          }
+          if (count) count.textContent = pad(index + 1) + ' / ' + pad(slides.length);
+        }
+
+        if (prev) prev.addEventListener('click', function () { show(index - 1); });
+        if (next) next.addEventListener('click', function () { show(index + 1); });
+        viewport.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft') show(index - 1);
+          if (e.key === 'ArrowRight') show(index + 1);
+        });
+        show(0);
       }
 
-      if (prev) prev.addEventListener('click', function () { show(index - 1); });
-      if (next) next.addEventListener('click', function () { show(index + 1); });
-      viewport.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft') show(index - 1);
-        if (e.key === 'ArrowRight') show(index + 1);
-      });
-      show(0);
+      // Form validation
+      var form = document.getElementById('project-form');
+      var status = document.getElementById('form-status');
+      if (form && status) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            status.hidden = false;
+            status.textContent = 'Please fill out all required fields with a valid email address.';
+            status.style.color = '#e11d48';
+            return;
+          }
+          var btn = form.querySelector('button[type="submit"]');
+          if (btn) btn.disabled = true;
+          status.hidden = false;
+          status.textContent = 'Thank you! Your project request has been submitted. Our project team will follow up within one business day.';
+          status.style.color = '#15803d';
+          form.reset();
+        });
+      }
     })();
   </script>
 </BaseLayout>
