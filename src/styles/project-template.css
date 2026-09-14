@@ -1,0 +1,81 @@
+/* Case study detail template. Shared shell comes from signage-solutions.css. */
+
+/* Hero: title over metadata, full-bleed lead image below */
+.cs-hero { background: var(--ink-950); color: var(--paper); }
+.cs-hero__inner { display: flex; flex-direction: column; gap: var(--space-5); padding-block: clamp(2.5rem, 7vw, 4.5rem); max-width: min(58rem, 100%); }
+.cs-hero h1 { color: var(--paper); font-size: clamp(1.875rem, 3.4vw, 3rem); line-height: 1.08; }
+.cs-hero__badge {
+  align-self: flex-start; padding: 4px var(--space-3); border-radius: var(--radius-sm);
+  background: var(--surface-brand); color: var(--paper); font-size: var(--text-overline);
+  font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase;
+}
+.cs-hero__byline { font-family: var(--font-mono); font-size: var(--text-body-sm); color: rgba(255,255,255,.66); }
+.cs-hero__lede { font-size: var(--text-body-lg); color: rgba(255,255,255,.86); max-width: var(--measure); }
+.cs-lead { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+@media (max-width: 639px) { .cs-lead { aspect-ratio: 4 / 3; } }
+
+/* Body + sticky facts */
+.cs-layout { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+@media (min-width: 1024px) { .cs-layout { grid-template-columns: minmax(0, 1fr) 320px; } }
+.cs-layout > * { min-width: 0; }
+.cs-body { display: flex; flex-direction: column; gap: var(--space-5); }
+.cs-body h2 { margin-top: var(--space-6); }
+.cs-body h2:first-child { margin-top: 0; }
+.cs-body p { color: var(--text-secondary); max-width: var(--measure); }
+
+.cs-facts { border: 1px solid var(--border-subtle); background: var(--paper); }
+@media (min-width: 1024px) { .cs-facts { position: sticky; top: calc(var(--nav-height) + var(--space-6)); } }
+.cs-facts__rule { height: 4px; background: var(--gradient-spectrum); }
+.cs-facts dl { display: grid; }
+.cs-facts div { padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--border-subtle); }
+.cs-facts dt { font-family: var(--font-mono); font-size: var(--text-caption); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--text-muted); }
+.cs-facts dd { margin: var(--space-1) 0 0; font-weight: var(--weight-semibold); color: var(--text-primary); }
+.cs-facts__actions { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-5); }
+
+/* Highlights */
+.cs-highlights { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
+@media (min-width: 640px) { .cs-highlights { grid-template-columns: 1fr 1fr; } }
+.cs-highlights li {
+  display: flex; gap: var(--space-3); padding: var(--space-4); background: var(--paper-warm);
+  border-left: 3px solid var(--ink-950); font-size: var(--text-body-sm); color: var(--text-primary);
+}
+.cs-highlights li::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: 6px; background: var(--red-600); }
+
+/* Outcome stats */
+.cs-outcome { display: grid; gap: var(--space-8); grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.cs-outcome__value { font-family: var(--font-display); font-weight: var(--weight-black); font-size: clamp(2rem, 3.4vw, 3rem); line-height: .95; letter-spacing: var(--tracking-display); color: var(--paper); }
+.cs-outcome__label { font-size: var(--text-body-sm); color: rgba(255,255,255,.74); max-width: 26ch; margin-top: var(--space-2); }
+
+/* Gallery with lightbox */
+.cs-gallery { display: grid; gap: var(--space-3); margin-top: clamp(1.5rem, 3vw, 2.5rem); grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.cs-gallery figure { position: relative; }
+.cs-gallery__frame { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.cs-gallery figcaption { margin-top: var(--space-2); font-family: var(--font-mono); font-size: var(--text-caption); color: var(--text-muted); }
+.cs-zoom {
+  position: absolute; top: var(--space-2); right: var(--space-2); z-index: 2;
+  min-height: 36px; padding: 0 var(--space-3); cursor: pointer;
+  background: rgba(11,11,13,.72); color: var(--paper); border: 0; border-radius: var(--radius-sm);
+  font-family: var(--font-sans); font-size: var(--text-caption); font-weight: var(--weight-semibold);
+  opacity: 0; transition: opacity var(--duration-fast) var(--ease-out);
+}
+.cs-gallery figure:hover .cs-zoom, .cs-zoom:focus-visible { opacity: 1; }
+.cs-lightbox { border: 0; padding: 0; max-width: min(1100px, 92vw); background: var(--ink-950); color: var(--paper); }
+.cs-lightbox::backdrop { background: rgba(11,11,13,.78); backdrop-filter: blur(4px); }
+.cs-lightbox img { width: 100%; height: auto; display: block; max-height: 74vh; object-fit: contain; background: var(--ink-900); }
+.cs-lightbox__bar { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); }
+.cs-lightbox__caption { font-size: var(--text-body-sm); color: rgba(255,255,255,.74); }
+.cs-lightbox__close { margin-left: auto; }
+.cs-lightbox__empty { padding: clamp(2rem, 6vw, 4rem); text-align: center; color: rgba(255,255,255,.7); font-size: var(--text-body-sm); }
+
+/* Related work */
+.cs-related { display: grid; gap: var(--grid-gap); margin-top: clamp(1.5rem, 3vw, 2.5rem); grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.cs-related article { display: flex; flex-direction: column; border: 1px solid var(--border-subtle); border-top: 3px solid var(--ink-950); background: var(--paper); transition: var(--transition-control); }
+.cs-related article:hover { border-top-color: var(--surface-brand); box-shadow: var(--shadow-2); transform: translateY(-1px); }
+.cs-related__frame { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.cs-related__body { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5); }
+.cs-related h3 { font-family: var(--font-display); font-weight: var(--weight-semibold); font-size: var(--text-h4); }
+.cs-related p { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--text-muted); }
+
+/* Prev / next */
+.cs-pager { display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; padding-top: var(--space-6); border-top: 1px solid var(--border-subtle); margin-top: clamp(2rem, 4vw, 3rem); }
+.cs-pager a { font-weight: var(--weight-semibold); font-size: var(--text-body-sm); }

@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { getProjects, getPageBySlug } from '../../lib/wordpress';
+import '../../styles/projects.css';
+
+const projects = await getProjects();
+const pageData = await getPageBySlug('projects');
+const heroHeadline = pageData?.meta_box?.hero_headline || "See how our in-house team delivers on time and on budget, one installed project at a time.";
+const heroSubhead = pageData?.meta_box?.hero_subhead || "Galleries, show floors, storefronts, garages and job sites across DC, Maryland and Virginia. Every project below was designed, printed, fabricated and installed by the same team in Gaithersburg.";
+const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372so-z1pt.jpg';
+---
+
+<BaseLayout seo={pageData?.seo}>
+  <!-- Hero Section -->
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src={heroImage} alt="EPI-Colorspace installed projects" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Projects</li>
+        </ol>
+      </nav>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">
+        {heroHeadline}
+      </h1>
+      <p class="sig-hero__lede">
+        {heroSubhead}
+      </p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="#all">See our Projects</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="#contact">Start Your Project</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <!-- Featured Story Highlight -->
+  <section class="sig-section sig-section--ink" aria-labelledby="feature-title">
+    <div class="epi-container prj-feature">
+      <figure class="prj-feature__media">
+        <img src="/anacostia-exhibit-wall-mu13p5yi-dm4c.jpg" alt="Featured gallery exhibit installation" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+      </figure>
+      <div class="prj-feature__copy">
+        <h2 class="epi-h1" id="feature-title" style="color:var(--paper)">A gallery that had to open on a Thursday, and did.</h2>
+        <p style="color:rgba(255,255,255,.82)">
+          A rotating exhibition with eleven days of gallery access, a label set still in revision and a board preview the night before opening. Because print, fabrication and installation are all ours, the corrected labels were reprinted during install week and the show opened without moving the date.
+        </p>
+        <p style="color:rgba(255,255,255,.82)">
+          That is the pattern behind most of the work on this page: precision craftsmanship, then responsiveness when something changes late.
+        </p>
+        <dl class="prj-feature__meta">
+          <div>
+            <dt>Market</dt>
+            <dd>Museums &amp; Cultural</dd>
+          </div>
+          <div>
+            <dt>Services</dt>
+            <dd>Exhibits, large format</dd>
+          </div>
+          <div>
+            <dt>Access window</dt>
+            <dd>11 nights</dd>
+          </div>
+          <div>
+            <dt>Outcome</dt>
+            <dd>Opened on schedule</dd>
+          </div>
+        </dl>
+        <p><a class="epi-btn epi-btn--inverse" href="/projects/jbg-smith-crystal-city-garage">Explore Case Study</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive 2-Axis Portfolio Filter -->
+  <section class="sig-section" id="all" aria-labelledby="all-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="all-title">Browse the work by service or by market.</h2>
+        <p>Filter on either axis, or both, to find something close to what you are planning.</p>
+      </div>
+
+      <div class="prj-filters">
+        <fieldset>
+          <legend>Service line</legend>
+          <ul class="prj-chips">
+            <li><button class="prj-chip" type="button" data-axis="service" data-value="all" aria-pressed="true">All services</button></li>
+            <li><button class="prj-chip" type="button" data-axis="service" data-value="tradeshows" aria-pressed="false">Tradeshows</button></li>
+            <li><button class="prj-chip" type="button" data-axis="service" data-value="exhibits" aria-pressed="false">Exhibits &amp; Displays</button></li>
+            <li><button class="prj-chip" type="button" data-axis="service" data-value="signage" aria-pressed="false">Signage</button></li>
+            <li><button class="prj-chip" type="button" data-axis="service" data-value="largeformat" aria-pressed="false">Large format</button></li>
+            <li><button class="prj-chip" type="button" data-axis="service" data-value="branding" aria-pressed="false">Branding</button></li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Market</legend>
+          <ul class="prj-chips">
+            <li><button class="prj-chip" type="button" data-axis="market" data-value="all" aria-pressed="true">All markets</button></li>
+            <li><button class="prj-chip" type="button" data-axis="market" data-value="museums" aria-pressed="false">Museums &amp; Cultural</button></li>
+            <li><button class="prj-chip" type="button" data-axis="market" data-value="universities" aria-pressed="false">Universities</button></li>
+            <li><button class="prj-chip" type="button" data-axis="market" data-value="cre" aria-pressed="false">Commercial Real Estate</button></li>
+            <li><button class="prj-chip" type="button" data-axis="market" data-value="corporate" aria-pressed="false">Corporate</button></li>
+            <li><button class="prj-chip" type="button" data-axis="market" data-value="retail" aria-pressed="false">Retail</button></li>
+            <li><button class="prj-chip" type="button" data-axis="market" data-value="construction" aria-pressed="false">Construction</button></li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <div class="prj-bar">
+        <p class="prj-count" id="prj-count" role="status">Showing all {projects.length} projects</p>
+        <button class="epi-btn epi-btn--ghost epi-btn--sm prj-reset" type="button" id="prj-reset">Clear filters</button>
+      </div>
+
+      <div class="prj-grid" id="prj-grid">
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+
+      <div id="prj-empty" class="prj-empty" hidden style="text-align:center;padding:clamp(2rem, 5vw, 4rem) 1rem">
+        <p style="font-size:var(--text-h3);font-family:var(--font-display);font-weight:var(--weight-bold)">No projects found matching both filters.</p>
+        <p style="color:var(--text-secondary);margin-top:var(--space-2)">Try selecting "All services" or "All markets", or reach out to ask about custom projects in your category.</p>
+        <p style="margin-top:var(--space-4)"><button class="epi-btn epi-btn--secondary" type="button" id="prj-empty-reset">Reset filters</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Form -->
+  <ContactForm />
+
+  <!-- 2-Axis Filtering Script -->
+  <script is:inline>
+    (function () {
+      var grid = document.getElementById('prj-grid');
+      if (!grid) return;
+
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.prj-card'));
+      var chips = Array.prototype.slice.call(document.querySelectorAll('.prj-chip'));
+      var count = document.getElementById('prj-count');
+      var empty = document.getElementById('prj-empty');
+      var reset = document.getElementById('prj-reset');
+      var emptyReset = document.getElementById('prj-empty-reset');
+      var state = { service: 'all', market: 'all' };
+
+      function apply() {
+        var shown = 0;
+        cards.forEach(function (card) {
+          var svcData = (card.dataset.service || '').split(' ');
+          var mktData = card.dataset.market || '';
+          var okService = state.service === 'all' || svcData.indexOf(state.service) > -1;
+          var okMarket = state.market === 'all' || mktData.indexOf(state.market) > -1;
+          var match = okService && okMarket;
+          card.hidden = !match;
+          if (match) shown++;
+        });
+
+        chips.forEach(function (chip) {
+          chip.setAttribute('aria-pressed', String(state[chip.dataset.axis] === chip.dataset.value));
+        });
+
+        if (count) {
+          count.textContent = shown === cards.length
+            ? 'Showing all ' + cards.length + ' projects'
+            : 'Showing ' + shown + ' of ' + cards.length + ' projects';
+        }
+        if (empty) {
+          empty.hidden = shown > 0;
+        }
+      }
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          state[chip.dataset.axis] = chip.dataset.value;
+          apply();
+        });
+      });
+
+      function clearAll() {
+        state = { service: 'all', market: 'all' };
+        apply();
+      }
+
+      if (reset) reset.addEventListener('click', clearAll);
+      if (emptyReset) emptyReset.addEventListener('click', clearAll);
+
+      apply();
+    })();
+  </script>
+</BaseLayout>

@@ -1,0 +1,256 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TestimonialSlider from '../components/TestimonialSlider.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { getServices, getTestimonials, getPageBySlug } from '../lib/wordpress';
+import '../styles/home.css';
+
+const services = await getServices();
+const testimonials = await getTestimonials();
+const homePage = await getPageBySlug('home');
+
+const heroHeadline = homePage?.meta_box?.hero_headline || "We bring visions to life";
+const heroSubhead = homePage?.meta_box?.hero_subhead || "Impactful brand experiences through expert printing, fabrication and installation, delivered across DC, Maryland and Virginia by one in-house team.";
+const trustKicker = homePage?.meta_box?.trust_kicker || "A Trusted Partner for Over 20 Years.";
+const trustHeading = homePage?.meta_box?.trust_heading || "See how our in-house team delivers on time and on budget.";
+const heroImage = homePage?.meta_box?.lead_image || '/commanders-building-banner-mu13c8xa-kpu3.jpg';
+---
+
+<BaseLayout seo={homePage?.seo}>
+  <!-- Hero Section -->
+  <section class="sig-hero home-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src={heroImage} alt="EPI-Colorspace large format building wrap" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner home-hero__inner">
+      <h1 class="epi-display-1" id="hero-title">{heroHeadline}</h1>
+      <p class="home-hero__sub">
+        {heroSubhead}
+      </p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="/projects">See our Projects</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="#services">Our Services</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <!-- Trust Split Section -->
+  <section class="sig-section" aria-labelledby="trust-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <p class="sig-kicker">{trustKicker}</p>
+        <h2 class="epi-h1" id="trust-title">{trustHeading}</h2>
+        <p>
+          EPI-Colorspace designs, prints, fabricates, ships and installs high-impact environmental graphics from a single shop in Gaithersburg, Maryland. Because nothing leaves the building for a subcontractor, a color correction on Tuesday still ships on Thursday, and the crew that built your piece is the crew that hangs it.
+        </p>
+        <p>
+          We specialize in transforming a wide variety of spaces, from museums and universities to commercial real estate and corporate environments, into dynamic, immersive brand experiences. That work is measured in openings met, punch lists closed and clients who call us back for the next phase.
+        </p>
+        <div class="sig-hero__actions">
+          <a class="epi-btn epi-btn--secondary" href="/contact">Start Your Project</a>
+        </div>
+        <dl class="sig-facts">
+          <div>
+            <dt>Shop</dt>
+            <dd>Gaithersburg, MD</dd>
+          </div>
+          <div>
+            <dt>Coverage</dt>
+            <dd>DC, Maryland, Virginia</dd>
+          </div>
+          <div>
+            <dt>Scope</dt>
+            <dd>Concept to installation</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="sig-frame">
+        <img src="/modular-booth-rendering-mu13df64-u8nu.jpg" alt="Modular exhibition booth design" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Stats Band -->
+  <section class="sig-section sig-section--warm" aria-label="EPI-Colorspace at a glance">
+    <div class="epi-container">
+      <div class="sig-stats">
+        <div>
+          <p class="sig-stat__value">20+</p>
+          <p class="sig-stat__label">Years bringing visions to life for the DMV</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">200+</p>
+          <p class="sig-stat__label">Partners, from cultural institutions to national property owners</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">400+</p>
+          <p class="sig-stat__label">Years of combined expertise across design, print and fabrication</p>
+        </div>
+        <div>
+          <p class="sig-stat__value">1</p>
+          <p class="sig-stat__label">Team carrying every project from concept to execution</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="sig-section" id="services" aria-labelledby="services-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="services-title">Creative solutions for projects of any size.</h2>
+        <p>Five service lines, one production floor. Each is turnkey: we develop the concept, produce the work, handle logistics and install it on site.</p>
+      </div>
+      <div class="home-svc">
+        {services.map((svc, i) => (
+          <ServiceCard service={svc} featured={i === 0} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Markets Section -->
+  <section class="sig-section sig-section--ink" id="markets" aria-labelledby="markets-title">
+    <div class="epi-container home-markets">
+      <div>
+        <h2 class="epi-h1" id="markets-title" style="color:var(--paper)">Specialists in spaces that require special planning.</h2>
+        <p style="color:rgba(255,255,255,.8);margin-top:var(--space-3)">
+          From gallery conservation specs and historical clearances to high-speed retail turnovers and overnight parking deck installations, we have worked in most buildings across DC, Maryland, and Virginia.
+        </p>
+        <p style="margin-top:var(--space-6)">
+          <a class="epi-btn epi-btn--inverse" href="/markets">See our Markets</a>
+        </p>
+      </div>
+      <ul class="home-markets__list">
+        <li>
+          <h3><a href="/markets/museums-and-cultural" style="color:inherit">Museums &amp; Cultural</a></h3>
+          <p>Gallery-grade fabrication and installs scheduled around public hours.</p>
+        </li>
+        <li>
+          <h3><a href="/markets/universities" style="color:inherit">Universities</a></h3>
+          <p>Campus wayfinding, donor recognition and event graphics.</p>
+        </li>
+        <li>
+          <h3><a href="/markets/commercial-real-estate" style="color:inherit">Commercial Real Estate</a></h3>
+          <p>Leasing graphics, lobby branding and garage signage.</p>
+        </li>
+        <li>
+          <h3><a href="/markets/corporate" style="color:inherit">Corporate Environments</a></h3>
+          <p>Workplace graphics and murals carried floor by floor.</p>
+        </li>
+        <li>
+          <h3><a href="/markets/retail" style="color:inherit">Retail</a></h3>
+          <p>Window systems, dimensional letters and multi-site rollouts.</p>
+        </li>
+        <li>
+          <h3><a href="/markets/construction" style="color:inherit">Construction</a></h3>
+          <p>Fence wraps and site signage engineered for wind and weather.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Testimonials Carousel -->
+  <TestimonialSlider testimonials={testimonials} />
+
+  <!-- Partner Logos Wall -->
+  <section class="sig-section" id="partners" aria-labelledby="partners-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="partners-title">Trusted across the DMV.</h2>
+        <p>A few of the institutions, universities, and commercial developers we partner with year after year.</p>
+      </div>
+      <ul class="home-logos">
+        <li>Smithsonian Institution</li>
+        <li>Library of Congress</li>
+        <li>The Kennedy Center</li>
+        <li>JBG SMITH</li>
+        <li>Federal Realty</li>
+        <li>Clark Construction</li>
+        <li>George Washington University</li>
+        <li>Montgomery County</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Capabilities Strip -->
+  <section class="sig-section sig-section--warm" aria-labelledby="caps-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="caps-title">Single-shop capability from start to finish.</h2>
+        <p>Every step of the workflow lives in Gaithersburg, Maryland.</p>
+      </div>
+      <div class="home-caps">
+        <article>
+          <h3>Design &amp; Pre-Press</h3>
+          <p>File pre-flighting, color-gamut proofing, structural modeling, and engineering reviews before production begins.</p>
+        </article>
+        <article>
+          <h3>Flatbed &amp; Roll Print</h3>
+          <p>Direct-to-substrate UV curing, dye-sublimation textiles, and high-definition wide-format graphics up to 126 inches wide.</p>
+        </article>
+        <article>
+          <h3>Fabrication</h3>
+          <p>CNC digital cutting, acrylic routing, custom welded frames, and architectural casework crafted in-house.</p>
+        </article>
+        <article>
+          <h3>Installation</h3>
+          <p>Certified union and open-shop installers equipped with bucket lifts, rigging gear, and field-adaptation tools.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Inquiry Form -->
+  <ContactForm />
+
+  <!-- Testimonial Slider Client Script -->
+  <script is:inline>
+    (function () {
+      var viewport = document.getElementById('tst-viewport');
+      if (!viewport) return;
+      var slides = Array.prototype.slice.call(viewport.querySelectorAll('.home-tst__slide'));
+      var dots = document.getElementById('tst-dots');
+      var count = document.getElementById('tst-count');
+      var prev = document.getElementById('tst-prev');
+      var next = document.getElementById('tst-next');
+      var index = 0;
+
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+      if (dots && dots.children.length === 0) {
+        slides.forEach(function (slide, i) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'home-tst__dot';
+          dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+          dot.setAttribute('aria-current', String(i === 0));
+          dot.addEventListener('click', function () { show(i); });
+          dots.appendChild(dot);
+        });
+      }
+
+      function show(i) {
+        index = (i + slides.length) % slides.length;
+        slides.forEach(function (s, n) { s.hidden = n !== index; });
+        if (dots) {
+          Array.prototype.forEach.call(dots.children, function (d, n) {
+            d.setAttribute('aria-current', String(n === index));
+          });
+        }
+        if (count) count.textContent = pad(index + 1) + ' / ' + pad(slides.length);
+      }
+
+      if (prev) prev.addEventListener('click', function () { show(index - 1); });
+      if (next) next.addEventListener('click', function () { show(index + 1); });
+      viewport.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') show(index - 1);
+        if (e.key === 'ArrowRight') show(index + 1);
+      });
+      show(0);
+    })();
+  </script>
+</BaseLayout>

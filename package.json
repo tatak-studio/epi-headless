@@ -1,0 +1,25 @@
+{
+  "name": "epi-headless",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "wp:up": "docker compose up -d",
+    "wp:down": "docker compose down",
+    "wp:logs": "docker compose logs -f",
+    "wp:setup": "docker compose run --rm wpcli",
+    "wp:cli": "docker compose run --rm wpcli wp"
+  },
+  "dependencies": {
+    "astro": "^7.3.2"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

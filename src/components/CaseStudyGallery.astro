@@ -1,0 +1,96 @@
+---
+import type { GalleryImage } from '../types/wordpress';
+
+interface Props {
+  heading?: string;
+  images: GalleryImage[];
+}
+const { heading = 'Installed work', images } = Astro.props;
+---
+
+<section class="sig-section" aria-labelledby="gallery-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="gallery-title">{heading}</h2>
+      <p>Select any frame to view in high resolution.</p>
+    </div>
+
+    <div class="cs-gallery">
+      {images.map((img) => (
+        <figure class="cs-gallery__item">
+          <div class="cs-gallery__frame">
+            <img src={img.url} alt={img.caption || 'Installed work photo'} loading="lazy" decoding="async" />
+          </div>
+          <button class="cs-zoom" type="button" aria-label="Enlarge image">Enlarge</button>
+          {img.caption && <figcaption>{img.caption}</figcaption>}
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal Dialog -->
+<dialog id="cs-lightbox" class="cs-lightbox" aria-label="Image enlargement">
+  <div class="cs-lightbox__content">
+    <img id="cs-lightbox-img" src="" alt="" />
+    <p id="cs-lightbox-note" hidden>No preview available</p>
+    <div class="cs-lightbox__bar">
+      <p id="cs-lightbox-caption" class="cs-lightbox__caption"></p>
+      <button id="cs-lightbox-close" class="epi-btn epi-btn--sm epi-btn--inverse" type="button">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .cs-gallery__frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radius-sm, 4px);
+    aspect-ratio: 4 / 3;
+    transition: transform var(--duration-base, 200ms) var(--ease-out, ease);
+  }
+  .cs-gallery__item:hover .cs-gallery__frame img {
+    transform: scale(1.03);
+  }
+  .cs-lightbox {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    max-width: min(92vw, 1100px);
+    margin: auto;
+  }
+  .cs-lightbox::backdrop {
+    background: rgba(18, 16, 14, 0.85);
+    backdrop-filter: blur(4px);
+  }
+  .cs-lightbox__content {
+    background: var(--ink-950, #181512);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md, 4px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .cs-lightbox__content img {
+    max-height: 80vh;
+    object-fit: contain;
+    width: 100%;
+    display: block;
+  }
+  .cs-lightbox__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--ink-900, #221d19);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .cs-lightbox__caption {
+    margin: 0;
+    color: var(--paper, #fff);
+    font-size: var(--text-body-sm, 0.875rem);
+  }
+</style>

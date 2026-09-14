@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`epi-spectrum ${className}`} aria-hidden="true"></div>
+
+<style>
+  .epi-spectrum {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-spectrum, linear-gradient(90deg, #0090D4 0 25%, #D6006E 25% 50%, #FFC400 50% 75%, #181512 75% 100%));
+  }
+</style>

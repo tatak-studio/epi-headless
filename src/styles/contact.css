@@ -1,0 +1,59 @@
+/* Contact page. Shared shell comes from signage-solutions.css. */
+
+/* Split hero: copy beside the form card */
+.ct-top { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+@media (min-width: 960px) { .ct-top { grid-template-columns: 1fr 1.05fr; } }
+.ct-top > * { min-width: 0; }
+.ct-intro { display: flex; flex-direction: column; gap: var(--space-5); }
+.ct-intro h1 { color: var(--paper); font-size: clamp(1.875rem, 3.2vw, 2.75rem); line-height: 1.1; }
+.ct-intro p { color: rgba(255,255,255,.84); max-width: var(--measure); }
+
+/* Direct contact rows */
+.ct-direct { display: grid; gap: 1px; background: rgba(255,255,255,.16); margin-top: var(--space-2); }
+.ct-direct > div { background: var(--ink-950); padding: var(--space-5); }
+.ct-direct dt { font-family: var(--font-mono); font-size: var(--text-caption); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: rgba(255,255,255,.56); }
+.ct-direct dd { margin: var(--space-2) 0 0; font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-h3); color: var(--paper); }
+.ct-direct dd a { color: var(--paper); text-decoration: none; }
+.ct-direct dd a:hover { color: var(--yellow-500); text-decoration: underline; text-underline-offset: 4px; }
+.ct-direct small { display: block; margin-top: var(--space-2); font-family: var(--font-sans); font-size: var(--text-body-sm); font-weight: var(--weight-regular); color: rgba(255,255,255,.7); }
+
+/* Form card */
+.ct-card { background: var(--paper); color: var(--text-primary); border-radius: var(--radius-lg); overflow: hidden; }
+.ct-card__rule { height: 4px; background: var(--gradient-spectrum); }
+.ct-card__inner { padding: clamp(1.25rem, 3vw, 2rem); }
+.ct-card h2 { font-size: var(--text-h3); }
+.ct-card > .ct-card__inner > p { font-size: var(--text-body-sm); color: var(--text-secondary); margin-top: var(--space-2); }
+.ct-form { display: grid; gap: var(--space-4); margin-top: var(--space-5); }
+@media (min-width: 560px) { .ct-form { grid-template-columns: 1fr 1fr; } }
+.ct-form__full { grid-column: 1 / -1; }
+.ct-form label { display: block; font-size: var(--text-body-sm); font-weight: var(--weight-semibold); margin-bottom: var(--space-2); }
+.ct-form input, .ct-form select, .ct-form textarea {
+  width: 100%; min-height: var(--tap-min); padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sans); font-size: var(--text-body); color: var(--text-primary);
+  background: var(--paper); border: 1px solid var(--border-default); border-radius: var(--radius-md);
+}
+.ct-form textarea { min-height: 120px; resize: vertical; line-height: var(--leading-body); }
+.ct-form input:focus, .ct-form select:focus, .ct-form textarea:focus { outline: none; border-color: var(--border-brand); box-shadow: 0 0 0 3px var(--red-100); }
+.ct-form input[aria-invalid="true"], .ct-form textarea[aria-invalid="true"] { border-color: var(--red-600); box-shadow: 0 0 0 3px var(--red-100); }
+.ct-form__note { font-size: var(--text-caption); color: var(--text-muted); }
+.ct-status { grid-column: 1 / -1; font-size: var(--text-body-sm); font-weight: var(--weight-semibold); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); }
+.ct-status[hidden] { display: none; }
+.ct-choice { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-body-sm); color: var(--text-secondary); }
+.ct-choice input { width: auto; min-height: 0; margin-top: 3px; }
+
+/* Location + hours */
+.ct-place { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+@media (min-width: 900px) { .ct-place { grid-template-columns: 1fr 1fr; } }
+.ct-place__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.ct-hours { border-top: 1px solid var(--border-subtle); margin-top: var(--space-5); }
+.ct-hours div { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) 0; border-bottom: 1px solid var(--border-subtle); }
+.ct-hours dt { font-weight: var(--weight-semibold); font-size: var(--text-body-sm); }
+.ct-hours dd { margin: 0; font-family: var(--font-mono); font-size: var(--text-body-sm); color: var(--text-secondary); }
+
+/* Routing cards */
+.ct-routes { display: grid; gap: var(--grid-gap); margin-top: clamp(1.5rem, 3vw, 2.5rem); grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+.ct-route { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); background: var(--paper); border: 1px solid var(--border-subtle); border-top: 3px solid var(--ink-950); transition: var(--transition-control); }
+.ct-route:hover { border-top-color: var(--surface-brand); box-shadow: var(--shadow-2); transform: translateY(-1px); }
+.ct-route h3 { font-family: var(--font-display); font-weight: var(--weight-semibold); font-size: var(--text-h4); }
+.ct-route p { font-size: var(--text-body-sm); color: var(--text-secondary); }
+.ct-route a { margin-top: auto; padding-top: var(--space-4); font-weight: var(--weight-semibold); font-size: var(--text-body-sm); }

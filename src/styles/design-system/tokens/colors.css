@@ -1,0 +1,87 @@
+/* COLOR — an ink-on-paper base with a process-colour (CMYK) accent gamut.
+   Every pairing marked AA is >=4.5:1 for body text; AA-large is >=3:1 for 24px+/19px bold. */
+:root{
+  /* Ink — warm-neutral greys, the structural colour of the system */
+  --ink-950:#0B0B0D; --ink-900:#16161A; --ink-800:#22232A; --ink-700:#33353F;
+  --ink-600:#4A4D59; --ink-500:#6B6F7D; --ink-400:#949AA6; --ink-300:#BFC4CD;
+  --ink-200:#DDE1E7; --ink-100:#EEF0F3; --ink-50:#F6F7F9;
+
+  /* Paper */
+  --paper:#FFFFFF; --paper-warm:#FAF8F5; --paper-warm-deep:#F2EEE8;
+
+  /* Signal Red — the primary brand accent. -600 and darker are text/fill safe on paper. */
+  --red-800:#8E1A0B; --red-700:#A81F0E; --red-600:#C42711; --red-500:#E8341C;
+  --red-400:#F2603D; --red-200:#FBC8BC; --red-100:#FDE8E3;
+
+  /* Process gamut — cyan / magenta / yellow. Graphic, chart and category colour.
+     The -700 steps exist so the gamut can also carry text. */
+  --cyan-700:#006B9E;  --cyan-500:#0090D4;  --cyan-200:#B4E2F7;  --cyan-100:#E4F4FC;
+  --magenta-700:#A80056;--magenta-500:#D6006E;--magenta-200:#F8C0DB;--magenta-100:#FDE8F1;
+  --yellow-700:#8A5A00; --yellow-500:#FFC400;--yellow-200:#FFE9A8; --yellow-100:#FFF7E0;
+
+  /* Semantic status */
+  --green-700:#0F7350; --green-500:#12A16A; --green-100:#E3F6EC;
+
+  /* ---- Semantic aliases: use these in components, not the raw ramps ---- */
+  --text-primary:var(--ink-900);
+  --text-secondary:var(--ink-600);
+  --text-muted:var(--ink-500);
+  --text-disabled:var(--ink-400);
+  --text-inverse:var(--paper);
+  --text-inverse-secondary:rgba(255,255,255,.72);
+  --text-accent:var(--red-600);
+  --text-link:var(--red-600);
+  --text-link-hover:var(--red-800);
+
+  --surface-page:var(--paper);
+  --surface-page-warm:var(--paper-warm);
+  --surface-card:var(--paper);
+  --surface-sunken:var(--ink-50);
+  --surface-raised:var(--paper);
+  --surface-inverse:var(--ink-950);
+  --surface-inverse-soft:var(--ink-800);
+  --surface-brand:var(--red-600);
+  --surface-brand-hover:var(--red-700);
+  --surface-brand-active:var(--red-800);
+  --surface-brand-soft:var(--red-100);
+  --surface-overlay:rgba(11,11,13,.62);
+
+  --border-subtle:var(--ink-200);
+  --border-default:var(--ink-300);
+  --border-strong:var(--ink-900);
+  --border-brand:var(--red-600);
+  --border-inverse:rgba(255,255,255,.18);
+
+  --status-success-fg:var(--green-700); --status-success-bg:var(--green-100);
+  --status-warning-fg:var(--yellow-700);--status-warning-bg:var(--yellow-100);
+  --status-danger-fg:var(--red-700);    --status-danger-bg:var(--red-100);
+  --status-info-fg:var(--cyan-700);     --status-info-bg:var(--cyan-100);
+
+  --focus-ring:var(--red-500);
+  --focus-ring-inverse:var(--yellow-500);
+  --focus-ring-width:3px;/* @kind spacing */
+  --focus-ring-offset:2px;/* @kind spacing */
+
+  /* The spectrum rule — the brand's signature 4-stop process bar. */
+  --gradient-spectrum:linear-gradient(90deg,var(--cyan-500) 0 25%,var(--magenta-500) 25% 50%,var(--yellow-500) 50% 75%,var(--ink-950) 75% 100%);/* @kind color */
+  --gradient-protect-bottom:linear-gradient(to top,rgba(11,11,13,.86) 0%,rgba(11,11,13,.55) 38%,rgba(11,11,13,0) 100%);/* @kind color */
+  --gradient-protect-top:linear-gradient(to bottom,rgba(11,11,13,.72) 0%,rgba(11,11,13,0) 100%);/* @kind color */
+}
+
+/* Inverse scope — apply to any dark section; semantic aliases flip, ramps do not. */
+.epi-inverse,[data-theme="inverse"]{
+  --text-primary:var(--paper);
+  --text-secondary:rgba(255,255,255,.74);
+  --text-muted:rgba(255,255,255,.56);
+  --text-link:var(--yellow-500);
+  --text-link-hover:var(--yellow-200);
+  --text-accent:var(--red-400);
+  --surface-page:var(--ink-950);
+  --surface-card:var(--ink-900);
+  --surface-sunken:var(--ink-950);
+  --surface-raised:var(--ink-800);
+  --border-subtle:rgba(255,255,255,.14);
+  --border-default:rgba(255,255,255,.24);
+  --border-strong:var(--paper);
+  --focus-ring:var(--yellow-500);
+}

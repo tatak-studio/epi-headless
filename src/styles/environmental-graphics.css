@@ -1,0 +1,40 @@
+/* Environmental Graphics: page-specific layouts. Loads after signage-solutions.css, same tokens. */
+
+/* ---------- Zone tiles ---------- */
+.env-zones { display: grid; gap: var(--grid-gap); margin-top: clamp(2rem, 4vw, 3rem); grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.env-zone { display: grid; gap: var(--space-4); align-content: start; min-width: 0; }
+.env-zone__media { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+.env-zone__media image-slot { position: absolute; inset: 0; transition: transform var(--duration-slow) var(--ease-out); }
+.env-zone:hover .env-zone__media image-slot { transform: scale(1.03); }
+.env-zone h3 { font-family: var(--font-display); font-size: var(--text-h4); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); }
+.env-zone p { font-size: var(--text-body-sm); color: var(--text-secondary); }
+.env-zone__spec { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--text-muted); }
+
+/* ---------- Application steps on ink ---------- */
+.env-apply { display: grid; gap: clamp(2rem, 5vw, 3.5rem); align-items: start; }
+@media (min-width: 900px) { .env-apply { grid-template-columns: .85fr 1.15fr; } }
+.env-apply > * { min-width: 0; }
+.env-steps { display: grid; gap: var(--space-5); counter-reset: env; }
+@media (min-width: 620px) { .env-steps { grid-template-columns: 1fr 1fr; } }
+.env-steps > li { display: grid; gap: var(--space-2); padding-top: var(--space-4); border-top: 1px solid rgba(255, 255, 255, .22); }
+.env-steps > li::before { counter-increment: env; content: "0" counter(env); font-family: var(--font-mono); font-size: var(--text-caption); color: var(--yellow-500); }
+.env-steps h3 { font-family: var(--font-display); font-size: var(--text-h4); font-weight: var(--weight-semibold); color: var(--paper); }
+.env-steps p { font-size: var(--text-body-sm); color: rgba(255, 255, 255, .78); }
+.env-steps .epi-mono { color: var(--paper); }
+
+/* ---------- Impact split ---------- */
+.env-impact { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.env-impact > * { min-width: 0; }
+@media (min-width: 900px) { .env-impact { grid-template-columns: 1fr 1fr; } }
+.env-impact .sig-frame { min-height: 0; width: 100%; }
+.env-impact__list { display: grid; gap: var(--space-4); margin-top: var(--space-2); }
+.env-impact__list li { display: flex; gap: var(--space-3); font-size: var(--text-body-sm); color: var(--text-secondary); }
+.env-impact__list li::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: 8px; background: var(--red-600); }
+.env-impact__list li > span { flex: 1 1 auto; min-width: 0; }
+.env-impact__list strong { display: inline; color: var(--text-primary); }
+
+/* ---------- Two-up media band ---------- */
+.env-band { display: grid; gap: 2px; }
+@media (min-width: 720px) { .env-band { grid-template-columns: 1fr 1.4fr; } }
+.env-band figure { position: relative; min-height: clamp(240px, 34vw, 420px); background: var(--ink-900); }
+.env-band image-slot { position: absolute; inset: 0; }

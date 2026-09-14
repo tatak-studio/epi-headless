@@ -1,0 +1,22 @@
+/* LAYOUT — breakpoints, container, grid, z-index.
+   mobile <640 | tablet 640–1023 | desktop 1024–1439 | wide >=1440 */
+:root{
+  --bp-sm:640px;/* @kind spacing */ --bp-md:768px;/* @kind spacing */ --bp-lg:1024px;/* @kind spacing */ --bp-xl:1280px;/* @kind spacing */ --bp-2xl:1440px;/* @kind spacing */
+  --container-max:1240px;/* @kind spacing */
+  --container-narrow:800px;/* @kind spacing */
+  --container-wide:1600px;/* @kind spacing */
+  --container-pad:clamp(1rem,4vw,3rem);/* @kind spacing */
+  --grid-columns:12;/* @kind other */
+  --grid-gap:clamp(1rem,2vw,1.5rem);/* @kind spacing */
+  --nav-height:76px;/* @kind spacing */
+  --nav-height-compact:60px;/* @kind spacing */
+  --tap-min:44px;/* @kind spacing */
+  --z-base:0;/* @kind other */ --z-raised:10;/* @kind other */ --z-sticky:100;/* @kind other */ --z-nav:200;/* @kind other */ --z-drawer:300;/* @kind other */
+  --z-overlay:400;/* @kind other */ --z-modal:500;/* @kind other */ --z-toast:600;/* @kind other */ --z-tooltip:700;/* @kind other */
+}
+.epi-container{width:100%;max-width:var(--container-max);margin-inline:auto;padding-inline:var(--container-pad)}
+.epi-container-narrow{width:100%;max-width:var(--container-narrow);margin-inline:auto;padding-inline:var(--container-pad)}
+.epi-container-wide{width:100%;max-width:var(--container-wide);margin-inline:auto;padding-inline:var(--container-pad)}
+.epi-grid{display:grid;grid-template-columns:repeat(var(--grid-columns),minmax(0,1fr));gap:var(--grid-gap)}
+@media (max-width:1023px){.epi-grid{grid-template-columns:repeat(8,minmax(0,1fr))}}
+@media (max-width:639px){.epi-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}

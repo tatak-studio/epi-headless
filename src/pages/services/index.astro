@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { getServices, getPageBySlug } from '../../lib/wordpress';
+import '../../styles/services.css';
+
+const services = await getServices();
+const pageData = await getPageBySlug('services');
+const heroHeadline = pageData?.meta_box?.hero_headline || "Single-shop partner for high-impact environmental graphics.";
+const heroSubhead = pageData?.meta_box?.hero_subhead || "Design, large format print, fabrication, logistics and on-site installation across DC, Maryland and Virginia. Everything produced in Gaithersburg, Maryland.";
+const heroImage = pageData?.meta_box?.lead_image || '/exhibit-booth-display-mu12smxg-u4qk.jpg';
+---
+
+<BaseLayout seo={pageData?.seo}>
+  <!-- Hero -->
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src={heroImage} alt="EPI-Colorspace Services" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Services</li>
+        </ol>
+      </nav>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">
+        {heroHeadline}
+      </h1>
+      <p class="sig-hero__lede">
+        {heroSubhead}
+      </p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="#all">Our 5 Service Lines</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/contact">Start Your Project</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <!-- Detailed Service Rows -->
+  <section class="sig-section" id="all" aria-labelledby="all-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="all-title">Five service lines, one production floor.</h2>
+        <p>Because nothing leaves our Gaithersburg building for a third-party subcontractor, we control quality, timelines, and installation precision.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:clamp(3rem,6vw,5rem);margin-top:clamp(2rem,4vw,3.5rem)">
+        {services.map((svc, index) => (
+          <article class="sig-split" style={`padding-bottom:clamp(2rem,4vw,3.5rem);${index < services.length - 1 ? 'border-bottom:1px solid var(--border-subtle)' : ''}`}>
+            <div class="sig-split__copy">
+              <p class="sig-kicker">Service {svc.meta_box.service_number || `0${index + 1}`}</p>
+              <h2 class="epi-h1">
+                <a href={`/services/${svc.slug}`} style="color:inherit;text-decoration:none">
+                  {typeof svc.title === 'string' ? svc.title : svc.title.rendered}
+                </a>
+              </h2>
+              {svc.meta_box.kicker && <p style="font-weight:var(--weight-semibold);color:var(--text-accent);margin-top:var(--space-2)">{svc.meta_box.kicker}</p>}
+              <p style="margin-top:var(--space-3)">{svc.meta_box.summary}</p>
+              {svc.meta_box.turnkey_scope && (
+                <p style="font-size:var(--text-body-sm);color:var(--text-secondary);margin-top:var(--space-3);padding:var(--space-3);background:var(--paper-warm);border-left:3px solid var(--surface-brand)">
+                  <strong>Turnkey scope:</strong> {svc.meta_box.turnkey_scope}
+                </p>
+              )}
+              {svc.meta_box.capabilities && svc.meta_box.capabilities.length > 0 && (
+                <ul class="cs-highlights" style="margin-top:var(--space-4)">
+                  {svc.meta_box.capabilities.slice(0, 4).map((c) => (
+                    <li>{c}</li>
+                  ))}
+                </ul>
+              )}
+              <p style="margin-top:var(--space-5)">
+                <a class="epi-btn epi-btn--secondary" href={`/services/${svc.slug}`}>
+                  Deep Dive: {typeof svc.title === 'string' ? svc.title : svc.title.rendered} &rarr;
+                </a>
+              </p>
+            </div>
+            <figure class="sig-frame">
+              <img
+                src={svc.meta_box.lead_image || '/trade-show-printer-mu13gi32-4z7q.jpg'}
+                alt={typeof svc.title === 'string' ? svc.title : svc.title.rendered}
+                style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)"
+                loading="lazy"
+              />
+            </figure>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="sig-section sig-section--warm" aria-labelledby="process-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="process-title">How we work: from concept to execution.</h2>
+        <p>A proven four-stage methodology tested over two decades across the DMV.</p>
+      </div>
+      <div class="home-caps" style="margin-top:clamp(1.5rem,3vw,2.5rem)">
+        <article style="background:var(--paper);padding:var(--space-6);border:1px solid var(--border-subtle);border-radius:var(--radius-md)">
+          <p style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--text-accent)">PHASE 01</p>
+          <h3 style="margin-top:var(--space-2)">Concept &amp; Scope</h3>
+          <p>We review blueprints, site photography, substrates, and access windows to build an accurate, realistic estimate.</p>
+        </article>
+        <article style="background:var(--paper);padding:var(--space-6);border:1px solid var(--border-subtle);border-radius:var(--radius-md)">
+          <p style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--text-accent)">PHASE 02</p>
+          <h3 style="margin-top:var(--space-2)">Pre-Flight &amp; Proofing</h3>
+          <p>Color proofing against physical Pantone standards and physical material mockups to verify opacity and alignment.</p>
+        </article>
+        <article style="background:var(--paper);padding:var(--space-6);border:1px solid var(--border-subtle);border-radius:var(--radius-md)">
+          <p style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--text-accent)">PHASE 03</p>
+          <h3 style="margin-top:var(--space-2)">In-House Fabrication</h3>
+          <p>Flatbed direct print, CNC routing, custom framing and crate packing carried out in our Gaithersburg shop.</p>
+        </article>
+        <article style="background:var(--paper);padding:var(--space-6);border:1px solid var(--border-subtle);border-radius:var(--radius-md)">
+          <p style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--text-accent)">PHASE 04</p>
+          <h3 style="margin-top:var(--space-2)">Installation &amp; Punch</h3>
+          <p>Our own installers arrive with lift equipment and rigging gear, executing the install and closing the punch list.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <ContactForm />
+</BaseLayout>

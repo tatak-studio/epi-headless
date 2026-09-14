@@ -1,0 +1,372 @@
+[
+  {
+    "title": "Case Study & Project Details",
+    "id": "project_case_study_details",
+    "post_types": [
+      "project"
+    ],
+    "fields": [
+      {
+        "id": "service_category",
+        "name": "Service Category Badge",
+        "type": "text"
+      },
+      {
+        "id": "byline",
+        "name": "Byline",
+        "type": "text"
+      },
+      {
+        "id": "summary",
+        "name": "Summary / Hero Lede",
+        "type": "textarea"
+      },
+      {
+        "id": "client",
+        "name": "Client Name",
+        "type": "text"
+      },
+      {
+        "id": "location",
+        "name": "Location",
+        "type": "text"
+      },
+      {
+        "id": "scope",
+        "name": "Scope",
+        "type": "text"
+      },
+      {
+        "id": "service_line",
+        "name": "Service Line",
+        "type": "text"
+      },
+      {
+        "id": "market",
+        "name": "Market Sector",
+        "type": "text"
+      },
+      {
+        "id": "materials",
+        "name": "Materials Specification",
+        "type": "text"
+      },
+      {
+        "id": "completed",
+        "name": "Completion Date",
+        "type": "text"
+      },
+      {
+        "id": "lead_image",
+        "name": "Lead Image URL / Upload",
+        "type": "single_image"
+      },
+      {
+        "id": "section_1_heading",
+        "name": "Section 1 Heading",
+        "type": "text",
+        "std": "What the building needed"
+      },
+      {
+        "id": "section_1_body",
+        "name": "Section 1 Body",
+        "type": "wysiwyg"
+      },
+      {
+        "id": "section_2_heading",
+        "name": "Section 2 Heading",
+        "type": "text",
+        "std": "What we produced and installed"
+      },
+      {
+        "id": "section_2_body",
+        "name": "Section 2 Body",
+        "type": "wysiwyg"
+      },
+      {
+        "id": "section_3_heading",
+        "name": "Section 3 Heading",
+        "type": "text",
+        "std": "Field conditions we worked around"
+      },
+      {
+        "id": "section_3_body",
+        "name": "Section 3 Body",
+        "type": "wysiwyg"
+      },
+      {
+        "id": "section_4_heading",
+        "name": "Section 4 Heading",
+        "type": "text",
+        "std": "The result"
+      },
+      {
+        "id": "section_4_body",
+        "name": "Section 4 Body",
+        "type": "wysiwyg"
+      },
+      {
+        "id": "highlights_heading",
+        "name": "Highlights Heading",
+        "type": "text",
+        "std": "Project highlights"
+      },
+      {
+        "id": "highlights",
+        "name": "Project Highlights",
+        "type": "text",
+        "clone": true
+      },
+      {
+        "id": "outcome_heading",
+        "name": "Outcome Heading",
+        "type": "text",
+        "std": "Measured on the deck, not on the proof."
+      },
+      {
+        "id": "outcome_stats",
+        "name": "Outcome Stats",
+        "type": "group",
+        "clone": true,
+        "fields": [
+          {
+            "id": "value",
+            "name": "Value",
+            "type": "text"
+          },
+          {
+            "id": "label",
+            "name": "Label",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "gallery_heading",
+        "name": "Gallery Heading",
+        "type": "text",
+        "std": "Installed work"
+      },
+      {
+        "id": "gallery_images",
+        "name": "Gallery Images",
+        "type": "image_advanced"
+      },
+      {
+        "id": "gallery_captions",
+        "name": "Gallery Captions",
+        "type": "text",
+        "clone": true
+      },
+      {
+        "id": "testimonial_quote",
+        "name": "Testimonial Quote",
+        "type": "textarea"
+      },
+      {
+        "id": "testimonial_source",
+        "name": "Testimonial Source",
+        "type": "text"
+      },
+      {
+        "id": "filter_services",
+        "name": "Filter Service Keys",
+        "type": "text"
+      },
+      {
+        "id": "filter_market",
+        "name": "Filter Market Key",
+        "type": "text"
+      },
+      {
+        "id": "related_projects",
+        "name": "Related Projects",
+        "type": "post",
+        "post_type": "project",
+        "multiple": true
+      }
+    ]
+  },
+  {
+    "title": "Service Details & Deliverables",
+    "id": "service_details",
+    "post_types": [
+      "service"
+    ],
+    "fields": [
+      {
+        "id": "service_number",
+        "name": "Service Number",
+        "type": "text",
+        "std": "01"
+      },
+      {
+        "id": "kicker",
+        "name": "Tagline / Kicker",
+        "type": "text"
+      },
+      {
+        "id": "summary",
+        "name": "Summary",
+        "type": "textarea"
+      },
+      {
+        "id": "turnkey_scope",
+        "name": "Turnkey Scope",
+        "type": "textarea"
+      },
+      {
+        "id": "capabilities",
+        "name": "Capabilities",
+        "type": "text",
+        "clone": true
+      },
+      {
+        "id": "deliverables",
+        "name": "Deliverables",
+        "type": "text",
+        "clone": true
+      },
+      {
+        "id": "materials_used",
+        "name": "Materials Used",
+        "type": "text",
+        "clone": true
+      },
+      {
+        "id": "lead_image",
+        "name": "Lead Image",
+        "type": "single_image"
+      },
+      {
+        "id": "gallery_images",
+        "name": "Gallery Images",
+        "type": "image_advanced"
+      }
+    ]
+  },
+  {
+    "title": "Market Details",
+    "id": "market_details",
+    "post_types": [
+      "market"
+    ],
+    "fields": [
+      {
+        "id": "market_kicker",
+        "name": "Market Kicker",
+        "type": "text"
+      },
+      {
+        "id": "market_summary",
+        "name": "Market Summary",
+        "type": "textarea"
+      },
+      {
+        "id": "access_window",
+        "name": "Access Window",
+        "type": "text"
+      },
+      {
+        "id": "challenges",
+        "name": "Challenges",
+        "type": "textarea"
+      },
+      {
+        "id": "solutions",
+        "name": "Solutions",
+        "type": "textarea"
+      },
+      {
+        "id": "lead_image",
+        "name": "Lead Image",
+        "type": "single_image"
+      }
+    ]
+  },
+  {
+    "title": "Testimonial Details",
+    "id": "testimonial_details",
+    "post_types": [
+      "testimonial"
+    ],
+    "fields": [
+      {
+        "id": "quote",
+        "name": "Quote",
+        "type": "textarea"
+      },
+      {
+        "id": "client_name",
+        "name": "Client Name",
+        "type": "text"
+      },
+      {
+        "id": "client_role",
+        "name": "Client Role",
+        "type": "text"
+      },
+      {
+        "id": "organization",
+        "name": "Organization",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "title": "Page Settings & Content",
+    "id": "page_details",
+    "post_types": [
+      "page"
+    ],
+    "fields": [
+      {
+        "id": "hero_headline",
+        "name": "Hero Headline",
+        "type": "text"
+      },
+      {
+        "id": "hero_subhead",
+        "name": "Hero Subhead / Lede",
+        "type": "textarea",
+        "rows": 3
+      },
+      {
+        "id": "lead_image",
+        "name": "Lead / Hero Image",
+        "type": "single_image"
+      },
+      {
+        "id": "trust_kicker",
+        "name": "Trust Section Kicker",
+        "type": "text"
+      },
+      {
+        "id": "trust_heading",
+        "name": "Trust Section Heading",
+        "type": "text"
+      },
+      {
+        "id": "trust_body",
+        "name": "Trust Section Body Copy",
+        "type": "wysiwyg"
+      },
+      {
+        "id": "phone",
+        "name": "Contact Phone",
+        "type": "text"
+      },
+      {
+        "id": "address",
+        "name": "Facility Address",
+        "type": "textarea",
+        "rows": 2
+      },
+      {
+        "id": "hightail_url",
+        "name": "File Upload (Hightail) URL",
+        "type": "url"
+      }
+    ]
+  }
+]

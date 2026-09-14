@@ -1,0 +1,203 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { SEOMetadata } from '../types/wordpress';
+import '../styles/design-system/styles.css';
+import '../styles/signage-solutions.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  seo?: Partial<SEOMetadata>;
+}
+
+const {
+  title,
+  description = "Improve brand visibility and impact with the top-tier graphics & printing solutions of EPI-Colorspace: design, large format print, fabrication and installation across the DMV.",
+  canonical,
+  seo,
+} = Astro.props;
+
+const pageTitle = seo?.title || title || "We Bring Visions to Life | EPI-Colorspace";
+const siteTitle = pageTitle.includes('EPI-Colorspace') ? pageTitle : `${pageTitle} | EPI-Colorspace`;
+const metaDesc = seo?.description || description;
+const canonicalUrl = seo?.canonical || canonical;
+const robotsDirective = seo?.robots ? `${seo.robots.index}, ${seo.robots.follow}` : 'index, follow';
+
+const ogTitle = seo?.open_graph?.title || siteTitle;
+const ogDesc = seo?.open_graph?.description || metaDesc;
+const ogImage = seo?.open_graph?.image || '/assets/epi-colorspace-logo.png';
+const ogType = seo?.open_graph?.type || 'website';
+const ogSiteName = seo?.open_graph?.site_name || 'EPI-Colorspace';
+
+const twCard = seo?.twitter?.card || 'summary_large_image';
+const twTitle = seo?.twitter?.title || ogTitle;
+const twDesc = seo?.twitter?.description || ogDesc;
+const twImage = seo?.twitter?.image || ogImage;
+
+const schemaJson = seo?.schema ? JSON.stringify(seo.schema) : null;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={metaDesc} />
+    <meta name="robots" content={robotsDirective} />
+    <link rel="icon" type="image/png" href="/assets/epi-colorspace-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <!-- OpenGraph Meta -->
+    <meta property="og:site_name" content={ogSiteName} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDesc} />
+    <meta property="og:image" content={ogImage} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+
+    <!-- Twitter Card Meta -->
+    <meta name="twitter:card" content={twCard} />
+    <meta name="twitter:title" content={twTitle} />
+    <meta name="twitter:description" content={twDesc} />
+    <meta name="twitter:image" content={twImage} />
+
+    <!-- Structured Data (JSON-LD) -->
+    {schemaJson && <script type="application/ld+json" set:html={schemaJson} />}
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script is:inline>
+      // Global navigation and drawer interaction script
+      (function () {
+        // Scrolled header state
+        var header = document.querySelector('.sig-header');
+        if (header) {
+          var onScroll = function () {
+            header.classList.toggle('sig-header--scrolled', window.scrollY > 8);
+          };
+          window.addEventListener('scroll', onScroll, { passive: true });
+          onScroll();
+        }
+
+        // Header menus (mega panels)
+        var menus = Array.prototype.slice.call(document.querySelectorAll('[data-menu-trigger]')).map(function (trigger) {
+          return { trigger: trigger, panel: document.getElementById(trigger.getAttribute('aria-controls')) };
+        }).filter(function (m) { return m.panel; });
+
+        if (menus.length) {
+          var menuTimer = null;
+          var desktop = window.matchMedia('(min-width: 1024px)');
+
+          var setMenu = function (menu, open) {
+            window.clearTimeout(menuTimer);
+            menus.forEach(function (m) {
+              var on = m === menu && open;
+              m.panel.hidden = !on;
+              m.trigger.setAttribute('aria-expanded', String(on));
+            });
+          };
+          var closeMenus = function () { setMenu(null, false); };
+
+          menus.forEach(function (menu) {
+            menu.trigger.addEventListener('click', function () { setMenu(menu, menu.panel.hidden); });
+            menu.trigger.addEventListener('mouseenter', function () { if (desktop.matches) setMenu(menu, true); });
+            menu.panel.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenus(); });
+          });
+
+          var headerElem = document.querySelector('.sig-header');
+          if (headerElem) {
+            headerElem.addEventListener('mouseleave', function () { menuTimer = window.setTimeout(closeMenus, 200); });
+            headerElem.addEventListener('mouseenter', function () { window.clearTimeout(menuTimer); });
+          }
+
+          var inMenus = function (node) {
+            return menus.some(function (m) { return m.panel.contains(node) || m.trigger.contains(node); });
+          };
+          document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            var open = menus.filter(function (m) { return !m.panel.hidden; })[0];
+            if (open) { closeMenus(); open.trigger.focus(); }
+          });
+          document.addEventListener('focusin', function (e) { if (!inMenus(e.target)) closeMenus(); });
+          document.addEventListener('click', function (e) { if (!inMenus(e.target)) closeMenus(); });
+        }
+
+        // Mobile drawer
+        var burger = document.getElementById('burger');
+        var drawer = document.getElementById('drawer');
+        var drawerClose = document.getElementById('drawer-close');
+
+        function setDrawer(open) {
+          if (!drawer || !burger) return;
+          drawer.hidden = !open;
+          burger.setAttribute('aria-expanded', String(open));
+          document.body.style.overflow = open ? 'hidden' : '';
+          if (open) {
+            var first = drawer.querySelector('a, button');
+            if (first) first.focus();
+          } else {
+            burger.focus();
+          }
+        }
+
+        if (burger && drawer) {
+          burger.addEventListener('click', function () { setDrawer(drawer.hidden); });
+          if (drawerClose) drawerClose.addEventListener('click', function () { setDrawer(false); });
+          drawer.addEventListener('click', function (e) {
+            if (e.target.closest('a')) setDrawer(false);
+          });
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !drawer.hidden) setDrawer(false);
+          });
+          var wide = window.matchMedia('(min-width: 1024px)');
+          wide.addEventListener('change', function (e) { if (e.matches && !drawer.hidden) setDrawer(false); });
+        }
+
+        // Contact form handling
+        var form = document.getElementById('project-form');
+        var status = document.getElementById('form-status');
+        if (form && status) {
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var missing = Array.prototype.slice.call(form.querySelectorAll('[required]')).filter(function (f) {
+              return !f.value.trim();
+            });
+            missing.forEach(function (f) { f.setAttribute('aria-invalid', 'true'); });
+            if (missing.length) {
+              status.hidden = false;
+              status.style.color = '#fff';
+              status.style.background = '#C42711';
+              status.style.padding = '0.75rem 1rem';
+              status.style.marginBottom = '1rem';
+              status.textContent = 'Please fill in all required fields (Name, Email, Scope).';
+              missing[0].focus();
+              return;
+            }
+            form.querySelectorAll('[aria-invalid]').forEach(function (f) { f.removeAttribute('aria-invalid'); });
+            status.hidden = false;
+            status.style.color = '#fff';
+            status.style.background = '#007A3D';
+            status.style.padding = '0.75rem 1rem';
+            status.style.marginBottom = '1rem';
+            status.textContent = 'Request received. An EPI-Colorspace project manager will reply within one business day.';
+            form.reset();
+          });
+
+          form.addEventListener('input', function (e) {
+            if (e.target.value.trim()) e.target.removeAttribute('aria-invalid');
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

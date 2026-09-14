@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { getMarkets, getPageBySlug } from '../../lib/wordpress';
+import '../../styles/markets.css';
+
+const markets = await getMarkets();
+const pageData = await getPageBySlug('markets');
+const heroHeadline = pageData?.meta_box?.hero_headline || "We specialize in transforming a wide variety of spaces into dynamic, immersive brand experiences.";
+const heroSubhead = pageData?.meta_box?.hero_subhead || "Museums and universities, commercial real estate and corporate environments, retail and construction. Each market has its own rules about access, materials and downtime, and we plan for them before the truck is loaded.";
+const heroImage = pageData?.meta_box?.lead_image || '/hall-exhibit-display-mu12il5t-6a71.jpg';
+---
+
+<BaseLayout seo={pageData?.seo}>
+  <!-- Hero -->
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src={heroImage} alt="EPI-Colorspace Markets" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Markets</li>
+        </ol>
+      </nav>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">
+        {heroHeadline}
+      </h1>
+      <p class="sig-hero__lede">
+        {heroSubhead}
+      </p>
+      <div class="sig-hero__actions">
+        <a class="epi-btn epi-btn--lg" href="#all">See our Markets</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/contact">Start Your Project</a>
+      </div>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <!-- Split Intro -->
+  <section class="sig-section" aria-labelledby="intro-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="intro-title">
+          EPI-Colorspace provides diverse services across industries, creating impactful experiences.
+        </h2>
+        <p>
+          The five service lines do not change from market to market. What changes is how the work gets specified and scheduled: a gallery install is conservator-reviewed and happens overnight, a garage sign is permitted and hung from a lift, a retail rollout ships kitted by store. Twenty years of doing all three is what makes the estimate honest.
+        </p>
+        <p>
+          We pride ourselves on delivering unmatched levels of responsiveness, unwavering commitment and extensive industry knowledge. Pick the market closest to your building and we will tell you what usually goes wrong there and how we plan around it.
+        </p>
+        <dl class="sig-facts">
+          <div>
+            <dt>Markets</dt>
+            <dd>Six, served weekly</dd>
+          </div>
+          <div>
+            <dt>Partners</dt>
+            <dd>200+ and counting</dd>
+          </div>
+          <div>
+            <dt>Coverage</dt>
+            <dd>DC, Maryland, Virginia</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="sig-frame">
+        <img src="/building-facade-graphics-mu13937x-72if.jpg" alt="University campus wayfinding signage" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Markets Grid Section -->
+  <section class="sig-section sig-section--warm" id="all" aria-labelledby="markets-grid-title">
+    <div class="epi-container">
+      <div class="sig-head">
+        <h2 class="epi-h1" id="markets-grid-title">Six industries. One experienced partner.</h2>
+        <p>Select your market sector to see how we adapt materials, access windows, and installation methods.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 360px), 1fr));gap:var(--space-6);margin-top:clamp(2rem,4vw,3rem)">
+        {markets.map((mkt) => (
+          <article style="background:var(--paper);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column">
+            <figure style="height:220px;margin:0;overflow:hidden">
+              <img
+                src={mkt.meta_box.lead_image || '/hall-exhibit-display-mu12il5t-6a71.jpg'}
+                alt={typeof mkt.title === 'string' ? mkt.title : mkt.title.rendered}
+                style="width:100%;height:100%;object-fit:cover;display:block"
+                loading="lazy"
+              />
+            </figure>
+            <div style="padding:var(--space-6);display:flex;flex-direction:column;flex:1">
+              <h3 class="epi-h3">
+                <a href={`/markets/${mkt.slug}`} style="color:inherit;text-decoration:none">
+                  {typeof mkt.title === 'string' ? mkt.title : mkt.title.rendered}
+                </a>
+              </h3>
+              <p style="font-weight:var(--weight-semibold);color:var(--text-accent);font-size:var(--text-body-sm);margin-top:var(--space-2)">
+                {mkt.meta_box.market_kicker}
+              </p>
+              <p style="margin-top:var(--space-3);color:var(--text-secondary);font-size:var(--text-body-sm)">
+                {mkt.meta_box.market_summary}
+              </p>
+              {mkt.meta_box.access_window && (
+                <p style="margin-top:auto;padding-top:var(--space-4);border-top:1px solid var(--border-subtle);font-size:var(--text-caption);color:var(--text-muted)">
+                  <strong>Access Window:</strong> {mkt.meta_box.access_window}
+                </p>
+              )}
+              <p style="margin-top:var(--space-4)">
+                <a class="epi-btn epi-btn--sm epi-btn--secondary" href={`/markets/${mkt.slug}`}>
+                  Learn More &rarr;
+                </a>
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <ContactForm />
+</BaseLayout>

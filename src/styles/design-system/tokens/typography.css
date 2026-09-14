@@ -1,0 +1,45 @@
+/* TYPE — three roles: display (Archivo, wide, tight), text (Source Sans 3), data (Source Code Pro). */
+:root{
+  --text-display-1:clamp(2.75rem,6vw,5.5rem);
+  --text-display-2:clamp(2.25rem,4.4vw,4rem);
+  --text-h1:clamp(2rem,3.2vw,3rem);
+  --text-h2:clamp(1.625rem,2.4vw,2.25rem);
+  --text-h3:1.375rem;
+  --text-h4:1.125rem;
+  --text-body-lg:1.125rem;
+  --text-body:1rem;
+  --text-body-sm:0.875rem;
+  --text-caption:0.8125rem;
+  --text-overline:0.75rem;
+
+  --leading-display:0.98;/* @kind font */
+  --leading-tight:1.14;/* @kind font */
+  --leading-snug:1.3;/* @kind font */
+  --leading-body:1.6;/* @kind font */
+  --leading-loose:1.75;/* @kind font */
+
+  --tracking-display:-0.025em;/* @kind font */
+  --tracking-tight:-0.012em;/* @kind font */
+  --tracking-normal:0;/* @kind font */
+  --tracking-wide:0.04em;/* @kind font */
+  --tracking-overline:0.14em;/* @kind font */
+
+  --weight-regular:400;/* @kind font */ --weight-medium:500;/* @kind font */ --weight-semibold:600;/* @kind font */
+  --weight-bold:700;/* @kind font */ --weight-black:800;/* @kind font */
+
+  --measure-narrow:38ch;/* @kind other */ --measure:64ch;/* @kind other */ --measure-wide:78ch;/* @kind other */
+}
+
+/* Composed type roles — apply as classes when you are not using a component. */
+.epi-display-1{font-family:var(--font-display);font-weight:var(--weight-black);font-size:var(--text-display-1);line-height:var(--leading-display);letter-spacing:var(--tracking-display);font-stretch:var(--font-display-stretch);text-transform:uppercase;text-wrap:balance}
+.epi-display-2{font-family:var(--font-display);font-weight:var(--weight-black);font-size:var(--text-display-2);line-height:1.02;letter-spacing:var(--tracking-display);font-stretch:var(--font-display-stretch);text-wrap:balance}
+.epi-h1{font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h1);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight);text-wrap:balance}
+.epi-h2{font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h2);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight);text-wrap:balance}
+.epi-h3{font-family:var(--font-display);font-weight:var(--weight-semibold);font-size:var(--text-h3);line-height:var(--leading-snug);letter-spacing:var(--tracking-tight)}
+.epi-h4{font-family:var(--font-sans);font-weight:var(--weight-semibold);font-size:var(--text-h4);line-height:var(--leading-snug)}
+.epi-body-lg{font-family:var(--font-sans);font-size:var(--text-body-lg);line-height:var(--leading-body);color:var(--text-secondary)}
+.epi-body{font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-body)}
+.epi-body-sm{font-family:var(--font-sans);font-size:var(--text-body-sm);line-height:var(--leading-body)}
+.epi-caption{font-family:var(--font-sans);font-size:var(--text-caption);line-height:1.45;color:var(--text-muted)}
+.epi-overline{font-family:var(--font-sans);font-size:var(--text-overline);font-weight:var(--weight-semibold);line-height:1.2;letter-spacing:var(--tracking-overline);text-transform:uppercase;color:var(--text-accent)}
+.epi-mono{font-family:var(--font-mono);font-size:var(--text-body-sm);letter-spacing:0;font-variant-numeric:tabular-nums}

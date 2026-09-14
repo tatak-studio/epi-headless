@@ -1,0 +1,44 @@
+---
+import type { Service } from '../types/wordpress';
+
+interface Props {
+  service: Service;
+  featured?: boolean;
+}
+const { service, featured = false } = Astro.props;
+
+const title = typeof service.title === 'string' ? service.title : service.title.rendered;
+const meta = service.meta_box || {};
+const image = meta.lead_image || '/trade-show-printer-mu13gi32-4z7q.jpg';
+---
+
+<article class={`home-svc__item ${featured ? 'home-svc__item--feature' : ''}`}>
+  <figure class="home-svc__media">
+    <img src={image} alt={title} loading="lazy" decoding="async" />
+  </figure>
+  <div class="home-svc__body">
+    <p class="home-svc__num">{meta.service_number || '01'}</p>
+    <h3 class={featured ? 'epi-h2' : 'epi-h3'}>{title}</h3>
+    <p>{meta.summary}</p>
+    {meta.turnkey_scope && (
+      <p class="home-svc__detail">
+        <strong>Turnkey scope:</strong> {meta.turnkey_scope}
+      </p>
+    )}
+    <p style="margin-top:auto;padding-top:var(--space-3)">
+      <a class="epi-btn epi-btn--sm epi-btn--secondary" href={`/services/${service.slug}`}>
+        Explore {title}
+      </a>
+    </p>
+  </div>
+</article>
+
+<style>
+  .home-svc__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 16 / 9;
+  }
+</style>

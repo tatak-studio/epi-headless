@@ -1,0 +1,17 @@
+/* MOTION — short, flat, no bounce. Things fade and shift a few pixels; nothing springs. */
+:root{
+  --duration-instant:80ms;/* @kind other */
+  --duration-fast:130ms;/* @kind other */
+  --duration-base:200ms;/* @kind other */
+  --duration-slow:320ms;/* @kind other */
+  --duration-reveal:520ms;/* @kind other */
+  --ease-out:cubic-bezier(.2,.7,.3,1);/* @kind other */
+  --ease-in-out:cubic-bezier(.5,0,.3,1);/* @kind other */
+  --ease-entrance:cubic-bezier(.16,.84,.28,1);/* @kind other */
+  --transition-control:background-color var(--duration-fast) var(--ease-out),color var(--duration-fast) var(--ease-out),border-color var(--duration-fast) var(--ease-out),box-shadow var(--duration-fast) var(--ease-out),transform var(--duration-fast) var(--ease-out);/* @kind other */
+  --lift-hover:-1px;/* @kind spacing */
+  --press-scale:0.985;/* @kind other */
+}
+@media (prefers-reduced-motion:reduce){
+  :root{--duration-instant:0ms;/* @kind other */--duration-fast:0ms;/* @kind other */--duration-base:0ms;/* @kind other */--duration-slow:0ms;/* @kind other */--duration-reveal:0ms;/* @kind other */--lift-hover:0px;/* @kind spacing */--press-scale:1/* @kind other */}
+}

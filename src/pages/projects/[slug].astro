@@ -1,0 +1,306 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyGallery from '../../components/CaseStudyGallery.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { getProjects, getProjectBySlug } from '../../lib/wordpress';
+import '../../styles/project-template.css';
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { slug } = Astro.params;
+const { project: initialProject } = Astro.props;
+const project = (slug ? await getProjectBySlug(slug) : null) || initialProject;
+
+if (!project) {
+  throw new Error(`Project not found: ${slug}`);
+}
+
+const title = typeof project.title === 'string' ? project.title : project.title.rendered;
+const meta = project.meta_box || {};
+const leadImg = meta.lead_image || project.featured_media_url || '/parking-notice-sign-mu13jclv-qgtf.jpg';
+const outcomeStats = meta.outcome_stats && meta.outcome_stats.length > 0
+  ? meta.outcome_stats
+  : [
+      { value: '28', label: 'Columns wrapped across the structure' },
+      { value: '4', label: 'Levels brought onto one visual system' },
+      { value: '0', label: 'Days the facility was closed to visitors' },
+      { value: '100%', label: 'Reserved spaces identified and legible' },
+    ];
+
+const galleryImages = meta.gallery_images && meta.gallery_images.length > 0
+  ? meta.gallery_images
+  : [
+      { url: '/parking-notice-sign-mu13jclv-qgtf.jpg', caption: 'Column wrap, reserved parking identification' },
+      { url: '/building-facade-graphics-mu13937x-72if.jpg', caption: 'Directional graphics at the ramp' },
+      { url: '/colonial-one-windows-mu13royg-84om.jpg', caption: 'Unit identifiers, high-contrast set' },
+      { url: '/real-estate-banner-mu12q7mf-0tjm.jpg', caption: 'Installed run, level two' },
+    ];
+
+const highlights = meta.highlights && meta.highlights.length > 0
+  ? meta.highlights
+  : [
+      'Duratex blockout PET/PVC column wraps',
+      'High-tack adhesive vinyl installation',
+      'Parking garage wayfinding graphics',
+      'Reserved parking identification systems',
+      'Multi-column alignment and field adjustment',
+      'High-contrast visibility graphics',
+      'Commercial environmental branding',
+    ];
+
+const related = meta.related_projects && meta.related_projects.length > 0
+  ? meta.related_projects
+  : [
+      {
+        slug: 'parking-structure-level-identification-dc',
+        title: 'Parking structure level identification, DC',
+        subtitle: '7 levels, reflective panel system',
+        image: '/parking-notice-sign-mu13jclv-qgtf.jpg',
+      },
+      {
+        slug: 'retail-leasing-banners-rockville',
+        title: 'Retail leasing banners, Rockville',
+        subtitle: '13 oz scrim vinyl, 96 x 48 in',
+        image: '/real-estate-banner-mu12q7mf-0tjm.jpg',
+      },
+      {
+        slug: 'lobby-environmental-graphics-tysons',
+        title: 'Lobby environmental graphics, Tysons',
+        subtitle: 'Wall mural, dimensional letters',
+        image: '/spiral-lobby-graphics-mu13h9gi-cfz7.jpg',
+      },
+    ];
+---
+
+<BaseLayout seo={project.seo}>
+  <article>
+    <!-- Case Study Hero -->
+    <header class="cs-hero">
+      <div class="epi-container cs-hero__inner">
+        <nav aria-label="Breadcrumb">
+          <ol class="sig-crumbs">
+            <li><a href="/">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/projects">Projects</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">{title}</li>
+          </ol>
+        </nav>
+        {meta.service_category && <p class="cs-hero__badge" data-field="service_category">{meta.service_category}</p>}
+        <h1 id="cs-title" data-field="title">{title}</h1>
+        {meta.byline && <p class="cs-hero__byline" data-field="byline">{meta.byline}</p>}
+        {meta.summary && <p class="cs-hero__lede" data-field="summary">{meta.summary}</p>}
+      </div>
+    </header>
+
+    <!-- Lead Image -->
+    <div class="cs-lead">
+      <img src={leadImg} alt={title} style="width:100%;max-height:680px;object-fit:cover;display:block" />
+    </div>
+
+    <!-- Main Story & Project Facts Split -->
+    <section class="sig-section" aria-labelledby="story-title">
+      <div class="epi-container cs-layout">
+        <div class="cs-body">
+          <h2 class="epi-h2" id="story-title" data-field="section_1_heading">
+            {meta.section_1_heading || 'What the building needed'}
+          </h2>
+          <div data-field="section_1_body" set:html={meta.section_1_body || '<p>A high-traffic parking structure had accumulated years of mismatched signage, faded markings and inconsistent unit identifiers.</p>'} />
+
+          <h2 class="epi-h2" data-field="section_2_heading">
+            {meta.section_2_heading || 'What we produced and installed'}
+          </h2>
+          <div data-field="section_2_body" set:html={meta.section_2_body || '<p>The project involved the production and installation of high-contrast column wraps using high-tack adhesive systems engineered for durability.</p>'} />
+
+          <h2 class="epi-h2" data-field="section_3_heading">
+            {meta.section_3_heading || 'Field conditions we worked around'}
+          </h2>
+          <div data-field="section_3_body" set:html={meta.section_3_body || '<p>Our installers adjusted panel positioning and trim alignment on site to maintain visual continuity and consistent spacing throughout the garage.</p>'} />
+
+          <h2 class="epi-h2" data-field="highlights_heading">
+            {meta.highlights_heading || 'Project highlights'}
+          </h2>
+          <ul class="cs-highlights" data-field="highlights">
+            {highlights.map((h) => (
+              <li>{h}</li>
+            ))}
+          </ul>
+
+          <h2 class="epi-h2" data-field="section_4_heading">
+            {meta.section_4_heading || 'The result'}
+          </h2>
+          <div data-field="section_4_body" set:html={meta.section_4_body || '<p>The completed installation delivered a cleaner, more navigable environment with a cohesive visual identity.</p>'} />
+        </div>
+
+        <!-- Facts Sidebar -->
+        <aside class="cs-facts" aria-label="Project details">
+          <div class="cs-facts__rule" aria-hidden="true"></div>
+          <dl>
+            {meta.client && (
+              <div>
+                <dt>Client</dt>
+                <dd data-field="client">{meta.client}</dd>
+              </div>
+            )}
+            {meta.location && (
+              <div>
+                <dt>Location</dt>
+                <dd data-field="location">{meta.location}</dd>
+              </div>
+            )}
+            {meta.scope && (
+              <div>
+                <dt>Scope</dt>
+                <dd data-field="scope">{meta.scope}</dd>
+              </div>
+            )}
+            {meta.service_line && (
+              <div>
+                <dt>Service line</dt>
+                <dd data-field="service_line">{meta.service_line}</dd>
+              </div>
+            )}
+            {meta.market && (
+              <div>
+                <dt>Market</dt>
+                <dd data-field="market">{meta.market}</dd>
+              </div>
+            )}
+            {meta.materials && (
+              <div>
+                <dt>Materials</dt>
+                <dd data-field="materials"><span class="epi-mono">{meta.materials}</span></dd>
+              </div>
+            )}
+            {meta.completed && (
+              <div>
+                <dt>Completed</dt>
+                <dd data-field="completed">{meta.completed}</dd>
+              </div>
+            )}
+          </dl>
+          <div class="cs-facts__actions">
+            <a class="epi-btn" href="#contact">Start Your Project</a>
+            <a class="epi-btn epi-btn--secondary" href="tel:3019902666">Call Us Today</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Outcome Metrics Band -->
+    <section class="sig-section sig-section--ink" aria-labelledby="outcome-title">
+      <div class="epi-container">
+        <div class="sig-head">
+          <h2 class="epi-h1" id="outcome-title" data-field="outcome_heading" style="color:var(--paper)">
+            {meta.outcome_heading || 'Measured on the deck, not on the proof.'}
+          </h2>
+        </div>
+        <div class="cs-outcome" style="margin-top:clamp(1.5rem,3vw,2.5rem)" data-field="outcome_stats">
+          {outcomeStats.map((stat) => (
+            <div>
+              <p class="cs-outcome__value">{stat.value}</p>
+              <p class="cs-outcome__label">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Installed Work Gallery with Lightbox -->
+    <CaseStudyGallery heading={meta.gallery_heading || 'Installed work'} images={galleryImages} />
+
+    <!-- Client Feedback Quote -->
+    {meta.testimonial_quote && (
+      <section class="sig-section sig-section--warm" aria-label="Client feedback">
+        <div class="epi-container">
+          <figure class="sig-quote">
+            <div class="sig-quote__mark" aria-hidden="true"></div>
+            <blockquote data-field="testimonial_quote">
+              "{meta.testimonial_quote}"
+            </blockquote>
+            {meta.testimonial_source && (
+              <figcaption data-field="testimonial_source">{meta.testimonial_source}</figcaption>
+            )}
+          </figure>
+        </div>
+      </section>
+    )}
+
+    <!-- Related Projects -->
+    <section class="sig-section" aria-labelledby="related-title">
+      <div class="epi-container">
+        <div class="sig-head">
+          <h2 class="epi-h1" id="related-title">Related projects</h2>
+          <p>More work in {meta.service_category || 'signage and environmental graphics'}.</p>
+        </div>
+        <div class="cs-related" data-field="related_projects">
+          {related.map((item) => (
+            <article>
+              <div class="cs-related__frame">
+                <img src={item.image} alt={item.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+              </div>
+              <div class="cs-related__body">
+                <h3><a href={`/projects/${item.slug}`}>{item.title}</a></h3>
+                <p>{item.subtitle}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <nav class="cs-pager" aria-label="Project navigation">
+          <a href="/projects">Previous project</a>
+          <a href="/projects">All projects</a>
+          <a href="/projects">Next project</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Inquiry CTA -->
+    <ContactForm />
+  </article>
+
+  <!-- Lightbox Script -->
+  <script is:inline>
+    (function () {
+      var dialog = document.getElementById('cs-lightbox');
+      if (!dialog || typeof dialog.showModal !== 'function') return;
+
+      var img = document.getElementById('cs-lightbox-img');
+      var note = document.getElementById('cs-lightbox-note');
+      var caption = document.getElementById('cs-lightbox-caption');
+      var close = document.getElementById('cs-lightbox-close');
+
+      function open(figure) {
+        var figureImg = figure.querySelector('img');
+        var text = figure.querySelector('figcaption');
+        var url = figureImg ? figureImg.getAttribute('src') : null;
+
+        if (caption) caption.textContent = text ? text.textContent : '';
+        if (url && img) {
+          img.src = url;
+          img.hidden = false;
+          if (note) note.hidden = true;
+        } else {
+          if (img) img.hidden = true;
+          if (note) note.hidden = false;
+        }
+        dialog.showModal();
+      }
+
+      document.querySelectorAll('.cs-zoom').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var fig = btn.closest('figure');
+          if (fig) open(fig);
+        });
+      });
+
+      if (close) close.addEventListener('click', function () { dialog.close(); });
+      dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+    })();
+  </script>
+</BaseLayout>

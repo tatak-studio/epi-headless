@@ -1,0 +1,57 @@
+/* Services parent page. Shared shell comes from signage-solutions.css. */
+
+.svc-layout { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+@media (min-width: 1024px) { .svc-layout { grid-template-columns: 260px minmax(0, 1fr); } }
+.svc-layout > * { min-width: 0; }
+
+/* Sticky section index */
+.svc-index { position: static; min-width: 0; }
+@media (min-width: 1024px) { .svc-index { position: sticky; top: calc(var(--nav-height) + var(--space-8)); } }
+.svc-index h2 {
+  font-family: var(--font-sans); font-size: var(--text-overline); letter-spacing: var(--tracking-overline);
+  text-transform: uppercase; color: var(--text-muted); padding-bottom: var(--space-3);
+}
+.svc-index__rule { height: 4px; background: var(--gradient-spectrum); margin-bottom: var(--space-4); }
+.svc-index ol { display: flex; gap: var(--space-1); overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.svc-index ol::-webkit-scrollbar { display: none; }
+@media (min-width: 1024px) { .svc-index ol { flex-direction: column; overflow: visible; } }
+.svc-index a {
+  display: flex; gap: var(--space-3); align-items: baseline; white-space: nowrap; padding: var(--space-3);
+  border-left: 3px solid transparent; font-size: var(--text-body-sm); font-weight: var(--weight-semibold);
+  color: var(--text-secondary); text-decoration: none; transition: var(--transition-control);
+}
+@media (max-width: 1023px) { .svc-index a { white-space: nowrap; border-left: 0; border-bottom: 3px solid transparent; } }
+.svc-index a:hover { color: var(--text-primary); background: var(--paper-warm); text-decoration: none; }
+.svc-index a[aria-current="true"] { color: var(--text-primary); border-color: var(--red-600); background: var(--paper-warm); }
+.svc-index a em { font-family: var(--font-mono); font-style: normal; font-size: var(--text-caption); color: var(--text-muted); }
+
+/* Service blocks */
+.svc-block { padding-top: clamp(2rem, 5vw, 3.5rem); scroll-margin-top: calc(var(--nav-height) + var(--space-6)); }
+.svc-block + .svc-block { border-top: 1px solid var(--border-subtle); margin-top: clamp(2.5rem, 6vw, 4.5rem); }
+.svc-block__head { display: flex; flex-direction: column; gap: var(--space-3); max-width: var(--measure-wide); }
+.svc-block__num { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--text-muted); }
+.svc-block__kicker { font-size: var(--text-body-lg); font-weight: var(--weight-semibold); color: var(--text-accent); }
+.svc-block__lede { color: var(--text-secondary); font-size: var(--text-body-lg); max-width: var(--measure); }
+
+.svc-block__grid { display: grid; gap: clamp(1.5rem, 4vw, 2.5rem); margin-top: clamp(1.5rem, 3vw, 2rem); }
+@media (min-width: 768px) { .svc-block__grid { grid-template-columns: 1.05fr .95fr; align-items: start; } }
+.svc-points { display: flex; flex-direction: column; gap: var(--space-4); }
+.svc-points li { padding-left: var(--space-4); border-left: 3px solid var(--ink-950); }
+.svc-points strong { display: block; font-family: var(--font-display); font-weight: var(--weight-semibold); font-size: var(--text-body-lg); }
+.svc-points span { display: block; margin-top: var(--space-1); font-size: var(--text-body-sm); color: var(--text-secondary); }
+.svc-block__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.svc-block__strip { display: grid; gap: var(--space-3); margin-top: var(--space-4); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.svc-block__strip figure { position: relative; aspect-ratio: 1 / 1; overflow: hidden; }
+.svc-block__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: clamp(1.5rem, 3vw, 2rem); }
+.svc-block__tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+.svc-block__tags li {
+  padding: 6px var(--space-3); border-radius: var(--radius-pill); background: var(--surface-sunken);
+  border: 1px solid var(--border-subtle); font-size: var(--text-body-sm); color: var(--text-secondary);
+}
+
+/* How we work strip */
+.svc-flow { display: grid; gap: var(--space-6); margin-top: clamp(1.5rem, 3vw, 2.5rem); grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.svc-flow article { padding-top: var(--space-4); border-top: 3px solid rgba(255,255,255,.24); }
+.svc-flow h3 { font-family: var(--font-display); font-weight: var(--weight-semibold); font-size: var(--text-h3); color: var(--paper); }
+.svc-flow p { font-size: var(--text-body-sm); color: rgba(255,255,255,.74); margin-top: var(--space-2); }
+.svc-flow em { font-family: var(--font-mono); font-style: normal; font-size: var(--text-caption); color: var(--yellow-500); }

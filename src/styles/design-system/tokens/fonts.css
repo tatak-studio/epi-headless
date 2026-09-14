@@ -1,0 +1,17 @@
+/* Webfonts.
+   SUBSTITUTION NOTE: epicolorspace.com serves type via Adobe Fonts (typekit); the kit's
+   binaries are not publicly downloadable, so this system standardises on the closest
+   Google Fonts equivalents. See readme.md > Typography for the substitution rationale.
+   - Archivo / Archivo Expanded  -> display + poster type (wide industrial grotesque)
+   - Source Sans 3               -> UI + body text (Adobe's own text grotesque)
+   - Source Code Pro             -> specs, dimensions, file names, monospace data */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Source+Sans+3:ital,wght@0,300..900;1,300..900&family=Source+Code+Pro:wght@400;500;600&display=swap");
+
+:root{
+  --font-display:"Archivo","Archivo Expanded","Helvetica Neue",Arial,sans-serif;
+  --font-sans:"Source Sans 3","Source Sans Pro","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"Source Code Pro",ui-monospace,SFMono-Regular,Menlo,monospace;
+  /* Display type is set on the wide axis — the "large format" voice of the brand. */
+  --font-display-stretch:112%;/* @kind other */
+  --font-display-stretch-tight:100%;/* @kind other */
+}

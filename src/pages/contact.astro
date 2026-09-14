@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { getPageBySlug } from '../lib/wordpress';
+import '../styles/contact.css';
+
+const contactPage = await getPageBySlug('contact');
+const heroHeadline = contactPage?.meta_box?.hero_headline || "Tell us the building, the scope, and the date.";
+const heroSubhead = contactPage?.meta_box?.hero_subhead || "Our production shop and showroom are located in Gaithersburg, Maryland. We service projects across Washington DC, Maryland, and Virginia daily.";
+const phone = contactPage?.meta_box?.phone || "301.990.2666";
+const address = contactPage?.meta_box?.address || "8435 Helgerman Ct\nGaithersburg, MD 20877";
+const hightailUrl = contactPage?.meta_box?.hightail_url || "https://www.hightail.com/u/epicolorspace";
+const heroImage = contactPage?.meta_box?.lead_image || '/gw-reception-area-mu12cgn5-nh72.jpg';
+---
+
+<BaseLayout seo={contactPage?.seo}>
+  <section class="sig-hero" aria-labelledby="hero-title">
+    <div class="sig-hero__media">
+      <img src={heroImage} alt="EPI-Colorspace Reception" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div class="sig-hero__scrim" aria-hidden="true"></div>
+    <div class="epi-container sig-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="sig-crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Contact Us</li>
+        </ol>
+      </nav>
+      <h1 class="epi-display-2 sig-hero__title" id="hero-title">
+        {heroHeadline}
+      </h1>
+      <p class="sig-hero__lede">
+        {heroSubhead}
+      </p>
+    </div>
+    <div class="sig-hero__rule" aria-hidden="true"></div>
+  </section>
+
+  <!-- Location and Contacts Split -->
+  <section class="sig-section" aria-labelledby="info-title">
+    <div class="epi-container sig-split">
+      <div class="sig-split__copy">
+        <h2 class="epi-h1" id="info-title">Direct lines to the people who build it.</h2>
+        <p>
+          You speak with experienced project managers and estimators who understand substrate durability, union regulations, and strict opening night deadlines.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:var(--space-6);margin-top:var(--space-6)">
+          <div style="padding:var(--space-5);background:var(--paper-warm);border-left:3px solid var(--surface-brand)">
+            <h3 class="epi-h3">Call Us</h3>
+            <p style="margin-top:var(--space-2);font-size:var(--text-h4);font-weight:var(--weight-bold);font-family:var(--font-display)">
+              <a href={`tel:${phone.replace(/[^0-9]/g, '')}`} style="color:var(--text-primary)">{phone}</a>
+            </p>
+            <p style="margin-top:var(--space-2);font-size:var(--text-caption);color:var(--text-secondary)">
+              Monday–Friday: 8:00 AM – 5:00 PM EST
+            </p>
+          </div>
+
+          <div style="padding:var(--space-5);background:var(--paper-warm);border-left:3px solid var(--ink-950)">
+            <h3 class="epi-h3">Large File Transfer</h3>
+            <p style="margin-top:var(--space-2);font-size:var(--text-body-sm);color:var(--text-secondary)">
+              Send press-ready artwork, high-res PDFs and CAD floor plans up to 100 GB.
+            </p>
+            <p style="margin-top:var(--space-3)">
+              <a class="epi-btn epi-btn--sm" href={hightailUrl} target="_blank" rel="noopener noreferrer">
+                Open Hightail Drop &rarr;
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--space-6)">
+          <h3 class="epi-h3">Production Facility &amp; Showroom</h3>
+          <address style="font-style:normal;margin-top:var(--space-2);color:var(--text-secondary);line-height:var(--leading-body)">
+            EPI-Colorspace<br />
+            8435 Helgerman Ct<br />
+            Gaithersburg, MD 20877
+          </address>
+        </div>
+      </div>
+
+      <figure class="sig-frame">
+        <img src="/building-facade-graphics-mu13937x-72if.jpg" alt="EPI-Colorspace headquarters" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Form Component -->
+  <ContactForm
+    heading="Send us your project scope"
+    subheading="Fill out the details below and an experienced project manager will follow up within one business day."
+  />
+</BaseLayout>

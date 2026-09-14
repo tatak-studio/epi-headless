@@ -1,0 +1,44 @@
+---
+import type { Testimonial } from '../types/wordpress';
+
+interface Props {
+  testimonials: Testimonial[];
+}
+const { testimonials } = Astro.props;
+---
+
+<section class="sig-section sig-section--warm" aria-labelledby="tst-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="tst-title">What our partners say.</h2>
+      <p>From museum curators and general contractors to facilities directors across the DMV.</p>
+    </div>
+
+    <div class="home-tst" id="home-tst">
+      <div class="home-tst__viewport" id="tst-viewport" tabindex="0" aria-label="Client feedback carousel">
+        {testimonials.map((item, index) => (
+          <figure class="home-tst__slide" hidden={index !== 0}>
+            <div class="home-tst__mark" aria-hidden="true"></div>
+            <blockquote>"{item.meta_box.quote}"</blockquote>
+            <figcaption>
+              <strong>{item.meta_box.client_name || item.meta_box.organization}</strong>
+              {item.meta_box.client_role && <span> — {item.meta_box.client_role}</span>}
+              {item.meta_box.organization && <span>, {item.meta_box.organization}</span>}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div class="home-tst__controls">
+        <button class="epi-iconbtn" type="button" id="tst-prev" aria-label="Previous testimonial">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="epi-iconbtn" type="button" id="tst-next" aria-label="Next testimonial">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <p class="home-tst__count" id="tst-count">01 / {String(testimonials.length).padStart(2, '0')}</p>
+        <div class="home-tst__dots" id="tst-dots"></div>
+      </div>
+    </div>
+  </div>
+</section>

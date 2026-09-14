@@ -1,0 +1,49 @@
+---
+import type { Project } from '../types/wordpress';
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+
+const title = typeof project.title === 'string' ? project.title : project.title.rendered;
+const meta = project.meta_box || {};
+const image = meta.lead_image || project.featured_media_url || '/parking-notice-sign-mu13jclv-qgtf.jpg';
+const serviceKey = meta.filter_services || (meta.service_category ? meta.service_category.toLowerCase() : 'signage');
+const marketKey = meta.filter_market || (meta.market ? meta.market.toLowerCase() : 'cre');
+const summary = meta.summary || '';
+const tags = meta.highlights && meta.highlights.length > 0
+  ? meta.highlights.slice(0, 3)
+  : [meta.service_category || 'Custom Work', meta.market || 'DMV', meta.completed || 'Installed'];
+---
+
+<article class="prj-card" data-service={serviceKey} data-market={marketKey}>
+  <figure class="prj-card__media">
+    <img src={image} alt={title} loading="lazy" decoding="async" />
+  </figure>
+  <div class="prj-card__body">
+    <h3>
+      <a href={`/projects/${project.slug}`}>{title}</a>
+    </h3>
+    <p>{summary}</p>
+    <ul class="prj-card__tags">
+      {tags.map((tag) => (
+        <li>{tag}</li>
+      ))}
+    </ul>
+  </div>
+</article>
+
+<style>
+  .prj-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 16 / 10;
+    transition: transform var(--duration-base, 200ms) var(--ease-out, ease);
+  }
+  .prj-card:hover .prj-card__media img {
+    transform: scale(1.02);
+  }
+</style>

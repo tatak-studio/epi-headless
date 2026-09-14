@@ -1,0 +1,175 @@
+---
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '/' } = Astro.props;
+---
+
+<a class="sig-skip" href="#main">Skip to content</a>
+
+<header class="sig-header">
+  <div class="epi-container sig-header__inner">
+    <a href="/" aria-label="EPI-Colorspace home">
+      <img class="sig-logo" src="/assets/epi-colorspace-logo.png" alt="EPI-Colorspace" />
+    </a>
+    <nav class="sig-header__nav" aria-label="Primary">
+      <ul class="epi-nav__links">
+        <li>
+          <button class="sig-mega__trigger" type="button" id="mega-trigger" data-menu-trigger aria-expanded="false" aria-controls="mega">
+            Services
+            <span class="epi-icon sig-mega__chev" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </button>
+        </li>
+        <li><a class="epi-navlink" href="/projects">Projects</a></li>
+        <li>
+          <button class="sig-mega__trigger" type="button" id="markets-trigger" data-menu-trigger aria-expanded="false" aria-controls="markets-menu">
+            Markets
+            <span class="epi-icon sig-mega__chev" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </button>
+        </li>
+        <li><a class="epi-navlink" href="https://www.hightail.com/u/epicolorspace" target="_blank" rel="noopener noreferrer">Send Files</a></li>
+        <li><a class="epi-navlink" href="/contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a class="epi-btn epi-btn--sm sig-header__cta" href="/contact">Start Your Project</a>
+    <button class="epi-iconbtn epi-iconbtn--outline sig-burger" type="button" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+      <span class="epi-icon" style="width:20px;height:20px" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </span>
+    </button>
+  </div>
+
+  <!-- Services Mega Menu -->
+  <div class="sig-mega" id="mega" hidden>
+    <div class="epi-container sig-mega__grid">
+      <div>
+        <h2 id="mega-services">Services</h2>
+        <div class="sig-mega__services" aria-labelledby="mega-services">
+          <a class="sig-mega__item" href="/services/tradeshows">
+            <strong>Tradeshows</strong>
+            <span>Concept, fabrication, freight, install and post-event storage.</span>
+          </a>
+          <a class="sig-mega__item" href="/services/exhibits-and-displays">
+            <strong>Exhibits &amp; Displays</strong>
+            <span>Museum-grade casework, lighting and interactives.</span>
+          </a>
+          <a class="sig-mega__item" href="/services/signage-solutions">
+            <strong>Signage Solutions</strong>
+            <span>Exterior, retail, garage signage and wayfinding.</span>
+          </a>
+          <a class="sig-mega__item" href="/services/large-format-printing">
+            <strong>Large Format Printing</strong>
+            <span>Wall murals, floor graphics, banners, outdoor displays.</span>
+          </a>
+          <a class="sig-mega__item" href="/services/corporate-branding">
+            <strong>Corporate Branding</strong>
+            <span>Lobby identity, brand rollouts and custom framing.</span>
+          </a>
+          <a class="sig-mega__item" href="/services/environmental-graphics">
+            <strong>Environmental Graphics</strong>
+            <span>Murals, glass films, floor graphics and interior wayfinding.</span>
+          </a>
+        </div>
+      </div>
+      <div class="sig-mega__card">
+        <h2 style="color:rgba(255,255,255,.56)">Start here</h2>
+        <p>Send a scope, a floor plan or a photo of the wall. We will tell you what your date allows.</p>
+        <a class="epi-btn epi-btn--sm" href="/services">View all Services</a>
+        <a class="epi-btn epi-btn--sm epi-btn--outline-inverse" href="/contact">Start Your Project</a>
+      </div>
+    </div>
+    <div class="sig-mega__rule" aria-hidden="true"></div>
+  </div>
+
+  <!-- Markets Mega Menu -->
+  <div class="sig-mega" id="markets-menu" hidden>
+    <div class="epi-container sig-mega__grid">
+      <div>
+        <h2 id="mega-markets">Markets</h2>
+        <div class="sig-mega__services" aria-labelledby="mega-markets">
+          <a class="sig-mega__item" href="/markets/museums-and-cultural">
+            <strong>Museums &amp; Cultural</strong>
+            <span>Gallery-grade fabrication and installs scheduled around public hours.</span>
+          </a>
+          <a class="sig-mega__item" href="/markets/universities">
+            <strong>Universities</strong>
+            <span>Campus wayfinding, donor recognition and event graphics.</span>
+          </a>
+          <a class="sig-mega__item" href="/markets/commercial-real-estate">
+            <strong>Commercial Real Estate</strong>
+            <span>Leasing graphics, lobby branding and garage signage.</span>
+          </a>
+          <a class="sig-mega__item" href="/markets/corporate">
+            <strong>Corporate</strong>
+            <span>Workplace graphics and murals carried floor by floor.</span>
+          </a>
+          <a class="sig-mega__item" href="/markets/retail">
+            <strong>Retail</strong>
+            <span>Window systems, dimensional letters and multi-site rollouts.</span>
+          </a>
+          <a class="sig-mega__item" href="/markets/construction">
+            <strong>Construction</strong>
+            <span>Fence wraps and site signage engineered for wind and weather.</span>
+          </a>
+        </div>
+      </div>
+      <div class="sig-mega__card">
+        <h2 style="color:rgba(255,255,255,.56)">Not sure where you fit?</h2>
+        <p>Tell us the building and the deadline. We have worked in most of them, across DC, Maryland and Virginia.</p>
+        <a class="epi-btn epi-btn--sm" href="/markets">View all Markets</a>
+        <a class="epi-btn epi-btn--sm epi-btn--outline-inverse" href="/contact">Start Your Project</a>
+      </div>
+    </div>
+    <div class="sig-mega__rule" aria-hidden="true"></div>
+  </div>
+
+  <div class="epi-nav__spectrum" aria-hidden="true"></div>
+</header>
+
+<!-- Mobile Drawer -->
+<div class="epi-drawer" id="drawer" hidden>
+  <div class="sig-drawer__head">
+    <img class="sig-logo sig-logo--drawer" src="/assets/epi-colorspace-logo.png" alt="EPI-Colorspace" />
+    <button class="epi-iconbtn" type="button" id="drawer-close" aria-label="Close menu" style="color:#fff">
+      <span class="epi-icon" style="width:20px;height:20px" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </span>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      <li>
+        <a class="epi-drawer__link" href="/services">Services</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/services/tradeshows">Tradeshows</a></li>
+          <li><a href="/services/exhibits-and-displays">Exhibits &amp; Displays</a></li>
+          <li><a href="/services/signage-solutions">Signage Solutions</a></li>
+          <li><a href="/services/large-format-printing">Large Format Printing</a></li>
+          <li><a href="/services/corporate-branding">Corporate Branding</a></li>
+          <li><a href="/services/environmental-graphics">Environmental Graphics</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="/projects">Projects</a></li>
+      <li>
+        <a class="epi-drawer__link" href="/markets">Markets</a>
+        <ul class="sig-drawer__sub">
+          <li><a href="/markets/museums-and-cultural">Museums &amp; Cultural</a></li>
+          <li><a href="/markets/universities">Universities</a></li>
+          <li><a href="/markets/commercial-real-estate">Commercial Real Estate</a></li>
+          <li><a href="/markets/corporate">Corporate</a></li>
+          <li><a href="/markets/retail">Retail</a></li>
+          <li><a href="/markets/construction">Construction</a></li>
+        </ul>
+      </li>
+      <li><a class="epi-drawer__link" href="https://www.hightail.com/u/epicolorspace" target="_blank" rel="noopener noreferrer">Send Files</a></li>
+      <li><a class="epi-drawer__link" href="/contact">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="sig-drawer__actions">
+    <a class="epi-btn epi-btn--block" href="/contact">Start Your Project</a>
+  </div>
+</div>
