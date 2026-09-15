@@ -1,0 +1,247 @@
+---
+interface Props {
+  market?: any;
+}
+const { market } = Astro.props;
+import '../../styles/markets-cre.css';
+
+const title = market?.title?.rendered || market?.title || "Universities & Higher Education";
+const meta = market?.meta_box || {};
+---
+
+<!-- Hero -->
+<section class="sig-hero" aria-labelledby="hero-title">
+  <div class="sig-hero__media">
+    <img src="/building-facade-graphics-mu13937x-72if.jpg" alt="University campus wayfinding and graphics" style="width:100%;height:100%;object-fit:cover;display:block" />
+  </div>
+  <div class="sig-hero__scrim" aria-hidden="true"></div>
+  <div class="epi-container sig-hero__inner">
+    <nav aria-label="Breadcrumb">
+      <ol class="sig-crumbs">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/markets">Markets</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page">Universities</li>
+      </ol>
+    </nav>
+    <p class="sig-kicker">{meta.market_kicker || "Campus wayfinding, donor recognition and event graphics delivered around the academic calendar."}</p>
+    <h1 class="epi-display-2 sig-hero__title" id="hero-title">
+      We transform campuses into navigable, inspiring environments that honor tradition and energize students.
+    </h1>
+    <p class="sig-hero__lede">
+      {meta.market_summary || "Campus wayfinding, donor recognition, athletics graphics and event signage delivered around the academic calendar, which means the work happens between commencement and move-in rather than during finals."}
+    </p>
+    <div class="sig-hero__actions">
+      <a class="epi-btn epi-btn--lg" href="#contact">Start Your Project</a>
+      <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See Campus Projects</a>
+    </div>
+  </div>
+  <div class="sig-hero__rule" aria-hidden="true"></div>
+</section>
+
+<!-- Split Intro -->
+<section class="sig-section" aria-labelledby="intro-title">
+  <div class="epi-container sig-split">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="intro-title">
+        For over 20 years, a trusted graphics and signage partner to colleges and universities across the DMV.
+      </h2>
+      <p>
+        Sprawling multi-building campuses have unique navigation demands: first-year students need intuitive paths to residence halls, visitors need parking direction, and donors deserve timeless recognition. We design and build signage that withstands decades of foot traffic, sun and winter storms.
+      </p>
+      <p>
+        Because all printing and metal fabrication happens under our roof in Gaithersburg, we coordinate installations during intersessions, spring breaks, and summer recesses to guarantee zero disruption to student instruction.
+      </p>
+      <dl class="sig-facts">
+        <div>
+          <dt>Calendar</dt>
+          <dd>Intersession install</dd>
+        </div>
+        <div>
+          <dt>Coverage</dt>
+          <dd>Campus-wide</dd>
+        </div>
+        <div>
+          <dt>Compliance</dt>
+          <dd>100% ADA ready</dd>
+        </div>
+      </dl>
+    </div>
+    <figure class="sig-frame">
+      <img src="/building-facade-graphics-mu13937x-72if.jpg" alt="University signage installation" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+    </figure>
+  </div>
+</section>
+
+<!-- Campus Programs -->
+<section class="sig-section sig-section--warm" id="programs" aria-labelledby="programs-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="programs-title">Campus graphics programs we engineer.</h2>
+      <p>Every corner of campus has distinct communication criteria. We provide unified programs from entrance pylons to research lab directories.</p>
+    </div>
+    <div class="cre-types">
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Campus Wayfinding</h3>
+          <p>Vehicular gateways, pedestrian monoliths, and building identification that guide thousands of daily visitors seamlessly.</p>
+          <ul>
+            <li>Exterior monument signs</li>
+            <li>Pedestrian directional fingerposts</li>
+            <li>ADA tactile &amp; Braille room signs</li>
+            <li>Parking deck level identifiers</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Donor Walls &amp; Honors</h3>
+          <p>Dignified architectural displays celebrating benefactors, alumni achievements, and historic institutional milestones.</p>
+          <ul>
+            <li>Cast bronze and aluminum plaques</li>
+            <li>Modular, updatable name rails</li>
+            <li>Backlit glass &amp; etched acrylic</li>
+            <li>Endowed chair honor walls</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Athletics &amp; Spirit</h3>
+          <p>High-energy visual presence across fieldhouses, locker rooms, concourses, and outdoor athletic complexes.</p>
+          <ul>
+            <li>Championship banner systems</li>
+            <li>Acoustic felt wall wraps</li>
+            <li>Locker room dimensional marks</li>
+            <li>Scoreboard &amp; stadium graphics</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Events &amp; Commencement</h3>
+          <p>Turnkey scenic properties, photo backdrops, and campus-wide wayfinding for graduations, homecomings, and conferences.</p>
+          <ul>
+            <li>Commencement stage portals</li>
+            <li>Step and repeat photo backdrops</li>
+            <li>Street pole banner rollouts</li>
+            <li>Directional directional A-frames</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline / Academic Scheduling Track -->
+<section class="sig-section sig-section--ink" aria-labelledby="calendar-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="calendar-title" style="color:var(--paper)">Engineered around the academic calendar.</h2>
+      <p style="color:rgba(255,255,255,.8)">We align surveys, approvals, fabrication, and installation so work never conflicts with classes or finals.</p>
+    </div>
+    <ul class="cre-life" style="margin-top:var(--space-6)">
+      <li>
+        <h3 style="color:var(--paper)">Spring Survey</h3>
+        <p style="color:rgba(255,255,255,.76)">Site walkthroughs, laser distance verification, and existing signage audit conducted while campus is in session.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">Summer Fabrication</h3>
+        <p style="color:rgba(255,255,255,.76)">Metal routing, powder coating, direct printing, and ADA braille fabrication executed on our Gaithersburg floor.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">Pre-Move-In Install</h3>
+        <p style="color:rgba(255,255,255,.76)">Licensed install crews install and test all signs before residence hall move-in and fall orientation.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">Ongoing Support</h3>
+        <p style="color:rgba(255,255,255,.76)">Replacement plates, room name swaps, and donor additions produced on fast turnaround throughout the year.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Featured Project Spotlight -->
+<section class="sig-section" aria-labelledby="spotlight-title">
+  <div class="epi-container sig-split">
+    <div class="sig-split__copy">
+      <p class="sig-kicker">Installed Case Study</p>
+      <h2 class="epi-h1" id="spotlight-title">Campus wayfinding system, Northern Virginia</h2>
+      <p>
+        EPI-Colorspace surveyed, manufactured, and installed 84 distinct sign types for a premier regional university. The project encompassed vehicular directional monuments, accessible pedestrian monoliths, and code-compliant room identifiers.
+      </p>
+      <p>
+        All exterior structures were manufactured with weather-sealed coatings and anti-graffiti laminates to ensure maintenance-free durability throughout decades of student cohorts.
+      </p>
+      <div style="margin-top:var(--space-5)">
+        <a class="epi-btn epi-btn--secondary" href="/projects/campus-wayfinding-system-northern-virginia">Read Full Case Study &rarr;</a>
+      </div>
+    </div>
+    <figure class="sig-frame">
+      <img src="/building-facade-graphics-mu13937x-72if.jpg" alt="University campus wayfinding" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+    </figure>
+  </div>
+</section>
+
+<!-- Client Feedback Quote -->
+<section class="sig-section sig-section--warm" aria-label="Client feedback">
+  <div class="epi-container">
+    <figure class="sig-quote">
+      <div class="sig-quote__mark" aria-hidden="true"></div>
+      <blockquote>
+        The summer turnaround was astonishing. All 84 sign locations were surveyed, approved, fabricated, and installed before freshman move-in week.
+      </blockquote>
+      <figcaption>Associate Vice President of Campus Facilities, Northern Virginia</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+  <div class="epi-container sig-cta__inner">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="cta-title">Planning a campus upgrade or capital campaign?</h2>
+      <p>Tell us the campus, target completion date, and scope. We will provide a comprehensive project schedule that fits your academic calendar.</p>
+      <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3);margin-top:var(--space-4)">
+        <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+      </p>
+    </div>
+    <form class="sig-form" id="project-form" novalidate>
+      <p class="sig-form__status" id="form-status" role="status" hidden></p>
+      <div>
+        <label for="f-name">Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required />
+      </div>
+      <div>
+        <label for="f-email">Work email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required />
+      </div>
+      <div>
+        <label for="f-institution">Institution / University</label>
+        <input id="f-institution" name="institution" type="text" autocomplete="organization" />
+      </div>
+      <div>
+        <label for="f-scope-type">Primary scope</label>
+        <select id="f-scope-type" name="scope_type">
+          <option>Wayfinding &amp; exterior signage</option>
+          <option>Donor recognition walls</option>
+          <option>Athletic facility branding</option>
+          <option>Commencement / event graphics</option>
+          <option>Multi-facility master plan</option>
+        </select>
+      </div>
+      <div class="sig-form__full">
+        <label for="f-scope">Scope and target completion date</label>
+        <textarea id="f-scope" name="scope" rows="3" required></textarea>
+      </div>
+      <div class="sig-form__full">
+        <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+        <p class="sig-form__note" style="margin-top:var(--space-3)">Have campus master plan drawings? Mention it and we will send a direct file link.</p>
+      </div>
+    </form>
+  </div>
+</section>

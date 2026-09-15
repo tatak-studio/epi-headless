@@ -1,0 +1,241 @@
+---
+interface Props {
+  market?: any;
+}
+const { market } = Astro.props;
+import '../../styles/markets-cre.css';
+
+const title = market?.title?.rendered || market?.title || "Corporate Environments";
+const meta = market?.meta_box || {};
+---
+
+<!-- Hero -->
+<section class="sig-hero" aria-labelledby="hero-title">
+  <div class="sig-hero__media">
+    <img src="/spiral-lobby-graphics-mu13h9gi-cfz7.jpg" alt="Corporate lobby environmental graphics" style="width:100%;height:100%;object-fit:cover;display:block" />
+  </div>
+  <div class="sig-hero__scrim" aria-hidden="true"></div>
+  <div class="epi-container sig-hero__inner">
+    <nav aria-label="Breadcrumb">
+      <ol class="sig-crumbs">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/markets">Markets</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page">Corporate</li>
+      </ol>
+    </nav>
+    <p class="sig-kicker">{meta.market_kicker || "Workplace environmental graphics, murals and custom framing that carry brand standards floor by floor."}</p>
+    <h1 class="epi-display-2 sig-hero__title" id="hero-title">
+      We build workplace environments that tell your story, inspire your team, and leave a lasting impression on visitors.
+    </h1>
+    <p class="sig-hero__lede">
+      {meta.market_summary || "Workplace environmental graphics, murals and custom framing that carry brand standards through a headquarters floor by floor, turning corridors and lobbies into something people photograph."}
+    </p>
+    <div class="sig-hero__actions">
+      <a class="epi-btn epi-btn--lg" href="#contact">Start Your Project</a>
+      <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See Corporate Projects</a>
+    </div>
+  </div>
+  <div class="sig-hero__rule" aria-hidden="true"></div>
+</section>
+
+<!-- Split Intro -->
+<section class="sig-section" aria-labelledby="intro-title">
+  <div class="epi-container sig-split">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="intro-title">
+        For over 20 years, transforming office towers and headquarters into branded architectural experiences.
+      </h2>
+      <p>
+        From Fortune 500 headquarters in Tysons to biotechnology complexes along the I-270 technology corridor in Gaithersburg, we bring corporate standards off the page and onto physical walls. Every piece is fabricated with architectural-grade materials: brushed aluminum, Optiwhite acrylic, natural hardwoods, and Type II commercial wallcoverings.
+      </p>
+      <p>
+        Our certified installation crews work evening and weekend shifts so corporate employees walk into an upgraded workplace Monday morning with zero disruption, zero dust, and zero odor.
+      </p>
+      <dl class="sig-facts">
+        <div>
+          <dt>Shifts</dt>
+          <dd>Off-hours &amp; weekends</dd>
+        </div>
+        <div>
+          <dt>Materials</dt>
+          <dd>Type II &amp; low-VOC</dd>
+        </div>
+        <div>
+          <dt>Rollouts</dt>
+          <dd>Multi-floor phased</dd>
+        </div>
+      </dl>
+    </div>
+    <figure class="sig-frame">
+      <img src="/gw-reception-area-mu12cgn5-nh72.jpg" alt="Corporate workplace reception graphics" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+    </figure>
+  </div>
+</section>
+
+<!-- Workplace Programs Grid -->
+<section class="sig-section sig-section--warm" id="programs" aria-labelledby="programs-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="programs-title">Workplace graphics programs we deliver.</h2>
+      <p>From reception to executive boardrooms, our programs unify architectural surfaces across entire facilities.</p>
+    </div>
+    <div class="cre-types">
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Lobby &amp; Reception Marks</h3>
+          <p>Dimensional identity marks engineered with sub-millimeter precision, concealed standoffs, and optional halo LED illumination.</p>
+          <ul>
+            <li>Waterjet-cut aluminum &amp; brass</li>
+            <li>Concealed wiring LED backlighting</li>
+            <li>Architectural wood and acrylic backdrops</li>
+            <li>Reception desk brand plaques</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Seamless Wall Murals</h3>
+          <p>Full-scale floor-to-ceiling graphics printed on Type II commercial vinyl with custom color-matching to your exact brand palette.</p>
+          <ul>
+            <li>Double-cut seamless paneling</li>
+            <li>Class A fire-rated media</li>
+            <li>Acoustic felt sound-dampening panels</li>
+            <li>Mission and values timeline walls</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Glass Privacy &amp; Films</h3>
+          <p>Dusted crystal and frosted architectural window films that provide conference room privacy while preserving natural daylight.</p>
+          <ul>
+            <li>3M Dusted and Frosted Crystal films</li>
+            <li>Precision plotter-cut geometric patterns</li>
+            <li>Gradient dot opacity fades</li>
+            <li>Wet installation with zero bubbles</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Executive Framing &amp; Honors</h3>
+          <p>Museum-grade custom framing for corporate art programs, patent walls, executive portraits, and historic company artifacts.</p>
+          <ul>
+            <li>Conservation-grade archival matting</li>
+            <li>Anti-reflective Tru Vue glazing</li>
+            <li>Standardized frame mouldings</li>
+            <li>Tamper-resistant security mounting</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Phasing Track in Ink -->
+<section class="sig-section sig-section--ink" aria-labelledby="phasing-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="phasing-title" style="color:var(--paper)">How we execute inside occupied workplaces.</h2>
+      <p style="color:rgba(255,255,255,.8)">We coordinate directly with property managers and facilities teams so business operations never skip a beat.</p>
+    </div>
+    <ul class="cre-life" style="margin-top:var(--space-6)">
+      <li>
+        <h3 style="color:var(--paper)">Pre-Install Survey</h3>
+        <p style="color:rgba(255,255,255,.76)">Laser measurements, wall paint adhesion testing, and freight elevator logistics mapped before production.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">Weekend Shifts</h3>
+        <p style="color:rgba(255,255,255,.76)">Installation occurs Friday 6pm to Sunday evening. All tools, ladders, and protective films removed before Monday morning.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">Zero Disturbance</h3>
+        <p style="color:rgba(255,255,255,.76)">Latex and UV inks emit zero VOCs. Low-odor adhesives guarantee clean, fresh indoor air quality for return to work.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">As-Built Closeout</h3>
+        <p style="color:rgba(255,255,255,.76)">High-resolution photography, punch list sign-off, and attic stock delivered for long-term facility maintenance.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Featured Project Spotlight -->
+<section class="sig-section" aria-labelledby="spotlight-title">
+  <div class="epi-container sig-split">
+    <div class="sig-split__copy">
+      <p class="sig-kicker">Featured Installation</p>
+      <h2 class="epi-h1" id="spotlight-title">Lobby environmental graphics, Tysons VA</h2>
+      <p>
+        EPI-Colorspace produced and installed waterjet-cut brushed aluminum letterforms paired with full-height architectural wall paneling and custom conference room privacy films for a corporate headquarters in Tysons.
+      </p>
+      <p>
+        The entire three-floor program was phased across two consecutive weekends with zero downtime for the 800+ employees working in the facility.
+      </p>
+      <div style="margin-top:var(--space-5)">
+        <a class="epi-btn epi-btn--secondary" href="/projects">See More Corporate Projects &rarr;</a>
+      </div>
+    </div>
+    <figure class="sig-frame">
+      <img src="/spiral-lobby-graphics-mu13h9gi-cfz7.jpg" alt="Corporate environmental graphics in Tysons" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+    </figure>
+  </div>
+</section>
+
+<!-- Client Feedback Quote -->
+<section class="sig-section sig-section--warm" aria-label="Client feedback">
+  <div class="epi-container">
+    <figure class="sig-quote">
+      <div class="sig-quote__mark" aria-hidden="true"></div>
+      <blockquote>
+        I wanted to send my appreciation and bravos to you and your team for such an amazing visual presence at our new space. It provided the wow factor we were looking for.
+      </blockquote>
+      <figcaption>Marketing Director, Corporate Headquarters Relocation</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+  <div class="epi-container sig-cta__inner">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="cta-title">Ready to bring brand identity into your workplace?</h2>
+      <p>Send architectural drawings, elevations, or photos of the walls. We will tell you what is possible on your schedule.</p>
+      <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3);margin-top:var(--space-4)">
+        <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+      </p>
+    </div>
+    <form class="sig-form" id="project-form" novalidate>
+      <p class="sig-form__status" id="form-status" role="status" hidden></p>
+      <div>
+        <label for="f-name">Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required />
+      </div>
+      <div>
+        <label for="f-email">Work email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required />
+      </div>
+      <div>
+        <label for="f-org">Company / Organization</label>
+        <input id="f-org" name="organization" type="text" autocomplete="organization" />
+      </div>
+      <div>
+        <label for="f-city">Facility location</label>
+        <input id="f-city" name="city" type="text" placeholder="e.g. Tysons, Bethesda, Reston" />
+      </div>
+      <div class="sig-form__full">
+        <label for="f-scope">Scope and target installation date</label>
+        <textarea id="f-scope" name="scope" rows="3" required></textarea>
+      </div>
+      <div class="sig-form__full">
+        <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+        <p class="sig-form__note" style="margin-top:var(--space-3)">Files too large to email? Mention it and we will send a direct transfer link.</p>
+      </div>
+    </form>
+  </div>
+</section>

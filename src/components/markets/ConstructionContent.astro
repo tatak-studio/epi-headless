@@ -1,0 +1,241 @@
+---
+interface Props {
+  market?: any;
+}
+const { market } = Astro.props;
+import '../../styles/markets-cre.css';
+
+const title = market?.title?.rendered || market?.title || "Construction & Development";
+const meta = market?.meta_box || {};
+---
+
+<!-- Hero -->
+<section class="sig-hero" aria-labelledby="hero-title">
+  <div class="sig-hero__media">
+    <img src="/community-event-sign-mu13ngzx-8om1.jpg" alt="Construction perimeter signage" style="width:100%;height:100%;object-fit:cover;display:block" />
+  </div>
+  <div class="sig-hero__scrim" aria-hidden="true"></div>
+  <div class="epi-container sig-hero__inner">
+    <nav aria-label="Breadcrumb">
+      <ol class="sig-crumbs">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/markets">Markets</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page">Construction</li>
+      </ol>
+    </nav>
+    <p class="sig-kicker">{meta.market_kicker || "Fence wraps, perimeter branding, safety and site signage engineered for wind and weather."}</p>
+    <h1 class="epi-display-2 sig-hero__title" id="hero-title">
+      We turn active construction job sites into powerful marketing landmarks engineered to survive wind and weather.
+    </h1>
+    <p class="sig-hero__lede">
+      {meta.market_summary || "Fence wraps, perimeter branding, safety and site signage engineered for wind load, weather and years of sun. Leasing displays go up while the building is still a frame."}
+    </p>
+    <div class="sig-hero__actions">
+      <a class="epi-btn epi-btn--lg" href="#contact">Start Your Project</a>
+      <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See Job Site Projects</a>
+    </div>
+  </div>
+  <div class="sig-hero__rule" aria-hidden="true"></div>
+</section>
+
+<!-- Split Intro -->
+<section class="sig-section" aria-labelledby="intro-title">
+  <div class="epi-container sig-split">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="intro-title">
+        For over 20 years, trusted by general contractors and developers across DC, Maryland and Virginia.
+      </h2>
+      <p>
+        A construction fence is the first impression your future building makes on the community. It also has to survive 50-mile-an-hour wind gusts, direct summer UV exposure, and heavy equipment vibrations without tearing out grommets or pulling over temporary fence posts.
+      </p>
+      <p>
+        We manufacture air-permeable mesh wraps with reinforced perimeter webbing, heavy-gauge brass grommets, and UV-cured outdoor inks. All work is surveyed on site, engineered for wind relief, and installed by our certified rigging crews.
+      </p>
+      <dl class="sig-facts">
+        <div>
+          <dt>Materials</dt>
+          <dd>Wind-permeable mesh</dd>
+        </div>
+        <div>
+          <dt>Hems</dt>
+          <dd>Reinforced webbing</dd>
+        </div>
+        <div>
+          <dt>Safety</dt>
+          <dd>100% OSHA compliant</dd>
+        </div>
+      </dl>
+    </div>
+    <figure class="sig-frame">
+      <img src="/commanders-building-banner-mu13bbnp-up6d.jpg" alt="Construction building banner" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+    </figure>
+  </div>
+</section>
+
+<!-- Construction Programs Grid -->
+<section class="sig-section sig-section--warm" id="programs" aria-labelledby="programs-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="programs-title">Site signage and perimeter programs we build.</h2>
+      <p>From temporary chain-link fence mesh to multi-story crane-hung building banners, we cover the entire site perimeter.</p>
+    </div>
+    <div class="cre-types">
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Perimeter Fence Mesh Wraps</h3>
+          <p>Continuous wind-permeable mesh wraps that conceal active excavation while marketing the project along high-traffic roads.</p>
+          <ul>
+            <li>10 oz air-permeable mesh vinyl</li>
+            <li>Reinforced heavy nylon webbing hems</li>
+            <li>Heavy-duty #2 brass grommets every 18 in</li>
+            <li>Direct fence tension rigging</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Post &amp; Panel Project Signs</h3>
+          <p>Sturdy architectural signboards displaying project renderings, architect &amp; GC credits, and leasing contact numbers.</p>
+          <ul>
+            <li>Heavy-duty 4x4 and 6x6 post systems</li>
+            <li>Aluminum composite (ACM) and MDO panels</li>
+            <li>Direct UV flatbed printing with graffiti shield</li>
+            <li>Concrete footing or skid ballasted bases</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>OSHA &amp; Safety Compliance</h3>
+          <p>Durable hazard warnings, PPE requirements, visitor registration notices, and job-site directional signage.</p>
+          <ul>
+            <li>Reflective high-visibility aluminum signs</li>
+            <li>OSHA standard color palettes &amp; pictograms</li>
+            <li>Hard hat area &amp; eye protection markers</li>
+            <li>Emergency muster point signage</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Scaffolding &amp; Crane Banners</h3>
+          <p>Massive oversized building wraps suspended from structural scaffolding or building frames during superstructure erection.</p>
+          <ul>
+            <li>Engineered wind-load calculations</li>
+            <li>Cable-tensioned aircraft cable systems</li>
+            <li>Heavy-duty reinforced perimeter webbing</li>
+            <li>Certified lift &amp; high-rigging installation</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Engineering Track in Ink -->
+<section class="sig-section sig-section--ink" aria-labelledby="eng-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="eng-title" style="color:var(--paper)">Engineered for job site realities.</h2>
+      <p style="color:rgba(255,255,255,.8)">We design and rig with heavy-duty fasteners so signs stay taut, upright, and legible through all four seasons.</p>
+    </div>
+    <ul class="cre-life" style="margin-top:var(--space-6)">
+      <li>
+        <h3 style="color:var(--paper)">Wind Calculations</h3>
+        <p style="color:rgba(255,255,255,.76)">Airflow permeability verified to relieve lateral wind pressure on temporary chain-link fence footings and posts.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">Webbing Reinforced</h3>
+        <p style="color:rgba(255,255,255,.76)">Industrial seatbelt-grade nylon webbing stitched into the hem perimeter prevents grommet tear-out under heavy storms.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">UV Outdoor Longevity</h3>
+        <p style="color:rgba(255,255,255,.76)">Direct-to-substrate UV-cured inks resist fading, cracking, and chalking across multi-year construction cycles.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">Site Coordination</h3>
+        <p style="color:rgba(255,255,255,.76)">Installers coordinate directly with the site superintendent, complete safety briefings, and work around concrete pours.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Featured Project Spotlight -->
+<section class="sig-section" aria-labelledby="spotlight-title">
+  <div class="epi-container sig-split">
+    <div class="sig-split__copy">
+      <p class="sig-kicker">Featured Installation</p>
+      <h2 class="epi-h1" id="spotlight-title">Construction site mesh fencing, Bethesda MD</h2>
+      <p>
+        EPI-Colorspace manufactured and installed over 640 linear feet of continuous mesh fence banners surrounding an active urban redevelopment in Bethesda, Maryland.
+      </p>
+      <p>
+        Engineered with 37% air-flow relief and reinforced webbing hems, the graphics maintained full tension and vibrant marketing visibility through an entire winter of storms and high winds.
+      </p>
+      <div style="margin-top:var(--space-5)">
+        <a class="epi-btn epi-btn--secondary" href="/projects">See More Construction Projects &rarr;</a>
+      </div>
+    </div>
+    <figure class="sig-frame">
+      <img src="/real-estate-banner-mu12q7mf-0tjm.jpg" alt="Construction fence wrap in Bethesda" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+    </figure>
+  </div>
+</section>
+
+<!-- Client Feedback Quote -->
+<section class="sig-section sig-section--warm" aria-label="Client feedback">
+  <div class="epi-container">
+    <figure class="sig-quote">
+      <div class="sig-quote__mark" aria-hidden="true"></div>
+      <blockquote>
+        The mesh fence wraps held up through an entire winter of storms and high winds without a single tear or sagging corner. Outstanding craftsmanship and rigging.
+      </blockquote>
+      <figcaption>Senior Project Superintendent, Regional Commercial General Contractor</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+  <div class="epi-container sig-cta__inner">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="cta-title">Need perimeter fencing or project signs on your job site?</h2>
+      <p>Send site plan dimensions, linear footage, or drawing elevations. We will price your sign package and coordinate delivery to your site trailer.</p>
+      <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3);margin-top:var(--space-4)">
+        <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+      </p>
+    </div>
+    <form class="sig-form" id="project-form" novalidate>
+      <p class="sig-form__status" id="form-status" role="status" hidden></p>
+      <div>
+        <label for="f-name">Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required />
+      </div>
+      <div>
+        <label for="f-email">Work email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required />
+      </div>
+      <div>
+        <label for="f-company">General Contractor / Developer</label>
+        <input id="f-company" name="company" type="text" autocomplete="organization" />
+      </div>
+      <div>
+        <label for="f-footage">Approximate linear feet</label>
+        <input id="f-footage" name="footage" type="text" placeholder="e.g. 200 ft, 500 ft, 1,000+ ft" />
+      </div>
+      <div class="sig-form__full">
+        <label for="f-scope">Scope and desired delivery date</label>
+        <textarea id="f-scope" name="scope" rows="3" required></textarea>
+      </div>
+      <div class="sig-form__full">
+        <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+        <p class="sig-form__note" style="margin-top:var(--space-3)">Have site logistics drawings or artwork? Mention it and we will send a direct file link.</p>
+      </div>
+    </form>
+  </div>
+</section>

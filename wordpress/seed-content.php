@@ -190,7 +190,21 @@ $seed_data = [
                 'market_kicker'  => 'Gallery-grade fabrication scheduled around public visitation hours.',
                 'market_summary' => 'Trusted by the Smithsonian, Library of Congress, and the Kennedy Center. We understand artifact safety, conservation standards, low-VOC materials, and the strict necessity of meeting opening preview nights.',
                 'access_window'  => 'After-hours / overnight gallery shifts',
-                'lead_image'     => '/anacostia-exhibit-wall-mu13p5yi-dm4c.jpg',
+                'challenges'     => 'Strict conservation protocols, zero dust during public hours, late label revisions.',
+                'solutions'      => 'In-house Gaithersburg shop allows same-day reprints, conservation-grade materials, and seasoned installer crews accustomed to white-glove conditions.',
+                'lead_image'     => '/museum-entrance-banner-mu12w0v6-v6y0.jpg',
+            ],
+        ],
+        [
+            'title' => 'Universities',
+            'slug'  => 'universities',
+            'meta'  => [
+                'market_kicker'  => 'Campus wayfinding, donor recognition and event graphics delivered around the academic calendar.',
+                'market_summary' => 'Campus wayfinding, donor recognition, athletics graphics and event signage delivered around the academic calendar, which means the work happens between commencement and move-in rather than during finals.',
+                'access_window'  => 'Between commencement and move-in / semester breaks',
+                'challenges'     => 'Expansive multi-building campuses, diverse pedestrian and vehicular flows, tight transition windows between semesters.',
+                'solutions'      => 'Standardized nomenclature systems, durable exterior coatings, and volume manufacturing delivered before move-in week.',
+                'lead_image'     => '/building-facade-graphics-mu13937x-72if.jpg',
             ],
         ],
         [
@@ -200,7 +214,45 @@ $seed_data = [
                 'market_kicker'  => 'Leasing graphics, lobby identity and parking garage systems that elevate property value.',
                 'market_summary' => 'We partner with leading property managers and REITs like JBG SMITH and Federal Realty to turn empty spaces into leasing opportunities and confusing parking decks into clear, branded journeys.',
                 'access_window'  => 'Weekend or staged daytime shifts',
-                'lead_image'     => '/parking-notice-sign-mu13jclv-qgtf.jpg',
+                'challenges'     => 'Active tenant access, concrete and asphalt surface moisture, aggressive deadlines before investor tours.',
+                'solutions'      => 'High-tack blockout films that conceal substrate irregularities, weather-resistant exterior banners, and fast turnarounds.',
+                'lead_image'     => '/real-estate-banner-mu12q7mf-0tjm.jpg',
+            ],
+        ],
+        [
+            'title' => 'Corporate',
+            'slug'  => 'corporate',
+            'meta'  => [
+                'market_kicker'  => 'Workplace environmental graphics, murals and custom framing that carry brand standards floor by floor.',
+                'market_summary' => 'Workplace environmental graphics, murals and custom framing that carry brand standards through a headquarters floor by floor, turning corridors and lobbies into something people photograph.',
+                'access_window'  => 'Weekend shifts without workplace disruption',
+                'challenges'     => 'Fast tenant move-in dates, coordination with general contractors, precise brand color gamut reproduction.',
+                'solutions'      => 'Quiet, clean weekend installation teams working directly from architectural plans with zero VOC emissions.',
+                'lead_image'     => '/spiral-lobby-graphics-mu13h9gi-cfz7.jpg',
+            ],
+        ],
+        [
+            'title' => 'Retail',
+            'slug'  => 'retail',
+            'meta'  => [
+                'market_kicker'  => 'Window systems, dimensional letters and seasonal graphics rolled out across locations.',
+                'market_summary' => 'Window systems, dimensional letters and seasonal graphics rolled out across locations. Work is kitted, labeled and shipped store by store, with install crews scheduled overnight so doors open on time.',
+                'access_window'  => 'Overnight shifts so doors open on schedule',
+                'challenges'     => 'Frequent campaign updates, varied storefront geometries, high visibility from foot and car traffic.',
+                'solutions'      => 'Clean-removal vinyls that leave zero adhesive residue, vibrant color saturation, and rapid multi-store rollouts.',
+                'lead_image'     => '/retail-window-wrap-mu13ikr7-460d.jpg',
+            ],
+        ],
+        [
+            'title' => 'Construction',
+            'slug'  => 'construction',
+            'meta'  => [
+                'market_kicker'  => 'Fence wraps, perimeter branding, safety and site signage engineered for wind and weather.',
+                'market_summary' => 'Fence wraps, perimeter branding, safety and site signage engineered for wind load, weather and years of sun. Leasing displays go up while the building is still a frame.',
+                'access_window'  => 'Coordinated with job-site superintendents and safety managers',
+                'challenges'     => 'Extreme weather, high winds, mud, and heavy equipment movement.',
+                'solutions'      => 'Reinforced webbing hems, air-permeable mesh fabrics, and heavy-duty mechanical attachments tested for high wind loads.',
+                'lead_image'     => '/community-event-sign-mu13ngzx-8om1.jpg',
             ],
         ],
     ],
@@ -264,6 +316,8 @@ foreach ($seed_data['markets'] as $item) {
         foreach ($item['meta'] as $k => $v) {
             update_post_meta($post_id, $k, $v);
         }
+        update_post_meta($post_id, '_seopress_titles_title', $item['title'] . ' - EPI-Colorspace');
+        update_post_meta($post_id, '_seopress_titles_desc', substr($item['meta']['market_summary'], 0, 155));
         echo "  [Market] Seeded '{$item['title']}' (ID {$post_id})\n";
     }
 }

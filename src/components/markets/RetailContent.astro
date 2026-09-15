@@ -1,0 +1,241 @@
+---
+interface Props {
+  market?: any;
+}
+const { market } = Astro.props;
+import '../../styles/markets-cre.css';
+
+const title = market?.title?.rendered || market?.title || "Retail & Mixed-Use";
+const meta = market?.meta_box || {};
+---
+
+<!-- Hero -->
+<section class="sig-hero" aria-labelledby="hero-title">
+  <div class="sig-hero__media">
+    <img src="/retail-window-wrap-mu13ikr7-460d.jpg" alt="Retail window wrap installation" style="width:100%;height:100%;object-fit:cover;display:block" />
+  </div>
+  <div class="sig-hero__scrim" aria-hidden="true"></div>
+  <div class="epi-container sig-hero__inner">
+    <nav aria-label="Breadcrumb">
+      <ol class="sig-crumbs">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/markets">Markets</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page">Retail</li>
+      </ol>
+    </nav>
+    <p class="sig-kicker">{meta.market_kicker || "Window systems, dimensional letters and seasonal graphics rolled out across locations."}</p>
+    <h1 class="epi-display-2 sig-hero__title" id="hero-title">
+      We create retail graphics that stop foot traffic, accelerate leasing, and bring brand campaigns to life overnight.
+    </h1>
+    <p class="sig-hero__lede">
+      {meta.market_summary || "Window systems, dimensional letters and seasonal graphics rolled out across locations. Work is kitted, labeled and shipped store by store, with install crews scheduled overnight so doors open on time."}
+    </p>
+    <div class="sig-hero__actions">
+      <a class="epi-btn epi-btn--lg" href="#contact">Start Your Project</a>
+      <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/projects">See Retail Projects</a>
+    </div>
+  </div>
+  <div class="sig-hero__rule" aria-hidden="true"></div>
+</section>
+
+<!-- Split Intro -->
+<section class="sig-section" aria-labelledby="intro-title">
+  <div class="epi-container sig-split">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="intro-title">
+        For over 20 years, partnering with retail brands, property owners and lifestyle centers across the DMV.
+      </h2>
+      <p>
+        In retail, speed and precision are non-negotiable: a promotion must go live simultaneously across twelve locations, and vacant storefronts must look vibrant while tenant construction is underway. We produce clean-release vinyl wraps, illuminated storefront signs, and promotional graphics calibrated to hold color under direct sun.
+      </p>
+      <p>
+        Every graphic kit is packed, labeled by store, and installed overnight by our own crews so storefront doors open on time for morning shoppers.
+      </p>
+      <dl class="sig-facts">
+        <div>
+          <dt>Deployment</dt>
+          <dd>Overnight shifts</dd>
+        </div>
+        <div>
+          <dt>Adhesives</dt>
+          <dd>Zero-residue release</dd>
+        </div>
+        <div>
+          <dt>Packaging</dt>
+          <dd>Kitted store-by-store</dd>
+        </div>
+      </dl>
+    </div>
+    <figure class="sig-frame">
+      <img src="/retail-window-wrap-mu13ikr7-460d.jpg" alt="Retail storefront graphics" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+    </figure>
+  </div>
+</section>
+
+<!-- Retail Programs Grid -->
+<section class="sig-section sig-section--warm" id="programs" aria-labelledby="programs-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="programs-title">Retail graphics programs we deliver.</h2>
+      <p>From promotional window graphics to permanent tenant blade signage, we handle complete retail rollouts.</p>
+    </div>
+    <div class="cre-types">
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Storefront Window Systems</h3>
+          <p>Full-coverage promotional vinyl, frosted accents, and perforated one-way vision films that announce sales without blocking interior visibility.</p>
+          <ul>
+            <li>Perforated 60/40 &amp; 70/30 window film</li>
+            <li>First-surface &amp; second-surface vinyl</li>
+            <li>Optically clear UV protective laminates</li>
+            <li>Clean-peel adhesive formulations</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Barricade Leasing Wraps</h3>
+          <p>Durable barricade graphics that transform empty storefronts into dynamic marketing billboards while tenant fit-outs progress inside.</p>
+          <ul>
+            <li>Matte scuff-resistant protective laminates</li>
+            <li>High-opacity blockout film</li>
+            <li>Drywall and plywood surface primers</li>
+            <li>QR-code integrated leasing graphics</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Blade Signs &amp; Dimensional Letters</h3>
+          <p>Exterior architectural signage that draws foot traffic from down the avenue. Permitted, structurally engineered, and installed to code.</p>
+          <ul>
+            <li>Projecting double-sided blade signs</li>
+            <li>Face-lit &amp; reverse halo channel letters</li>
+            <li>Brushed metal dimensional tenant plaques</li>
+            <li>Direct-to-masonry mechanical fasteners</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cre-type">
+        <div class="cre-type__body" style="padding-top:var(--space-5)">
+          <h3>Multi-Store Campaign Kitting</h3>
+          <p>Regional brand campaigns printed, collated, labeled, and shipped to store managers across DC, Maryland, and Virginia with install instructions.</p>
+          <ul>
+            <li>Custom fulfillment &amp; parcel shipping</li>
+            <li>Detailed store-by-store install maps</li>
+            <li>Overnight union &amp; non-union install crews</li>
+            <li>Campaign completion photo verification</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Overnight Operations Track in Ink -->
+<section class="sig-section sig-section--ink" aria-labelledby="ops-title">
+  <div class="epi-container">
+    <div class="sig-head">
+      <h2 class="epi-h1" id="ops-title" style="color:var(--paper)">Engineered for zero retail downtime.</h2>
+      <p style="color:rgba(255,255,255,.8)">We work when your registers are closed so your customers never navigate around ladders or drop cloths.</p>
+    </div>
+    <ul class="cre-life" style="margin-top:var(--space-6)">
+      <li>
+        <h3 style="color:var(--paper)">Substrate Survey</h3>
+        <p style="color:rgba(255,255,255,.76)">Glass coatings, mullion depths, and window tinting checked to ensure 100% film adhesion and zero thermal stress.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">G7 Color Consistency</h3>
+        <p style="color:rgba(255,255,255,.76)">Brand reds, blues, and seasonal accents matched across paper, vinyl, and backlit fabrics simultaneously.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">Overnight Installation</h3>
+        <p style="color:rgba(255,255,255,.76)">Crews arrive after closing, remove previous campaign graphics, clean surfaces, and install new artwork by 6:00am.</p>
+      </li>
+      <li>
+        <h3 style="color:var(--paper)">Clean Removal</h3>
+        <p style="color:rgba(255,255,255,.76)">When the promotion ends, our films remove cleanly without leaving adhesive residue or damaging glass coatings.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Featured Project Spotlight -->
+<section class="sig-section" aria-labelledby="spotlight-title">
+  <div class="epi-container sig-split">
+    <div class="sig-split__copy">
+      <p class="sig-kicker">Featured Rollout</p>
+      <h2 class="epi-h1" id="spotlight-title">Retail leasing graphics rollout, Rockville MD</h2>
+      <p>
+        EPI-Colorspace produced and installed over 3,200 square feet of barricade graphics and window wraps across twelve vacant storefronts in a premier lifestyle center in Rockville, Maryland.
+      </p>
+      <p>
+        The wraps successfully concealed construction staging while generating hundreds of leasing inquiries for the property management team.
+      </p>
+      <div style="margin-top:var(--space-5)">
+        <a class="epi-btn epi-btn--secondary" href="/projects/retail-leasing-graphics-rollout-rockville-md">Read Full Case Study &rarr;</a>
+      </div>
+    </div>
+    <figure class="sig-frame">
+      <img src="/retail-window-wrap-mu13ikr7-460d.jpg" alt="Retail storefront wraps in Rockville" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-md)" />
+    </figure>
+  </div>
+</section>
+
+<!-- Client Feedback Quote -->
+<section class="sig-section sig-section--warm" aria-label="Client feedback">
+  <div class="epi-container">
+    <figure class="sig-quote">
+      <div class="sig-quote__mark" aria-hidden="true"></div>
+      <blockquote>
+        Amazing service. They handled our large order flawlessly and delivered everything on time, and the print quality was exceptional: vibrant color and an incredibly fast turnaround.
+      </blockquote>
+      <figcaption>Brand Manager, Multi-Location Retail</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
+  <div class="epi-container sig-cta__inner">
+    <div class="sig-split__copy">
+      <h2 class="epi-h1" id="cta-title">Launching a store opening or retail campaign?</h2>
+      <p>Tell us the locations, window dimensions, and target opening date. We will provide pricing and an overnight installation schedule.</p>
+      <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3);margin-top:var(--space-4)">
+        <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
+      </p>
+    </div>
+    <form class="sig-form" id="project-form" novalidate>
+      <p class="sig-form__status" id="form-status" role="status" hidden></p>
+      <div>
+        <label for="f-name">Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required />
+      </div>
+      <div>
+        <label for="f-email">Work email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required />
+      </div>
+      <div>
+        <label for="f-brand">Brand / Company</label>
+        <input id="f-brand" name="brand" type="text" autocomplete="organization" />
+      </div>
+      <div>
+        <label for="f-stores">Number of locations</label>
+        <input id="f-stores" name="stores" type="number" min="1" placeholder="e.g. 1, 5, 20" />
+      </div>
+      <div class="sig-form__full">
+        <label for="f-scope">Scope and target launch date</label>
+        <textarea id="f-scope" name="scope" rows="3" required></textarea>
+      </div>
+      <div class="sig-form__full">
+        <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+        <p class="sig-form__note" style="margin-top:var(--space-3)">Have window elevations or artwork ready? Send files through our direct transfer link.</p>
+      </div>
+    </form>
+  </div>
+</section>

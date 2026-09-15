@@ -3,6 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getMarkets, getMarketBySlug } from '../../lib/wordpress';
 import MuseumsAndCulturalContent from '../../components/markets/MuseumsAndCulturalContent.astro';
 import CommercialRealEstateContent from '../../components/markets/CommercialRealEstateContent.astro';
+import UniversitiesContent from '../../components/markets/UniversitiesContent.astro';
+import CorporateContent from '../../components/markets/CorporateContent.astro';
+import RetailContent from '../../components/markets/RetailContent.astro';
+import ConstructionContent from '../../components/markets/ConstructionContent.astro';
 import GenericMarketContent from '../../components/markets/GenericMarketContent.astro';
 
 export async function getStaticPaths() {
@@ -25,5 +29,12 @@ if (!market) {
 <BaseLayout seo={market.seo}>
   {slug === 'museums-and-cultural' && <MuseumsAndCulturalContent market={market} />}
   {slug === 'commercial-real-estate' && <CommercialRealEstateContent market={market} />}
-  {slug !== 'museums-and-cultural' && slug !== 'commercial-real-estate' && <GenericMarketContent market={market} />}
+  {slug === 'universities' && <UniversitiesContent market={market} />}
+  {slug === 'corporate' && <CorporateContent market={market} />}
+  {slug === 'retail' && <RetailContent market={market} />}
+  {slug === 'construction' && <ConstructionContent market={market} />}
+  {!['museums-and-cultural', 'commercial-real-estate', 'universities', 'corporate', 'retail', 'construction'].includes(slug || '') && (
+    <GenericMarketContent market={market} />
+  )}
 </BaseLayout>
+
