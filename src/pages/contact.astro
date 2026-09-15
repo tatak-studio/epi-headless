@@ -7,12 +7,11 @@ const contactPage = await getPageBySlug('contact');
 const heroHeadline = contactPage?.meta_box?.hero_headline || "We cannot wait to work with you.";
 const heroSubhead = contactPage?.meta_box?.hero_subhead || "Whether you are shaping immersive environments, enhancing functionality or telling your brand story, EPI-Colorspace is here to make it unforgettable. Send a scope, a floor plan, a show schedule or a photo of the wall.";
 const phone = contactPage?.meta_box?.phone || "301.990.2666";
-const address = contactPage?.meta_box?.address || "8435 Helgerman Ct, Gaithersburg, MD 20877";
+const phoneHref = `tel:${phone.replace(/[^0-9]/g, '')}`;
 const hightailUrl = contactPage?.meta_box?.hightail_url || "https://www.hightail.com/u/epicolorspace";
 ---
 
 <BaseLayout seo={contactPage?.seo}>
-  <!-- Section 1: Hero Split with Direct Info & Form -->
   <section class="sig-section sig-section--ink" aria-labelledby="ct-title">
     <div class="epi-container ct-top">
       <div class="ct-intro">
@@ -25,13 +24,11 @@ const hightailUrl = contactPage?.meta_box?.hightail_url || "https://www.hightail
         </nav>
         <h1 id="ct-title">{heroHeadline}</h1>
         <p>{heroSubhead}</p>
-        <p>
-          One call reaches the people who design, print, build and hang the work. No account layer, no handoff to a subcontractor in the middle of your schedule.
-        </p>
+        <p>One call reaches the people who design, print, build and hang the work. No account layer, no handoff to a subcontractor in the middle of your schedule.</p>
         <dl class="ct-direct">
           <div>
             <dt>Call</dt>
-            <dd><a href={`tel:${phone.replace(/[^0-9]/g, '')}`}>{phone}</a></dd>
+            <dd><a href={phoneHref}>{phone}</a></dd>
             <small>Monday to Friday, 8:30am to 5:00pm Eastern</small>
           </div>
           <div>
@@ -41,53 +38,68 @@ const hightailUrl = contactPage?.meta_box?.hightail_url || "https://www.hightail
           </div>
           <div>
             <dt>Send large files</dt>
-            <dd><a href={hightailUrl} target="_blank" rel="noopener noreferrer">Send Files &rarr;</a></dd>
-            <small>Artwork too large to email goes through our transfer link (up to 100 GB).</small>
+            <dd><a href={hightailUrl} target="_blank" rel="noopener noreferrer">Send Files</a></dd>
+            <small>Artwork too large to email goes through our transfer link.</small>
+          </div>
+          <div>
+            <dt>Connect</dt>
+            <dd><a href="https://www.linkedin.com/company/epi-colorspace" target="_blank" rel="noopener noreferrer">Connect With Us</a></dd>
+            <small>Project photography and recent installations on LinkedIn.</small>
           </div>
         </dl>
       </div>
 
-      <!-- Form Card -->
-      <div class="ct-card" id="contact-form">
+      <div class="ct-card">
         <div class="ct-card__rule" aria-hidden="true"></div>
         <div class="ct-card__inner">
-          <h2>Start Your Project</h2>
-          <p>Tell us what needs to be made and when it has to be on the wall.</p>
-          <form class="ct-form" id="main-contact-form" novalidate>
-            <p class="ct-status" id="ct-form-status" role="status" hidden></p>
+          <h2 class="epi-h3">Start Your Project</h2>
+          <p>Tell us what needs to be made, where it goes and when it has to be there.</p>
+          <form class="ct-form" id="contact-form" novalidate>
+            <p class="ct-status" id="contact-status" role="status" hidden></p>
             <div>
-              <label for="c-name">Name</label>
-              <input id="c-name" name="name" type="text" autocomplete="name" required />
+              <label for="ct-name">Name</label>
+              <input id="ct-name" name="name" type="text" autocomplete="name" required />
             </div>
             <div>
-              <label for="c-email">Work email</label>
-              <input id="c-email" name="email" type="email" autocomplete="email" required />
+              <label for="ct-email">Work email</label>
+              <input id="ct-email" name="email" type="email" autocomplete="email" required />
             </div>
             <div>
-              <label for="c-phone">Phone number</label>
-              <input id="c-phone" name="phone" type="tel" autocomplete="tel" />
+              <label for="ct-phone">Phone</label>
+              <input id="ct-phone" name="phone" type="tel" autocomplete="tel" />
             </div>
             <div>
-              <label for="c-market">Market / Sector</label>
-              <select id="c-market" name="market">
-                <option>Museums &amp; Cultural</option>
-                <option>Universities</option>
-                <option>Commercial Real Estate</option>
-                <option>Corporate</option>
-                <option>Retail</option>
-                <option>Construction</option>
-                <option>Other / Not sure</option>
+              <label for="ct-org">Organization</label>
+              <input id="ct-org" name="organization" type="text" autocomplete="organization" />
+            </div>
+            <div>
+              <label for="ct-service">Service</label>
+              <select id="ct-service" name="service">
+                <option>Tradeshows</option>
+                <option>Exhibits and displays</option>
+                <option>Signage solutions</option>
+                <option>Large format printing</option>
+                <option>Corporate branding and environmental graphics</option>
+                <option>Not sure yet</option>
               </select>
             </div>
-            <div class="ct-form__full">
-              <label for="c-scope">Scope and target installation date</label>
-              <textarea id="c-scope" name="scope" required placeholder="Describe the project, dimensions, locations, materials and desired completion date..."></textarea>
+            <div>
+              <label for="ct-date">Target date</label>
+              <input id="ct-date" name="date" type="date" />
             </div>
             <div class="ct-form__full">
-              <button class="epi-btn epi-btn--block" type="submit">Submit Project Inquiry</button>
-              <p class="ct-form__note" style="margin-top:var(--space-3)">
-                Files too large to email? Use our <a href={hightailUrl} target="_blank" rel="noopener noreferrer" style="text-decoration:underline">Hightail transfer drop</a>.
-              </p>
+              <label for="ct-scope">What are we making, and where does it go?</label>
+              <textarea id="ct-scope" name="scope" required></textarea>
+            </div>
+            <div class="ct-form__full">
+              <label class="ct-choice" for="ct-files">
+                <input id="ct-files" name="files" type="checkbox" />
+                <span>I have artwork or drawings ready to send.</span>
+              </label>
+            </div>
+            <div class="ct-form__full">
+              <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
+              <p class="ct-form__note" style="margin-top:var(--space-3)">We reply within one business day. Urgent install dates are worth a phone call.</p>
             </div>
           </form>
         </div>
@@ -95,14 +107,11 @@ const hightailUrl = contactPage?.meta_box?.hightail_url || "https://www.hightail
     </div>
   </section>
 
-  <!-- Section 2: Location and Directions -->
   <section class="sig-section" aria-labelledby="place-title">
     <div class="epi-container ct-place">
       <div class="sig-split__copy">
         <h2 class="epi-h1" id="place-title">One shop in Gaithersburg, work across the DMV.</h2>
-        <p>
-          Design, large format print, fabrication, crating and installation all happen in the same building. You are welcome to come see a proof on the substrate before it goes into production.
-        </p>
+        <p>Design, large format print, fabrication, crating and installation all happen in the same building. You are welcome to come see a proof on the substrate before it goes into production.</p>
         <dl class="ct-hours">
           <div>
             <dt>Monday to Friday</dt>
@@ -121,11 +130,7 @@ const hightailUrl = contactPage?.meta_box?.hightail_url || "https://www.hightail
             <dd>Rear dock, weekdays</dd>
           </div>
         </dl>
-        <p style="margin-top:var(--space-5)">
-          <a class="epi-btn epi-btn--secondary" href="https://maps.google.com/?q=8435+Helgerman+Ct+Gaithersburg+MD+20877" target="_blank" rel="noopener noreferrer">
-            Get directions &rarr;
-          </a>
-        </p>
+        <p style="margin-top:var(--space-5)"><a class="epi-btn epi-btn--secondary" href="https://maps.google.com/?q=8435+Helgerman+Ct+Gaithersburg+MD+20877" target="_blank" rel="noopener noreferrer">Get directions</a></p>
       </div>
       <figure class="ct-place__media" style="min-height:420px">
         <iframe
@@ -134,13 +139,11 @@ const hightailUrl = contactPage?.meta_box?.hightail_url || "https://www.hightail
           style="width:100%;height:100%;min-height:420px;border:0;display:block;border-radius:8px"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
+          allowfullscreen></iframe>
       </figure>
     </div>
   </section>
 
-  <!-- Section 3: Not sure who you need? -->
   <section class="sig-section sig-section--warm" aria-labelledby="routes-title">
     <div class="epi-container">
       <div class="sig-head">
@@ -151,64 +154,87 @@ const hightailUrl = contactPage?.meta_box?.hightail_url || "https://www.hightail
         <article class="ct-route">
           <h3>New project or estimate</h3>
           <p>Send a scope and a date. If you have drawings or a sign schedule, price comes back to the piece rather than to an allowance.</p>
-          <a href="#contact-form">Use the form &rarr;</a>
+          <a href="#contact-form">Use the form</a>
         </article>
         <article class="ct-route">
           <h3>Reprint or repair</h3>
           <p>We keep your artwork, sign schedule and hardware specs on file, so a damaged panel is usually a reprint and a service call.</p>
-          <a href={`tel:${phone.replace(/[^0-9]/g, '')}`}>Call {phone} &rarr;</a>
+          <a href={phoneHref}>Call {phone}</a>
         </article>
         <article class="ct-route">
           <h3>Tradeshow logistics</h3>
           <p>Show dates, drayage deadlines and stored properties. Booth programs live with our tradeshow team year round.</p>
-          <a href="/services/tradeshows">Tradeshow services &rarr;</a>
+          <a href="/services/tradeshows">Tradeshow services</a>
         </article>
         <article class="ct-route">
           <h3>Sending artwork</h3>
           <p>Vector files in <span class="epi-mono">.ai</span>, <span class="epi-mono">.eps</span> or <span class="epi-mono">.pdf</span>, raster art at final size with <span class="epi-mono">0.125 in</span> bleed.</p>
-          <a href={hightailUrl} target="_blank" rel="noopener noreferrer">Send Files &rarr;</a>
+          <a href={hightailUrl} target="_blank" rel="noopener noreferrer">Send Files</a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Section 4: Client Feedback Quote -->
   <section class="sig-section" aria-label="Client feedback">
     <div class="epi-container">
       <figure class="sig-quote">
         <div class="sig-quote__mark" aria-hidden="true"></div>
-        <blockquote>
-          So much is thrown at me during final preparations that major balls start dropping. I am glad I can count on you and your team.
-        </blockquote>
+        <blockquote>So much is thrown at me during final preparations that major balls start dropping. I am glad I can count on you and your team.</blockquote>
         <figcaption>Tradeshow manager, medical technology company</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- Form submit handler -->
+  <!-- Contact form validation and confirmation -->
   <script is:inline>
     (function () {
-      var form = document.getElementById('main-contact-form');
-      var status = document.getElementById('ct-form-status');
-      if (form && status) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          if (!form.checkValidity()) {
-            status.hidden = false;
-            status.textContent = 'Please fill out all required fields with a valid email address.';
-            status.style.backgroundColor = '#ffe4e6';
-            status.style.color = '#e11d48';
-            return;
-          }
-          var btn = form.querySelector('button[type="submit"]');
-          if (btn) btn.disabled = true;
-          status.hidden = false;
-          status.textContent = 'Thank you! Your project inquiry has been received. Our team will contact you within one business day.';
-          status.style.backgroundColor = '#dcfce7';
-          status.style.color = '#15803d';
-          form.reset();
-        });
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+
+      var status = document.getElementById('contact-status');
+      var emailField = document.getElementById('ct-email');
+
+      function show(kind, message) {
+        status.hidden = false;
+        status.textContent = message;
+        if (kind === 'error') {
+          status.style.color = 'var(--status-danger-fg)';
+          status.style.background = 'var(--status-danger-bg)';
+        } else {
+          status.style.color = 'var(--status-success-fg)';
+          status.style.background = 'var(--status-success-bg)';
+        }
       }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var required = Array.prototype.slice.call(form.querySelectorAll('[required]'));
+        var missing = required.filter(function (f) { return !f.value.trim(); });
+        var badEmail = emailField.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailField.value.trim());
+
+        missing.forEach(function (f) { f.setAttribute('aria-invalid', 'true'); });
+        if (badEmail) emailField.setAttribute('aria-invalid', 'true');
+
+        if (missing.length) {
+          show('error', 'Add your name, email and a short description so we can route the request.');
+          missing[0].focus();
+          return;
+        }
+        if (badEmail) {
+          show('error', 'That email address looks incomplete. Check it and send again.');
+          emailField.focus();
+          return;
+        }
+
+        form.querySelectorAll('[aria-invalid]').forEach(function (f) { f.removeAttribute('aria-invalid'); });
+        show('ok', 'Request received. A project manager replies within one business day, sooner if you gave us a date.');
+        form.reset();
+      });
+
+      form.addEventListener('input', function (e) {
+        if (e.target.value.trim()) e.target.removeAttribute('aria-invalid');
+      });
     })();
   </script>
 </BaseLayout>

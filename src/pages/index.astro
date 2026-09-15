@@ -26,13 +26,13 @@ const recentWork = [
     title: 'Tradeshow booth program, national circuit',
     desc: 'Design, freight, install, storage',
     image: '/modular-booth-rendering-mu13df64-u8nu.jpg',
-    link: '/projects',
+    link: '/projects/tradeshow-booth-program-national-circuit',
   },
   {
     title: 'Lobby environmental graphics, Tysons',
     desc: 'Wall mural, dimensional letters',
     image: '/spiral-lobby-graphics-mu13h9gi-cfz7.jpg',
-    link: '/projects',
+    link: '/projects/lobby-environmental-graphics-tysons',
   },
   {
     title: 'Campus wayfinding system, Northern Virginia',
@@ -44,13 +44,13 @@ const recentWork = [
     title: 'Retail window rollout, Silver Spring',
     desc: 'Frosted and first-surface vinyl',
     image: '/retail-window-wrap-mu13ikr7-460d.jpg',
-    link: '/projects/retail-leasing-graphics-rollout-rockville-md',
+    link: '/projects/storefront-window-program-silver-spring',
   },
   {
     title: 'Construction perimeter branding, Bethesda',
     desc: 'Mesh fence wrap, 640 linear ft',
     image: '/real-estate-banner-mu12q7mf-0tjm.jpg',
-    link: '/projects',
+    link: '/projects/construction-perimeter-branding-bethesda',
   },
 ];
 ---
@@ -88,7 +88,7 @@ const recentWork = [
           We specialize in transforming a wide variety of spaces, from museums and universities to commercial real estate and corporate environments, into dynamic, immersive brand experiences. That work is measured in openings met, punch lists closed and clients who call us back for the next phase.
         </p>
         <div class="sig-hero__actions">
-          <a class="epi-btn epi-btn--secondary" href="/contact">Start Your Project</a>
+          <a class="epi-btn epi-btn--secondary" href="#contact">Start Your Project</a>
         </div>
         <dl class="sig-facts">
           <div>
@@ -320,73 +320,4 @@ const recentWork = [
     </div>
   </section>
 
-  <!-- Client-side Interactive Scripts -->
-  <script is:inline>
-    (function () {
-      // Testimonial slider
-      var viewport = document.getElementById('tst-viewport');
-      if (viewport) {
-        var slides = Array.prototype.slice.call(viewport.querySelectorAll('.home-tst__slide'));
-        var dots = document.getElementById('tst-dots');
-        var count = document.getElementById('tst-count');
-        var prev = document.getElementById('tst-prev');
-        var next = document.getElementById('tst-next');
-        var index = 0;
-
-        function pad(n) { return (n < 10 ? '0' : '') + n; }
-
-        if (dots && dots.children.length === 0) {
-          slides.forEach(function (slide, i) {
-            var dot = document.createElement('button');
-            dot.type = 'button';
-            dot.className = 'home-tst__dot';
-            dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
-            dot.setAttribute('aria-current', String(i === 0));
-            dot.addEventListener('click', function () { show(i); });
-            dots.appendChild(dot);
-          });
-        }
-
-        function show(i) {
-          index = (i + slides.length) % slides.length;
-          slides.forEach(function (s, n) { s.hidden = n !== index; });
-          if (dots) {
-            Array.prototype.forEach.call(dots.children, function (d, n) {
-              d.setAttribute('aria-current', String(n === index));
-            });
-          }
-          if (count) count.textContent = pad(index + 1) + ' / ' + pad(slides.length);
-        }
-
-        if (prev) prev.addEventListener('click', function () { show(index - 1); });
-        if (next) next.addEventListener('click', function () { show(index + 1); });
-        viewport.addEventListener('keydown', function (e) {
-          if (e.key === 'ArrowLeft') show(index - 1);
-          if (e.key === 'ArrowRight') show(index + 1);
-        });
-        show(0);
-      }
-
-      // Form validation
-      var form = document.getElementById('project-form');
-      var status = document.getElementById('form-status');
-      if (form && status) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          if (!form.checkValidity()) {
-            status.hidden = false;
-            status.textContent = 'Please fill out all required fields with a valid email address.';
-            status.style.color = '#e11d48';
-            return;
-          }
-          var btn = form.querySelector('button[type="submit"]');
-          if (btn) btn.disabled = true;
-          status.hidden = false;
-          status.textContent = 'Thank you! Your project request has been submitted. Our project team will follow up within one business day.';
-          status.style.color = '#15803d';
-          form.reset();
-        });
-      }
-    })();
-  </script>
 </BaseLayout>

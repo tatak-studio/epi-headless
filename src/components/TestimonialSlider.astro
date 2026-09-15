@@ -5,40 +5,78 @@ interface Props {
   testimonials: Testimonial[];
 }
 const { testimonials } = Astro.props;
+
+const pad = (n: number) => String(n).padStart(2, '0');
+const captionFor = (t: Testimonial) => {
+  const m = t.meta_box;
+  return m.source || [m.client_role || m.client_name, m.organization].filter(Boolean).join(', ');
+};
 ---
 
 <section class="sig-section sig-section--warm" aria-labelledby="tst-title">
   <div class="epi-container">
     <div class="sig-head">
-      <h2 class="epi-h1" id="tst-title">What our partners say.</h2>
-      <p>From museum curators and general contractors to facilities directors across the DMV.</p>
+      <h2 class="epi-h1" id="tst-title">What our partners have to say.</h2>
+      <p>Marketing leads, curators and property managers who have handed us a deadline.</p>
     </div>
-
-    <div class="home-tst" id="home-tst">
-      <div class="home-tst__viewport" id="tst-viewport" tabindex="0" aria-label="Client feedback carousel">
+    <div class="home-tst">
+      <div class="home-tst__viewport" id="tst-viewport">
         {testimonials.map((item, index) => (
           <figure class="home-tst__slide" hidden={index !== 0}>
             <div class="home-tst__mark" aria-hidden="true"></div>
-            <blockquote>"{item.meta_box.quote}"</blockquote>
-            <figcaption>
-              <strong>{item.meta_box.client_name || item.meta_box.organization}</strong>
-              {item.meta_box.client_role && <span> — {item.meta_box.client_role}</span>}
-              {item.meta_box.organization && <span>, {item.meta_box.organization}</span>}
-            </figcaption>
+            <blockquote>{item.meta_box.quote}</blockquote>
+            <figcaption>{captionFor(item)}</figcaption>
           </figure>
         ))}
       </div>
-
       <div class="home-tst__controls">
-        <button class="epi-iconbtn" type="button" id="tst-prev" aria-label="Previous testimonial">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
-        <button class="epi-iconbtn" type="button" id="tst-next" aria-label="Next testimonial">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-        <p class="home-tst__count" id="tst-count">01 / {String(testimonials.length).padStart(2, '0')}</p>
-        <div class="home-tst__dots" id="tst-dots"></div>
+        <button class="epi-btn epi-btn--secondary epi-btn--sm" type="button" id="tst-prev">Previous</button>
+        <button class="epi-btn epi-btn--secondary epi-btn--sm" type="button" id="tst-next">Next</button>
+        <p class="home-tst__count" id="tst-count" aria-hidden="true">01 / {pad(testimonials.length)}</p>
+        <div class="home-tst__dots" id="tst-dots" role="group" aria-label="Select a testimonial"></div>
       </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    var viewport = document.getElementById('tst-viewport');
+    if (!viewport) return;
+
+    var slides = Array.prototype.slice.call(viewport.querySelectorAll('.home-tst__slide'));
+    var dots = document.getElementById('tst-dots');
+    var count = document.getElementById('tst-count');
+    var index = 0;
+
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+    slides.forEach(function (slide, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'home-tst__dot';
+      dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+      dot.setAttribute('aria-current', String(i === 0));
+      dot.addEventListener('click', function () { show(i); });
+      dots.appendChild(dot);
+    });
+
+    function show(i) {
+      index = (i + slides.length) % slides.length;
+      slides.forEach(function (s, n) { s.hidden = n !== index; });
+      Array.prototype.forEach.call(dots.children, function (d, n) {
+        d.setAttribute('aria-current', String(n === index));
+      });
+      count.textContent = pad(index + 1) + ' / ' + pad(slides.length);
+    }
+
+    document.getElementById('tst-prev').addEventListener('click', function () { show(index - 1); });
+    document.getElementById('tst-next').addEventListener('click', function () { show(index + 1); });
+    viewport.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') show(index - 1);
+      if (e.key === 'ArrowRight') show(index + 1);
+    });
+
+    show(0);
+  })();
+</script>

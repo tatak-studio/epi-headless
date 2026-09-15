@@ -42,6 +42,7 @@ export interface SEOMetadata {
 }
 
 export interface ProjectMetaBox {
+  sort_order?: number | string;
   service_category?: string;
   byline?: string;
   summary?: string;
@@ -72,6 +73,8 @@ export interface ProjectMetaBox {
   testimonial_source?: string;
   filter_services?: string;
   filter_market?: string;
+  card_tags?: string[];
+  related_intro?: string;
   related_projects?: Array<{ slug: string; title: string; subtitle: string; image: string }>;
 }
 
@@ -89,6 +92,9 @@ export interface ServiceMetaBox {
   kicker: string;
   summary: string;
   turnkey_scope: string;
+  home_summary?: string;
+  home_detail_label?: string;
+  home_detail?: string;
   capabilities: string[];
   deliverables: string[];
   materials_used: string[];

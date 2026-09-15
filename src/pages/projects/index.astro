@@ -72,7 +72,7 @@ const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372s
             <dd>Opened on schedule</dd>
           </div>
         </dl>
-        <p><a class="epi-btn epi-btn--inverse" href="/projects/rotating-gallery-build-washington-dc">Explore Case Study</a></p>
+        <p><a class="epi-btn epi-btn--inverse" href="/projects/rotating-gallery-build-washington-dc">Read More</a></p>
       </div>
     </div>
   </section>
@@ -122,11 +122,7 @@ const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372s
         ))}
       </div>
 
-      <div id="prj-empty" class="prj-empty" hidden style="text-align:center;padding:clamp(2rem, 5vw, 4rem) 1rem">
-        <p style="font-size:var(--text-h3);font-family:var(--font-display);font-weight:var(--weight-bold)">No projects found matching both filters.</p>
-        <p style="color:var(--text-secondary);margin-top:var(--space-2)">Try selecting "All services" or "All markets", or reach out to ask about custom projects in your category.</p>
-        <p style="margin-top:var(--space-4)"><button class="epi-btn epi-btn--secondary" type="button" id="prj-empty-reset">Reset filters</button></p>
-      </div>
+      <p class="prj-empty" id="prj-empty" hidden>No projects match that combination yet. Ask us for recent examples in that market.</p>
     </div>
   </section>
 
@@ -195,7 +191,7 @@ const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372s
         </div>
         <div>
           <label for="f-ref">Project you are referencing</label>
-          <input id="f-ref" name="reference" type="text" placeholder="e.g. JBG SMITH Garage or Rotating gallery" />
+          <input id="f-ref" name="reference" type="text" />
         </div>
         <div>
           <label for="f-market">Market</label>
@@ -232,7 +228,6 @@ const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372s
       var count = document.getElementById('prj-count');
       var empty = document.getElementById('prj-empty');
       var reset = document.getElementById('prj-reset');
-      var emptyReset = document.getElementById('prj-empty-reset');
       var state = { service: 'all', market: 'all' };
 
       function apply() {
@@ -274,7 +269,6 @@ const heroImage = pageData?.meta_box?.lead_image || '/fbi-wanted-display-mu1372s
       }
 
       if (reset) reset.addEventListener('click', clearAll);
-      if (emptyReset) emptyReset.addEventListener('click', clearAll);
 
       apply();
     })();

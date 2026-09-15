@@ -77,7 +77,7 @@ const schemaJson = seo?.schema ? JSON.stringify(seo.schema) : null;
     <Footer />
 
     <script is:inline>
-      // Global navigation and drawer interaction script
+      // Global shell behavior: header, menus, drawer, reveals, tabs, filters, accordions, project form
       (function () {
         // Scrolled header state
         var header = document.querySelector('.sig-header');
@@ -88,6 +88,87 @@ const schemaJson = seo?.schema ? JSON.stringify(seo.schema) : null;
           window.addEventListener('scroll', onScroll, { passive: true });
           onScroll();
         }
+
+        // Scroll reveals (shared targets plus page-specific sections)
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var revealTargets = document.querySelectorAll(
+          '.sig-head, .sig-split__copy, .sig-frame, .sig-card, .sig-shot, .sig-stats > div, ' +
+          '.home-svc__item, .home-caps > article, .home-markets__list > li, .home-logos > li, ' +
+          '.sig-acc, .sig-quote, .home-tst, .sig-form, ' +
+          '.corp-row, .corp-material, .corp-framing__list li, .corp-band figure, ' +
+          '.cre-life > li, .cre-type, .cre-sla > div, ' +
+          '.lfp-product, .lfp-tablewrap, .lfp-steps > li, .lfp-band figure, ' +
+          '.trade-cycle > li, .trade-scale, .trade-checks li, .trade-logistics__list > li, ' +
+          '.exh-feature__media, .exh-feature__card, .exh-element, .exh-care > article, ' +
+          '.env-zone, .env-steps > li, .env-impact__list li, .env-band figure'
+        );
+        if (!reduce.matches && 'IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-in');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+          revealTargets.forEach(function (el) { el.classList.add('sig-reveal'); io.observe(el); });
+        }
+
+        // Phase tabs
+        document.querySelectorAll('.sig-tabs[role="tablist"]').forEach(function (tablist) {
+          var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+          var selectTab = function (tab, focus) {
+            tabs.forEach(function (t) {
+              var on = t === tab;
+              t.setAttribute('aria-selected', String(on));
+              t.tabIndex = on ? 0 : -1;
+              var panel = document.getElementById(t.getAttribute('aria-controls'));
+              if (panel) panel.hidden = !on;
+            });
+            if (focus) tab.focus();
+          };
+          tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () { selectTab(tab, false); });
+          });
+          tablist.addEventListener('keydown', function (e) {
+            var i = tabs.indexOf(document.activeElement);
+            if (i < 0) return;
+            var next = null;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = tabs[(i + 1) % tabs.length];
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = tabs[(i - 1 + tabs.length) % tabs.length];
+            if (e.key === 'Home') next = tabs[0];
+            if (e.key === 'End') next = tabs[tabs.length - 1];
+            if (next) { e.preventDefault(); selectTab(next, true); }
+          });
+        });
+
+        // Project gallery filter
+        var filters = Array.prototype.slice.call(document.querySelectorAll('.sig-filter'));
+        var shots = Array.prototype.slice.call(document.querySelectorAll('.sig-shot'));
+        var galleryEmpty = document.getElementById('gallery-empty');
+        filters.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var key = btn.dataset.filter;
+            filters.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+            var shown = 0;
+            shots.forEach(function (shot) {
+              var match = key === 'all' || shot.dataset.category === key;
+              shot.hidden = !match;
+              if (match) shown++;
+            });
+            if (galleryEmpty) galleryEmpty.hidden = shown > 0;
+          });
+        });
+
+        // Specs accordion
+        document.querySelectorAll('.sig-acc__trigger').forEach(function (trigger) {
+          trigger.addEventListener('click', function () {
+            var open = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', String(!open));
+            var panel = document.getElementById(trigger.getAttribute('aria-controls'));
+            if (panel) panel.hidden = open;
+          });
+        });
 
         // Header menus (mega panels)
         var menus = Array.prototype.slice.call(document.querySelectorAll('[data-menu-trigger]')).map(function (trigger) {
@@ -175,21 +256,17 @@ const schemaJson = seo?.schema ? JSON.stringify(seo.schema) : null;
             missing.forEach(function (f) { f.setAttribute('aria-invalid', 'true'); });
             if (missing.length) {
               status.hidden = false;
-              status.style.color = '#fff';
-              status.style.background = '#C42711';
-              status.style.padding = '0.75rem 1rem';
-              status.style.marginBottom = '1rem';
-              status.textContent = 'Please fill in all required fields (Name, Email, Scope).';
+              status.style.color = 'var(--status-danger-fg)';
+              status.style.background = 'var(--status-danger-bg)';
+              status.textContent = 'Add your name, email and a short scope so we can route the request.';
               missing[0].focus();
               return;
             }
             form.querySelectorAll('[aria-invalid]').forEach(function (f) { f.removeAttribute('aria-invalid'); });
             status.hidden = false;
-            status.style.color = '#fff';
-            status.style.background = '#007A3D';
-            status.style.padding = '0.75rem 1rem';
-            status.style.marginBottom = '1rem';
-            status.textContent = 'Request received. An EPI-Colorspace project manager will reply within one business day.';
+            status.style.color = 'var(--status-success-fg)';
+            status.style.background = 'var(--status-success-bg)';
+            status.textContent = 'Request received. A project manager replies within one business day.';
             form.reset();
           });
 

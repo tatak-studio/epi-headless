@@ -2,28 +2,22 @@
 interface Props {
   heading?: string;
   subheading?: string;
-  dark?: boolean;
 }
 const {
   heading = "Want to consult us for a project?",
   subheading = "Send the structure, the scope and the date. We will tell you what your access window allows and what it will hold up to.",
-  dark = false,
 } = Astro.props;
 ---
 
-<section class={`sig-section sig-cta ${dark ? 'sig-cta--dark' : ''}`} id="contact" aria-labelledby="cta-title">
+<section class="sig-section sig-cta" id="contact" aria-labelledby="cta-title">
   <div class="epi-container sig-cta__inner">
     <div class="sig-split__copy">
       <h2 class="epi-h1" id="cta-title">{heading}</h2>
       <p>{subheading}</p>
-      <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3);margin-top:var(--space-4)">
+      <p style="font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-h3)">
         <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
       </p>
-      <p style="margin-top:var(--space-3);color:rgba(255,255,255,.76);font-size:var(--text-body-sm)">
-        Production Facility: 8435 Helgerman Ct, Gaithersburg, MD 20877
-      </p>
     </div>
-
     <form class="sig-form" id="project-form" novalidate>
       <p class="sig-form__status" id="form-status" role="status" hidden></p>
       <div>
@@ -35,36 +29,20 @@ const {
         <input id="f-email" name="email" type="email" autocomplete="email" required />
       </div>
       <div>
-        <label for="f-phone">Phone</label>
-        <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
-      </div>
-      <div>
-        <label for="f-service">Service needed</label>
-        <select id="f-service" name="service">
-          <option>Tradeshows</option>
-          <option>Exhibits and displays</option>
-          <option>Signage solutions</option>
-          <option>Large format printing</option>
-          <option>Corporate branding</option>
-          <option>Environmental graphics</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-      <div>
         <label for="f-org">Organization</label>
         <input id="f-org" name="organization" type="text" autocomplete="organization" />
       </div>
       <div>
         <label for="f-site">Site city</label>
-        <input id="f-site" name="site" type="text" autocomplete="address-level2" placeholder="e.g. Washington DC, Bethesda, Tysons" />
+        <input id="f-site" name="site" type="text" autocomplete="address-level2" />
       </div>
       <div class="sig-form__full">
         <label for="f-scope">Scope and target date</label>
-        <textarea id="f-scope" name="scope" rows="3" required></textarea>
+        <textarea id="f-scope" name="scope" required></textarea>
       </div>
       <div class="sig-form__full">
         <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
-        <p class="sig-form__note" style="margin-top:var(--space-3)">Files too large to email? Mention it and we will send a direct transfer link.</p>
+        <p class="sig-form__note" style="margin-top:var(--space-3)">Have drawings already? Mention it and we will send a file transfer link.</p>
       </div>
     </form>
   </div>

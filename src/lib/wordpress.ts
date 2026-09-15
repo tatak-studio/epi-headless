@@ -79,6 +79,14 @@ export function resolveSeoData(
   };
 }
 
+// REST returns newest first; keep listings in their editorial order instead.
+const byNumber = (value: unknown) => {
+  const n = Number(value);
+  return Number.isFinite(n) && value !== '' && value != null ? n : Number.MAX_SAFE_INTEGER;
+};
+const sortProjects = (list: Project[]) => [...list].sort((a, b) => byNumber(a.meta_box?.sort_order) - byNumber(b.meta_box?.sort_order));
+const sortServices = (list: Service[]) => [...list].sort((a, b) => byNumber(a.meta_box?.service_number) - byNumber(b.meta_box?.service_number));
+
 async function fetchFromWP<T>(endpoint: string): Promise<T | null> {
   if (!WORDPRESS_URL) return null;
   try {
@@ -105,7 +113,7 @@ async function fetchFromWP<T>(endpoint: string): Promise<T | null> {
 export async function getProjects(): Promise<Project[]> {
   const data = await fetchFromWP<Project[]>('projects?_embed&per_page=100');
   if (data && Array.isArray(data) && data.length > 0) {
-    return data.map((p) => {
+    return sortProjects(data.map((p) => {
       const titleStr = typeof p.title === 'object' ? p.title.rendered : p.title;
       const leadImg = resolveImageUrl(p.meta_box?.lead_image, '/parking-notice-sign-mu13jclv-qgtf.jpg');
       return {
@@ -122,9 +130,9 @@ export async function getProjects(): Promise<Project[]> {
           leadImg
         ),
       };
-    });
+    }));
   }
-  return mockProjects.map((p) => ({
+  return sortProjects(mockProjects.map((p) => ({
     ...p,
     seo: resolveSeoData(
       p,
@@ -133,7 +141,7 @@ export async function getProjects(): Promise<Project[]> {
       `/projects/${p.slug}`,
       typeof p.meta_box?.lead_image === 'string' ? p.meta_box.lead_image : '/parking-notice-sign-mu13jclv-qgtf.jpg'
     ),
-  }));
+  })));
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
@@ -176,7 +184,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | undefine
 export async function getServices(): Promise<Service[]> {
   const data = await fetchFromWP<Service[]>('services?_embed&per_page=100');
   if (data && Array.isArray(data) && data.length > 0) {
-    return data.map((s) => {
+    return sortServices(data.map((s) => {
       const titleStr = typeof s.title === 'object' ? s.title.rendered : s.title;
       const leadImg = resolveImageUrl(s.meta_box?.lead_image, '/exhibit-booth-display-mu12smxg-u4qk.jpg');
       return {
@@ -193,9 +201,9 @@ export async function getServices(): Promise<Service[]> {
           leadImg
         ),
       };
-    });
+    }));
   }
-  return mockServices.map((s) => ({
+  return sortServices(mockServices.map((s) => ({
     ...s,
     seo: resolveSeoData(
       s,
@@ -204,7 +212,7 @@ export async function getServices(): Promise<Service[]> {
       `/services/${s.slug}`,
       typeof s.meta_box?.lead_image === 'string' ? s.meta_box.lead_image : '/exhibit-booth-display-mu12smxg-u4qk.jpg'
     ),
-  }));
+  })));
 }
 
 export async function getServiceBySlug(slug: string): Promise<Service | undefined> {
@@ -318,7 +326,7 @@ export async function getMarketBySlug(slug: string): Promise<Market | undefined>
 export async function getTestimonials(): Promise<Testimonial[]> {
   const data = await fetchFromWP<Testimonial[]>('testimonials?_embed&per_page=100');
   if (data && Array.isArray(data) && data.length > 0) {
-    return data;
+    return [...data].sort((a, b) => Number(a.id) - Number(b.id));
   }
   return mockTestimonials;
 }

@@ -340,6 +340,23 @@ function epi_register_meta_boxes($meta_boxes) {
                 'desc' => __('Single token e.g. "cre", "museums", "universities", "corporate", "retail", "construction"', 'epi-headless'),
             ],
             [
+                'name'  => __('Card Tags', 'epi-headless'),
+                'id'    => 'card_tags',
+                'type'  => 'text',
+                'clone' => true,
+                'desc'  => __('Tags shown on the Projects grid card, e.g. "Signage", "Real estate", "7 levels"', 'epi-headless'),
+            ],
+            [
+                'name' => __('Grid Sort Order', 'epi-headless'),
+                'id'   => 'sort_order',
+                'type' => 'number',
+            ],
+            [
+                'name' => __('Related Projects Intro', 'epi-headless'),
+                'id'   => 'related_intro',
+                'type' => 'text',
+            ],
+            [
                 'name'        => __('Related Projects', 'epi-headless'),
                 'id'          => 'related_projects',
                 'type'        => 'post',
@@ -381,6 +398,23 @@ function epi_register_meta_boxes($meta_boxes) {
             [
                 'name' => __('Turnkey Scope', 'epi-headless'),
                 'id'   => 'turnkey_scope',
+                'type' => 'textarea',
+                'rows' => 2,
+            ],
+            [
+                'name' => __('Home Card Summary', 'epi-headless'),
+                'id'   => 'home_summary',
+                'type' => 'textarea',
+                'rows' => 3,
+            ],
+            [
+                'name' => __('Home Card Detail Label', 'epi-headless'),
+                'id'   => 'home_detail_label',
+                'type' => 'text',
+            ],
+            [
+                'name' => __('Home Card Detail', 'epi-headless'),
+                'id'   => 'home_detail',
                 'type' => 'textarea',
                 'rows' => 2,
             ],
@@ -491,6 +525,12 @@ function epi_register_meta_boxes($meta_boxes) {
                 'name' => __('Organization', 'epi-headless'),
                 'id'   => 'organization',
                 'type' => 'text',
+            ],
+            [
+                'name' => __('Attribution', 'epi-headless'),
+                'id'   => 'source',
+                'type' => 'text',
+                'desc' => __('Shown under the quote, e.g. "Marketing director, corporate headquarters relocation"', 'epi-headless'),
             ],
         ],
     ];
@@ -678,7 +718,7 @@ function epi_get_post_meta_box_data($post_id, $post_type) {
     }
 
     // Ensure cloneable arrays are well-formed arrays
-    $cloneable_keys = ['highlights', 'outcome_stats', 'deliverables', 'capabilities', 'materials_used', 'requirements', 'typical_projects'];
+    $cloneable_keys = ['highlights', 'card_tags', 'outcome_stats', 'deliverables', 'capabilities', 'materials_used', 'requirements', 'typical_projects'];
     foreach ($cloneable_keys as $ck) {
         if (isset($meta_data[$ck]) && !is_array($meta_data[$ck])) {
             $unserialized = maybe_unserialize($meta_data[$ck]);

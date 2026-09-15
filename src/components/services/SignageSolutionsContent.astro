@@ -6,41 +6,6 @@ const { service } = Astro.props;
 import '../../styles/signage-solutions.css';
 ---
 
-<div class="epi-drawer" id="drawer" hidden>
-  <div class="sig-drawer__head">
-    <img class="sig-logo sig-logo--drawer" src="assets/epi-colorspace-logo.png" alt="EPI-Colorspace">
-    <button class="epi-iconbtn" type="button" id="drawer-close" aria-label="Close menu" style="color:#fff">
-      <span class="epi-icon" style="width:20px;height:20px" aria-hidden="true">
-        <svg viewBox="0 0 24 24" stroke-width="1.75"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </span>
-    </button>
-  </div>
-  <nav aria-label="Mobile">
-    <ul>
-      <li>
-        <a class="epi-drawer__link" href="/services">Services</a>
-        <ul class="sig-drawer__sub">
-          <li><a href="/services/tradeshows">Tradeshows</a></li>
-          <li><a href="/services/exhibits-and-displays">Exhibits &amp; Displays</a></li>
-          <li><a href="/services/signage-solutions">Signage Solutions</a></li>
-          <li><a href="/services/large-format-printing">Large Format Printing</a></li>
-          <li><a href="/services/corporate-branding">Corporate Branding</a></li>
-          <li><a href="/services/environmental-graphics">Environmental Graphics</a></li>
-        </ul>
-      </li>
-      <li><a class="epi-drawer__link" href="/projects">Projects</a></li>
-      <li><a class="epi-drawer__link" href="/markets">Markets</a></li>
-      <li><a class="epi-drawer__link" href="https://www.hightail.com/u/epicolorspace" rel="noopener">Send Files</a></li>
-      <li><a class="epi-drawer__link" href="/contact">Contact Us</a></li>
-    </ul>
-  </nav>
-  <div class="sig-drawer__actions">
-    <a class="epi-btn epi-btn--block" href="/contact">Start Your Project</a>
-  </div>
-</div>
-
-<main id="main">
-
   <section class="sig-hero" aria-labelledby="hero-title">
     <div class="sig-hero__media">
       <img src="/commanders-building-banner-mu13bbnp-up6d.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
@@ -400,4 +365,3 @@ import '../../styles/signage-solutions.css';
       </form>
     </div>
   </section>
-</main>

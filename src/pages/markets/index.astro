@@ -6,7 +6,7 @@ import '../../styles/markets.css';
 const markets = await getMarkets();
 const pageData = await getPageBySlug('markets');
 const heroHeadline = pageData?.meta_box?.hero_headline || "We specialize in transforming a wide variety of spaces into dynamic, immersive brand experiences that engage and inspire.";
-const heroSubhead = pageData?.meta_box?.hero_subhead || "EPI-Colorspace provides diverse services across industries, creating impactful experiences and helping partners achieve their marketing goals.";
+const heroSubhead = pageData?.meta_box?.hero_subhead || "Museums and universities, commercial real estate and corporate environments, retail and construction. Each market has its own rules about access, materials and downtime, and we plan for them before the truck is loaded.";
 const heroImage = pageData?.meta_box?.lead_image || '/hall-exhibit-display-mu12il5t-6a71.jpg';
 
 const marketItems = [
@@ -97,8 +97,8 @@ const marketItems = [
         {heroSubhead}
       </p>
       <div class="sig-hero__actions">
-        <a class="epi-btn epi-btn--lg" href="#all">See our Markets</a>
-        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="/contact">Start Your Project</a>
+        <a class="epi-btn epi-btn--lg" href="#contact">Start Your Project</a>
+        <a class="epi-btn epi-btn--lg epi-btn--outline-inverse" href="#all">See our Markets</a>
       </div>
     </div>
     <div class="sig-hero__rule" aria-hidden="true"></div>
@@ -301,7 +301,7 @@ const marketItems = [
         <blockquote>
           I wanted to send my appreciation and bravos to you and your team for such an amazing visual presence at our new space. It provided the wow factor we were looking for.
         </blockquote>
-        <figcaption>Vice President, Commercial Real Estate Portfolio</figcaption>
+        <figcaption>Marketing director, corporate headquarters relocation</figcaption>
       </figure>
     </div>
   </section>
@@ -316,7 +316,7 @@ const marketItems = [
           <a href="tel:3019902666" style="color:#fff;text-decoration:underline;text-underline-offset:4px">301.990.2666</a>
         </p>
       </div>
-      <form class="sig-form" id="market-inquiry-form" novalidate>
+      <form class="sig-form" id="project-form" novalidate>
         <p class="sig-form__status" id="form-status" role="status" hidden></p>
         <div>
           <label for="f-name">Name</label>
@@ -348,7 +348,7 @@ const marketItems = [
         </div>
         <div class="sig-form__full">
           <button class="epi-btn epi-btn--block" type="submit">Start Your Project</button>
-          <p class="sig-form__note" style="margin-top:var(--space-3)">Files too large to email? Mention it and we will send a transfer link.</p>
+          <p class="sig-form__note" style="margin-top:var(--space-3)">Not sure which market fits? Describe the building and we will place it.</p>
         </div>
       </form>
     </div>
