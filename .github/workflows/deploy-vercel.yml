@@ -1,0 +1,88 @@
+name: Deploy to Vercel
+
+# Builds the Astro site in GitHub Actions and ships the prebuilt output to
+# the tatak-studio-projects/epi-headless Vercel project.
+#
+# Required repository secret:
+#   VERCEL_TOKEN - access token created under the dev@tatakstudio.co Vercel
+#                  account (vercel.com/account/tokens), scoped to the
+#                  tatak-studio-projects team.
+#
+# Build-time env vars (WORDPRESS_URL, WORDPRESS_AUTH, PUBLIC_SITE_URL) are
+# read from the Vercel project settings via `vercel pull`.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  # Lets WordPress (or anything else) trigger a production rebuild after
+  # content changes: POST /repos/tatak-studio/epi-headless/dispatches
+  # with {"event_type": "wordpress-content-updated"}.
+  repository_dispatch:
+    types: [wordpress-content-updated]
+
+concurrency:
+  group: vercel-${{ github.event_name == 'pull_request' && github.head_ref || 'production' }}
+  cancel-in-progress: true
+
+env:
+  VERCEL_ORG_ID: team_1k7mZct97CXWaEyYpSSu0129
+  VERCEL_PROJECT_ID: prj_qhXNWQKiNJAbZ6lqQ65XOoqbcfuZ
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    environment:
+      name: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Set deploy target
+        id: target
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "env=preview" >> "$GITHUB_OUTPUT"
+            echo "flag=" >> "$GITHUB_OUTPUT"
+          else
+            echo "env=production" >> "$GITHUB_OUTPUT"
+            echo "flag=--prod" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Pull Vercel project settings
+        run: vercel pull --yes --environment=${{ steps.target.outputs.env }} --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build
+        run: vercel build ${{ steps.target.outputs.flag }} --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy
+        id: deploy
+        run: |
+          url=$(vercel deploy --prebuilt ${{ steps.target.outputs.flag }} --token=${{ secrets.VERCEL_TOKEN }})
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Deployed to $url" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment preview URL on PR
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `Vercel preview: ${{ steps.deploy.outputs.url }}`,
+            });
